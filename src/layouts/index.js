@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import Header from '../components/header'
 
 import "../styles/bulma.sass"
+import "../font-awesome/scss/font-awesome.scss"
 
 const Layout = ({ children }) =>
   <div>

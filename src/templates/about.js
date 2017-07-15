@@ -6,13 +6,7 @@ class AboutTemplate extends React.Component {
     const post = this.props.data.markdownRemark
 
     return (
-      <Grid fluid>
-        <Row>
-          <Col xs={12} md={8}>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Col>
-        </Row>
-      </Grid>
+      <div className="content" dangerouslySetInnerHTML={{ __html: post.html }} />
     )
   }
 }

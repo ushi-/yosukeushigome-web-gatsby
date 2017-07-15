@@ -45,8 +45,8 @@ My primary interests are centred around emerging technologies. I probe the futur
 
 ### Elsewhere
 
-* [<i class="fa fa-twitter" aria-hidden="true"></i> Twitter](https://www.twitter.com/ushi_ "Twitter")
-* [<i class="fa fa-medium" aria-hidden="true"></i> Medium](https://www.medium.com "Medium (in English)")
+* [<span class="icon"><i class="fa fa-twitter" aria-hidden="true"></i></span> Twitter](https://www.twitter.com/ushi_ "Twitter")
+* [<span class="icon"><i class="fa fa-medium" aria-hidden="true"></i></span> Medium](https://www.medium.com "Medium (in English)")
 * Blog in Japanese
 
 
@@ -55,7 +55,7 @@ My primary interests are centred around emerging technologies. I probe the futur
 <form method="POST" action="http://formspree.io/i@yosukeushigo.me">
   <input type="email" name="email" placeholder="Your email">
   <textarea name="message" placeholder="Your message"></textarea>
-  <button type="submit">Send</button>
+  <button type="submit" class="button is-primary">Send</button>
 </form>
 
 Here is my PGP key if you prefer end-to-end encryption.
