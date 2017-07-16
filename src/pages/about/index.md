@@ -56,10 +56,18 @@ My primary interests are centred around emerging technologies. I probe the futur
 
 ### Say hi
 
+<p class="control">
 <form method="POST" action="http://formspree.io/i@yosukeushigo.me">
-  <input type="email" name="email" placeholder="Your email">
-  <textarea name="message" placeholder="Your message"></textarea>
+  <p class="control">
+  <input class="input" type="email" name="email" placeholder="Your email">
+  </p>
+  <p class="control">
+  <textarea class="textarea" name="message" placeholder="Your message"></textarea>
+  </p>
+  <p class="control">
   <button type="submit" class="button is-primary">Send</button>
+  </p>
 </form>
+</p>
 
 Here is my PGP key if you prefer end-to-end encryption.

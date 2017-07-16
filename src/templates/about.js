@@ -5,7 +5,7 @@ import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 class AboutTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const html = wrapSingleByteTexts(post.html, 'hankaku')
+    const html = wrapSingleByteTexts(post.html, 'singleByte')
 
     return (
       <div>
