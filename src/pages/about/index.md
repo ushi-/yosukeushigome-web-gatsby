@@ -7,9 +7,13 @@ I am currently working at Takram London as a co-founder and designer.
 
 My primary interests are centred around emerging technologies. I probe the future vision that they promise, reveal the cultural and political mechanisms behind it, and democratise the insights and findings through making physical and digital prototypes. By doing so, I aim to facilitate in-depth understanding of the implication of emerging technologies and encourage better-informed decision-making on our future.
 
+<div class="ja">
+
 牛込陽介。Takram Londonデザイナー。
 
 先端技術を「その技術が約束する未来ビジョン」と「ビジョンを支える文化的政治的メカニズム」の側面から観察・リサーチし、得られた発見や洞察を様々なプロトタイプ通して共有することで、先端技術の意味やその可能性に対する理解を助け、未来に関するより確かな意思決定を促すことを目的にしている。
+
+</div>
 
 ### Services
 

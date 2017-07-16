@@ -1,9 +1,12 @@
-// 1. Import the initial variables
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700|Zilla+Slab:600')
+
+// import the initial variables
 @import "~bulma/sass/utilities/initial-variables"
 
 // declare variables
 $size-3: 0.75rem
-$family-serif: "Merriweather", "Georgia", serif
+$family-serif: "Zilla Slab", serif
+$family-sans-serif: 'Karla', 'TBGothic Std', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $pink: #EF576D
 $grey-dark: #333333
 $grey-lighter: #E7E5E4
@@ -12,6 +15,7 @@ $grey: #999
 // set values
 $primary: $pink
 $text: $grey-dark
+$text-strong: $primary
 $body-background: $grey-lighter
 $link: $grey
 $link-hover: $primary
@@ -22,5 +26,12 @@ $link-hover: $primary
   h3
     font-family: $family-serif
     font-size: $size-3
-    font-weight: $weight-bold
+    font-weight: $weight-semibold
     text-transform: uppercase
+  .ja
+    font-size: 0.9375rem
+    letter-spacing: 0.03rem
+    span.hankaku
+      font-size: $body-size
+      letter-spacing: normal
+      padding: 0 0.125rem
