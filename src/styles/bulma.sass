@@ -1,21 +1,26 @@
 // 1. Import the initial variables
 @import "~bulma/sass/utilities/initial-variables"
 
-// 2. Set your own initial variables
-// $blue: #72d0eb
-// $pink: #ffb3b3
-// $pink-invert: #fff
-// Add a serif family
-// $family-serif: "Merriweather", "Georgia", serif
+// declare variables
+$size-3: 0.75rem
+$family-serif: "Merriweather", "Georgia", serif
+$pink: #EF576D
+$grey-dark: #333333
+$grey-lighter: #E7E5E4
+$grey: #999
 
-// 3. Set the derived variables
-// Use the new pink as the primary color
-// $primary: $pink
-// $primary-invert: $pink-invert
-// Use the existing orange as the danger color
-// $danger: $orange
-// Use the new serif family
-// $family-primary: $family-serif
+// set values
+$primary: $pink
+$text: $grey-dark
+$body-background: $grey-lighter
+$link: $grey
+$link-hover: $primary
 
-// 4. Import the rest of Bulma
 @import "~bulma"
+
+.content
+  h3
+    font-family: $family-serif
+    font-size: $size-3
+    font-weight: $weight-bold
+    text-transform: uppercase
