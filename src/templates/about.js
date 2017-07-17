@@ -1,6 +1,7 @@
 import React from "react"
-import { Grid, Row, Col } from 'react-flexbox-grid';
+
 import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
+import MainColumn from '../components/mainColumn'
 
 class AboutTemplate extends React.Component {
   render() {
@@ -9,13 +10,9 @@ class AboutTemplate extends React.Component {
 
     return (
       <div>
-        <Grid fluid>
-          <Row around="sm">
-            <Col sm={12} md={8}>
-              <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-            </Col>
-          </Row>
-        </Grid>
+        <MainColumn>
+          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+        </MainColumn>
       </div>
     )
   }

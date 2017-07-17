@@ -31,7 +31,7 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
           {css}
-          <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?VaPaIIZbEVI%3D&fadein=1" charset="utf-8"></script>
+          <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?VaPaIIZbEVI%3D" charset="utf-8"></script>
         </head>
         <body>
           <div

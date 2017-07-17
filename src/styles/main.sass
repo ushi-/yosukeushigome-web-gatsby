@@ -4,8 +4,10 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // declare variables
-$size-3: 1rem
-$family-serif: "Zilla Slab", serif
+$size-1: 1.5rem
+$size-2: 1.5001rem
+$size-3: 0.875rem
+$family-serif: "Zilla Slab", "Lucida Console", Monaco, monospace
 $family-sans-serif: 'Karla', 'Gothic Medium BBB', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $pink: #EF576D
 $grey-dark: #333333
@@ -16,7 +18,9 @@ $grey: #999
 $primary: $pink
 $text: $grey-dark
 $text-strong: $primary
+$title-weight: $weight-normal
 $body-background: $grey-lighter
+$background: $grey-dark
 $link: $grey
 $link-hover: $primary
 
@@ -28,9 +32,23 @@ $link-hover: $primary
     font-size: $size-3
     font-weight: $weight-semibold
     text-transform: uppercase
+    letter-spacing: 0.04rem
   .ja
     font-size: 0.875rem
     line-height: 1.5rem
     span.singleByte
       font-size: $body-size
       padding: 0 0.125rem
+
+.title.is-1,
+.title.is-2
+  margin-bottom: 1rem
+  line-height: 1
+
+.title.is-1
+  font-weight: $weight-bold
+
+.footer
+  color: $grey-lighter
+  padding: 3rem 1.5rem 3rem
+  margin-top: 3rem

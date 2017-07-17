@@ -37,7 +37,7 @@ My primary interests are centred around emerging technologies. I probe the futur
 * Lecture WIRED x DESIGN, 2015
 * Exhibition Science Gallery, Dublin, 2015
 
-### Career
+### Experience
 
 * Co-founder & designer at Takram London, 2015 - current
 * Intern then associate at Superflux, 2013 - 2014
