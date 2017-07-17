@@ -1,10 +1,19 @@
 import React from 'react'
+import PropTypes from "prop-types"
+
+import Link from "gatsby-link"
 
 import MainColumn from './mainColumn'
 
 class Header extends React.Component {
+  static propTypes = {
+    location: PropTypes.object,
+  }
 
   render() {
+    const { pathname } = this.props.location
+    const isAbout = pathname === "/about"
+
     return (
       <header className="header">
         <MainColumn>
@@ -19,7 +28,7 @@ class Header extends React.Component {
             </div>
             <div className="level-right">
               <div className="level-item has-text-right"  style={{marginLeft: '2rem'}}>
-                <h2 className="title is-2">More about me</h2>
+                <h2 className="title is-2"><Link to={isAbout ? "/" : "/about"}>{isAbout ? "Less" : "More"} about me</Link></h2>
               </div>
             </div>
           </div>
@@ -27,7 +36,6 @@ class Header extends React.Component {
       </header>
     )
   }
-
 }
 
 export default Header

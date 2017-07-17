@@ -8,15 +8,19 @@ import Footer from '../components/footer'
 import "../styles/main.sass"
 import "../font-awesome/scss/font-awesome.scss"
 
-const Layout = ({ children }) =>
-  <div>
-    <Header />
-    {children()}
-    <Footer />
-  </div>
+const Layout = ({ children, location }) => {
+  return (
+    <div>
+      <Header location={location}/>
+      {children()}
+      <Footer />
+    </div>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.any,
+  location: PropTypes.any,
 }
 
 export default Layout
