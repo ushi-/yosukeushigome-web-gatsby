@@ -4,8 +4,8 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 const MainColumn = ({ children }) => (
   <div className="container">
     <Grid fluid>
-      <Row around="sm">
-        <Col md={12} lg={8}>
+      <Row>
+        <Col md={12} lg={8} lgOffset={2}>
           {children}
         </Col>
       </Row>

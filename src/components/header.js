@@ -6,14 +6,25 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <header className="header">
         <MainColumn>
           <div>
             <h1 className="title is-1">I’m Yosuke Ushigome, a creative technologist based in London.</h1>
-            <h2 className="title is-2">I demystify emerging technology through prototyping.</h2>
+          </div>
+          <div className="level">
+            <div className="level-left">
+              <div className="level-item">
+                <h2 className="title is-2">I demystify emerging technology through prototyping.</h2>
+              </div>
+            </div>
+            <div className="level-right">
+              <div className="level-item has-text-right"  style={{marginLeft: '2rem'}}>
+                <h2 className="title is-2">More about me</h2>
+              </div>
+            </div>
           </div>
         </MainColumn>
-      </div>
+      </header>
     )
   }
 

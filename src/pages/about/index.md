@@ -5,7 +5,7 @@ title: "About me"
 ### Bio
 I am currently working at Takram London as a co-founder and designer.
 
-My primary interests are centred around emerging technologies. I probe the future vision that they promise, reveal the cultural and political mechanisms behind it, and democratise the insights and findings through making physical and digital prototypes. By doing so, I aim to facilitate in-depth understanding of the implication of emerging technologies and encourage better-informed decision-making on our future.
+My primary interests are centred around emerging technologies. I probe future visions that they promise, reveal the cultural and political mechanisms behind them, and illustrate the insights and findings through making physical and digital prototypes. By doing so, I aim to facilitate in-depth understanding of the implication of emerging technologies and encourage better-informed decision-making on our future.
 
 <div class="ja">
 
