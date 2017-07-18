@@ -10,6 +10,8 @@ $size-3: 0.875rem
 $family-serif: "Zilla Slab", "Lucida Console", Monaco, monospace
 $family-sans-serif: 'Karla', 'Gothic Medium BBB', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $pink: #EF576D
+$pink-lighter: #F48696
+$pink-darker: #EB2846
 $grey-dark: #333333
 $grey-lighter: #E7E5E4
 $grey: #999
@@ -19,7 +21,7 @@ $primary: $pink
 $text: $grey-dark
 $text-strong: $primary
 $title-weight: $weight-normal
-$body-background: $grey-lighter
+$body-background: $white-ter
 $background: $grey-dark
 $link: $grey
 $link-hover: $primary
@@ -52,11 +54,17 @@ $link-hover: $primary
 
 .header
   padding: 1.5rem 0
+  background-color: $body-background
+  border-bottom: 1px $text solid
 
-.level-item
-  display: inherit
+  a
+    color: $primary
+    &:hover
+      color: $pink-darker
+  .level-item
+    display: inherit
 
 .footer
   color: $grey-lighter
-  padding: 3rem 1.5rem 3rem
+  padding: 3rem 0
   margin-top: 3rem
