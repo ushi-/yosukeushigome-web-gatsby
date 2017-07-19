@@ -2,7 +2,7 @@ const path = require('path')
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
-  let slug
+  let slug, isProject
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent)
     const parsedFilePath = path.parse(fileNode.relativePath)
@@ -13,9 +13,10 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     } else {
       slug = `/${parsedFilePath.dir}/`
     }
-
+    isProject = parsedFilePath.dir.indexOf('projects') === 0
     // Add slug as a field on the node.
     createNodeField({ node, name: `slug`, value: slug })
+    createNodeField({ node, name: `isProject`, value: isProject })
   }
 }
 
@@ -25,6 +26,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     const pages = []
     const about = path.resolve("src/templates/about.js")
+    const project = path.resolve("src/templates/project.js")
     // Query for all markdown "nodes" and for the slug we previously created.
     resolve(
       graphql(
@@ -35,6 +37,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               node {
                 fields {
                   slug
+                  isProject
                 }
               }
             }
@@ -49,11 +52,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // Create blog posts pages.
         result.data.allMarkdownRemark.edges.forEach(edge => {
+          const slug = edge.node.fields.slug
           createPage({
-            path: edge.node.fields.slug, // required
-            component: about,
+            path: slug, // required
+            component: edge.node.fields.isProject ? project : about,
             context: {
-              slug: edge.node.fields.slug,
+              slug: slug,
             },
           })
         })
