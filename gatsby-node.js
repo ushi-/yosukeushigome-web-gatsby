@@ -17,6 +17,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     // Add slug as a field on the node.
     createNodeField({ node, name: `slug`, value: slug })
     createNodeField({ node, name: `isProject`, value: isProject })
+    console.log(node.frontmatter)
   }
 }
 

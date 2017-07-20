@@ -1,9 +1,10 @@
 ---
 title: "Omotenashi Mask"
-projectTags:
-  - Prototype & Film
-  - Language & Communication
-  - 2016
+tags:
+  - a
+  - b
+  - c
+indexImage: './images/index.jpg'
 ---
 
 ### Overview

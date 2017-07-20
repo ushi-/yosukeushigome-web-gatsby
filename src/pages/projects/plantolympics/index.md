@@ -1,9 +1,10 @@
 ---
 title: Plantolympics
-projectTags:
-  - Film and animation
-  - Perception experiment
-  - 2016
+tags:
+  - a
+  - b
+  - c
+indexImage: './images/index.jpg'
 ---
 
 ### Overview
