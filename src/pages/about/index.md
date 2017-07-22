@@ -49,8 +49,8 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 ### Elsewhere
 
-* [<span class="icon"><i class="fa fa-twitter" aria-hidden="true"></i></span> Twitter](https://www.twitter.com/ushi_ "Twitter")
-* [<span class="icon"><i class="fa fa-medium" aria-hidden="true"></i></span> Medium](https://www.medium.com "Medium (in English)")
+* [<span class="icon is-small"><i class="fa fa-twitter" aria-hidden="true"></i></span> Twitter](https://www.twitter.com/ushi_ "Twitter")
+* [<span class="icon is-small"><i class="fa fa-medium" aria-hidden="true"></i></span> Medium](https://www.medium.com "Medium (in English)")
 * Blog in Japanese
 
 
