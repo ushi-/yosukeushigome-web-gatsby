@@ -4,8 +4,9 @@ tags:
   - a
   - b
   - c
-indexImage: './images/index.jpg'
 ---
+
+![1](./images/index.jpg '1')
 
 ### Overview
 

@@ -3,8 +3,6 @@ import React from "react"
 import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import MainColumn from '../components/mainColumn'
 
-import testImage from '../pages/projects/omotenashi_mask/images/index.jpg'
-
 class ProjectTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -14,15 +12,13 @@ class ProjectTemplate extends React.Component {
     //     # {projectTag}
     //   </p>
     // )
-    console.log(post.frontmatter);
-    let imagePath = "../pages/" + post.frontmatter.indexImage.relativePath
+    console.log(post);
     // import image from imagePath
     // console.log(imagePath);
     return (
       <div>
         <MainColumn>
-          <img src={post.frontmatter.indexImage.absolutePath} />
-          <img src={testImage} />
+          <img src={post.fields.featuredImageUrl} />
           <div className="is-project-header">
             <h1 className="title is-1">{post.frontmatter.title}</h1>
             {/* <div className="is-tags">{tags}</div> */}
@@ -43,11 +39,10 @@ export const projectPageQuery = graphql`
       frontmatter {
         title
         tags
-        indexImage {
-          name
-          relativePath
-          absolutePath
-        }
+      }
+      fields {
+        isProject
+        featuredImageUrl
       }
     }
   }

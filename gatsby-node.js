@@ -1,10 +1,17 @@
 const path = require('path')
+const Remark = require(`remark`)
+const select = require(`unist-util-select`)
+const _ = require(`lodash`)
+const isRelativeUrl = require(`is-relative-url`)
+const fsExtra = require(`fs-extra`)
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
   let slug, isProject
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent)
+
+    // adding path as the slug
     const parsedFilePath = path.parse(fileNode.relativePath)
     if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
       slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
@@ -13,11 +20,57 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     } else {
       slug = `/${parsedFilePath.dir}/`
     }
-    isProject = parsedFilePath.dir.indexOf('projects') === 0
-    // Add slug as a field on the node.
     createNodeField({ node, name: `slug`, value: slug })
+
+    // adding the project flag
+    isProject = parsedFilePath.dir.indexOf('projects') === 0
     createNodeField({ node, name: `isProject`, value: isProject })
-    console.log(node.frontmatter)
+
+    // adding the featured image url
+    const remark = new Remark().data(`settings`, {
+      commonmark: true,
+      footnotes: true,
+      pedantic: true,
+    })
+    const markdownAST = remark.parse(node.internal.content)
+    const markdownImageNodes = select(markdownAST, `image`)
+    if (markdownImageNodes.length >= 1) {
+      let imageNode = markdownImageNodes[0]
+      const files = _.values(store.getState().nodes).filter(
+        n => n.internal.type === `File`
+      )
+      if (
+        isRelativeUrl(imageNode.url) &&
+        getNode(node.parent).internal.type === `File`
+      ) {
+        const linkPath = path.join(getNode(node.parent).dir, imageNode.url)
+        const linkNode = _.find(files, file => {
+          if (file && file.absolutePath) {
+            return file.absolutePath === linkPath
+          }
+          return null
+        })
+        if (linkNode && linkNode.absolutePath) {
+          const newPath = path.join(
+            process.cwd(),
+            `public`,
+            `${linkNode.internal.contentDigest}.${linkNode.extension}`
+          )
+          const relativePath = path.join(
+            `/${linkNode.internal.contentDigest}.${linkNode.extension}`
+          )
+          imageNode.url = `${relativePath}`
+          if (!fsExtra.existsSync(newPath)) {
+            fsExtra.copy(linkPath, newPath, err => {
+              if (err) {
+                console.error(`error copying file`, err)
+              }
+            })
+          }
+        }
+      }
+      createNodeField({ node, name: `featuredImageUrl`, value: imageNode.url })
+    }
   }
 }
 

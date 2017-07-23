@@ -4,8 +4,11 @@ tags:
   - a
   - b
   - c
-indexImage: './images/index.jpg'
 ---
+
+![1](./images/index.jpg '1')
+![2](./images/2.gif '2')
+![3](./images/2.gif '3')
 
 ### Overview
 
