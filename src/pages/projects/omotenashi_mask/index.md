@@ -4,7 +4,10 @@ tags:
   - Film and prototype
   - Communication and language
   - "2016"
-featuredImage: ./images/index.jpg
+featuredImage: "./images/index.jpg"
+carousel:
+  - "./images/1.jpg"
+  - "./images/2.gif"
 ---
 
 ### Overview

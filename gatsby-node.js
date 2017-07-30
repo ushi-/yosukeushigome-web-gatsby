@@ -35,42 +35,57 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
       })
       const markdownAST = remark.parse(node.internal.content)
 
-      featuredImageUrl = node.frontmatter.featuredImage
+      let featuredImageUrl = node.frontmatter.featuredImage
+      let carousel = node.frontmatter.carousel
       const files = _.values(store.getState().nodes).filter(
         n => n.internal.type === `File`
       )
-      if (
-        isRelativeUrl(featuredImageUrl) &&
-        getNode(node.parent).internal.type === `File`
-      ) {
-        const linkPath = path.join(getNode(node.parent).dir, featuredImageUrl)
-        const linkNode = _.find(files, file => {
-          if (file && file.absolutePath) {
-            return file.absolutePath === linkPath
-          }
-          return null
-        })
-        if (linkNode && linkNode.absolutePath) {
-          const newPath = path.join(
-            process.cwd(),
-            `public`,
-            `${linkNode.internal.contentDigest}.${linkNode.extension}`
-          )
-          const relativePath = path.join(
-            `/${linkNode.internal.contentDigest}.${linkNode.extension}`
-          )
-          featuredImageUrl = `${relativePath}`
-          if (!fsExtra.existsSync(newPath)) {
-            fsExtra.copy(linkPath, newPath, err => {
-              if (err) {
-                console.error(`error copying file`, err)
-              }
-            })
+      for (file of files) {
+        console.log(file.absolutePath);
+      }
+      const getPublicImageUrl = (url) => {
+        returnUrl = url
+        if (
+          isRelativeUrl(returnUrl) &&
+          getNode(node.parent).internal.type === `File`
+        ) {
+          console.log("isRelativeUrl");
+          const linkPath = path.join(getNode(node.parent).dir, returnUrl)
+          const linkNode = _.find(files, file => {
+            if (file && file.absolutePath) {
+              return file.absolutePath === linkPath
+            }
+            return null
+          })
+          if (linkNode && linkNode.absolutePath) {
+            console.log("linkNode && linkNode.absolutePath");
+            const newPath = path.join(
+              process.cwd(),
+              `public`,
+              `${linkNode.internal.contentDigest}.${linkNode.extension}`
+            )
+            const relativePath = path.join(
+              `/${linkNode.internal.contentDigest}.${linkNode.extension}`
+            )
+            returnUrl = `${relativePath}`
+            if (!fsExtra.existsSync(newPath)) {
+              fsExtra.copy(linkPath, newPath, err => {
+                if (err) {
+                  console.error(`error copying file`, err)
+                }
+              })
+            }
           }
         }
+        return returnUrl
       }
+      featuredImageUrl = getPublicImageUrl(featuredImageUrl)
       createNodeField({ node, name: `featuredImageUrl`, value: featuredImageUrl })
-      console.log(node.frontmatter);
+      let carouselUrls = []
+      for (url of carousel) {
+        carouselUrls.push(getPublicImageUrl(url))
+      }
+      createNodeField({ node, name: `carousel`, value: carouselUrls})
       console.log(node.fields);
     }
   }

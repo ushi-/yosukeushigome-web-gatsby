@@ -4,7 +4,12 @@ tags:
   - Film and animation
   - Plant experiments
   - "2016"
-featuredImage: ./images/index.jpg
+featuredImage: "./images/index.jpg"
+carousel:
+  - "./images/plant-touchball.gif"
+  - "./images/plant-fabric.gif"
+  - "./images/plant-slowdrive.gif"
+  - "./images/plant-sprint.gif"
 ---
 
 <iframe src="https://player.vimeo.com/video/197917706?color=ffffff" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

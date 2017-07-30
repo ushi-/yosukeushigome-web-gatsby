@@ -36,3 +36,4 @@ public/
 
 # font files
 /src/font-awesome
+src/pages/projects/*/images/
