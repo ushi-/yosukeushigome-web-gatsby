@@ -12,9 +12,6 @@ carousel:
   - "./images/plant-sprint.gif"
 ---
 
-<iframe src="https://player.vimeo.com/video/197917706?color=ffffff" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-
 ### Overview
 
 Is our perception of plant intelligence limiting our understanding of their potential? This was a question we asked ourselves as we considered alternative forms of intelligence.

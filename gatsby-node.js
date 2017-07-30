@@ -49,7 +49,6 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
           isRelativeUrl(returnUrl) &&
           getNode(node.parent).internal.type === `File`
         ) {
-          console.log("isRelativeUrl");
           const linkPath = path.join(getNode(node.parent).dir, returnUrl)
           const linkNode = _.find(files, file => {
             if (file && file.absolutePath) {
@@ -58,7 +57,6 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
             return null
           })
           if (linkNode && linkNode.absolutePath) {
-            console.log("linkNode && linkNode.absolutePath");
             const newPath = path.join(
               process.cwd(),
               `public`,

@@ -4,18 +4,18 @@ import Link from "gatsby-link"
 import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import MainColumn from '../components/mainColumn'
 import ProjectHeader from '../components/projectHeader'
+import Carousel from '../components/carousel'
 
 class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.markdownRemark
     const html = wrapSingleByteTexts(project.html, 'singleByte')
-    const carousel = project.fields.carousel.map((url, i) =>
-      <img src={url} key={i} />
-    )
     return (
       <div>
+        <div className="container">
+          <Carousel urls={project.fields.carousel} />
+        </div>
         <MainColumn>
-          <ul>{carousel}</ul>
           <ProjectHeader project={project} />
           <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
         </MainColumn>
