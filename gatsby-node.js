@@ -26,24 +26,24 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
     isProject = parsedFilePath.dir.indexOf('projects') === 0
     createNodeField({ node, name: `isProject`, value: isProject })
 
-    // adding the featured image url
-    const remark = new Remark().data(`settings`, {
-      commonmark: true,
-      footnotes: true,
-      pedantic: true,
-    })
-    const markdownAST = remark.parse(node.internal.content)
-    const markdownImageNodes = select(markdownAST, `image`)
-    if (markdownImageNodes.length >= 1) {
-      let imageNode = markdownImageNodes[0]
+    if (isProject) {
+      // adding the featured image url
+      const remark = new Remark().data(`settings`, {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+      })
+      const markdownAST = remark.parse(node.internal.content)
+
+      featuredImageUrl = node.frontmatter.featuredImage
       const files = _.values(store.getState().nodes).filter(
         n => n.internal.type === `File`
       )
       if (
-        isRelativeUrl(imageNode.url) &&
+        isRelativeUrl(featuredImageUrl) &&
         getNode(node.parent).internal.type === `File`
       ) {
-        const linkPath = path.join(getNode(node.parent).dir, imageNode.url)
+        const linkPath = path.join(getNode(node.parent).dir, featuredImageUrl)
         const linkNode = _.find(files, file => {
           if (file && file.absolutePath) {
             return file.absolutePath === linkPath
@@ -59,7 +59,7 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
           const relativePath = path.join(
             `/${linkNode.internal.contentDigest}.${linkNode.extension}`
           )
-          imageNode.url = `${relativePath}`
+          featuredImageUrl = `${relativePath}`
           if (!fsExtra.existsSync(newPath)) {
             fsExtra.copy(linkPath, newPath, err => {
               if (err) {
@@ -69,7 +69,9 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
           }
         }
       }
-      createNodeField({ node, name: `featuredImageUrl`, value: imageNode.url })
+      createNodeField({ node, name: `featuredImageUrl`, value: featuredImageUrl })
+      console.log(node.frontmatter);
+      console.log(node.fields);
     }
   }
 }

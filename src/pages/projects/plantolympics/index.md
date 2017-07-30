@@ -1,12 +1,14 @@
 ---
 title: Plantolympics
 tags:
-  - a
-  - b
-  - c
+  - Film and animation
+  - Plant experiments
+  - "2016"
+featuredImage: ./images/index.jpg
 ---
 
-![1](./images/index.jpg '1')
+<iframe src="https://player.vimeo.com/video/197917706?color=ffffff" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 
 ### Overview
 
@@ -18,7 +20,6 @@ And, as technological research increasingly looks to new forms of artificial, ma
 
 ### Credit
 
-* Takram Plantolympics Committee
-* (Seitaro Taniguchi, Taro Yumiba, Renee Verhoeven, Yosuke Ushigome, Larissa Kunstel)
+* Takram Plantolympics Committee (Seitaro Taniguchi, Taro Yumiba, Renee Verhoeven, Yosuke Ushigome, Larissa Kunstel)
 * Sound design: Keysuke Oyama (Takram)
 * Animation design: Terushige Enatsu (Takram)

@@ -1,14 +1,11 @@
 ---
 title: "Omotenashi Mask"
 tags:
-  - a
-  - b
-  - c
+  - Film and prototype
+  - Communication and language
+  - "2016"
+featuredImage: ./images/index.jpg
 ---
-
-![1](./images/index.jpg '1')
-![2](./images/2.gif '2')
-![3](./images/2.gif '3')
 
 ### Overview
 
