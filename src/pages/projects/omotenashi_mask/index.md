@@ -1,5 +1,6 @@
 ---
-title: "Omotenashi Mask"
+title: Omotenashi Mask
+headerSubtitle: It explores quirky qualities of machine-aided conversation.
 tags:
   - Film and prototype
   - Communication and language

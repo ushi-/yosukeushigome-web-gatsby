@@ -1,5 +1,6 @@
 ---
 title: Plantolympics
+headerSubtitle: It looks at alternative forms of intelligence.
 tags:
   - Film and animation
   - Plant experiments

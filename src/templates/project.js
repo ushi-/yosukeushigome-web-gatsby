@@ -3,17 +3,26 @@ import Link from "gatsby-link"
 
 import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import MainColumn from '../components/mainColumn'
+import Header from '../components/header'
 import ProjectHeader from '../components/projectHeader'
 import Carousel from '../components/carousel'
 
 class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.markdownRemark
+    const { title, tags, headerSubtitle } = project.frontmatter
+    const { isProject, featuredImageUrl, carousel} = project.fields
     const html = wrapSingleByteTexts(project.html, 'singleByte')
     return (
-      <div className={"project-content " +  project.frontmatter.title}>
+      <div className={"project-content " +  title.replace(' ', '-').toLowerCase()}>
+        <Header
+          title={"This is " + title + " project."}
+          subtitle={headerSubtitle}
+          link={(
+            <Link to={"/"} >See Other Projects</Link>
+        )}/>
         <div className="container">
-          <Carousel urls={project.fields.carousel} />
+          <Carousel urls={carousel}/>
         </div>
         <MainColumn>
           <ProjectHeader project={project} />
@@ -33,6 +42,7 @@ export const projectPageQuery = graphql`
       frontmatter {
         title
         tags
+        headerSubtitle
       }
       fields {
         isProject

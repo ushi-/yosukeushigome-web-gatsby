@@ -33,8 +33,7 @@ $link-hover: $primary
 
 @import "~bulma"
 
-.is-project-header
-  margin-top: 1.5rem
+// General styles
 
 .content
   margin-top: 1.5rem
@@ -59,7 +58,7 @@ $link-hover: $primary
 .title.is-1
   font-weight: $weight-bold
 
-// header & Footer
+// header
 
 .headroom--scrolled
   .header
@@ -83,22 +82,30 @@ $link-hover: $primary
   .level-item
     display: inherit
 
+// contents
+
 .project-content
-  // padding-top: 1.5rem
+  .hero
+    background-color: inherit
+
+// carousel
+.carousel-element
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  width: 100%
+  // height: 56.25vw
+  background-color: $background
+
+.project-header
+  padding-top: 1.5rem
+
+// footer
 
 .footer
   color: $grey-lighter
   padding: 3rem 0
   margin-top: 3rem
-
-// carousel
-.carousel-element
-  background-size: contain
-  background-repeat: no-repeat
-  background-position: center center
-  width: 100%
-  height: 56.25vw
-  background-color: $grey-lighter
 
 // Changing Slick carousel's default
 

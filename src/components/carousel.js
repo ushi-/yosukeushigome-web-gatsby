@@ -6,7 +6,7 @@ import Iframe from 'react-iframe'
 import YouTubeGetID from '../utils/youtubeID'
 import vimeoGetID from '../utils/vimeoID'
 
-const Carousel = ({ urls }) => {
+const Carousel = ({ urls, className }) => {
   const elements = urls.map((url, i) => {
     const isYoutube = url.includes('youtube')
     const isVimeo = url.includes('vimeo')
@@ -19,23 +19,25 @@ const Carousel = ({ urls }) => {
       videoUrl = "https://player.vimeo.com/video/" + vimeoGetID(url)
     }
     return (
-      <div key={i} className="carousel-element"
-        style={isVideo ? "" : {
-        backgroundImage: `url(${url})`,
-      }}>
+      <div key={i} className={"carousel-element " + className} >
         {isVideo ? (
           <Iframe url={videoUrl}
                       position="relative"
                       display="block"
                       width="100%"
+                      height="56.25vw"
                       allowFullScreen/>
-        ) : ""}
+        ) : (
+          <figure className="image">
+            <img src={url} />
+          </figure>
+        )}
       </div>
     )
   })
   const settings = {
     accessibility: true,
-    // adaptiveHeight: true,
+    adaptiveHeight: true,
     arrows: urls.length > 1,
     dots: urls.length > 1,
     draggable: urls.length > 1,
@@ -53,7 +55,8 @@ const Carousel = ({ urls }) => {
 }
 
 Carousel.propTypes = {
-  urls: PropTypes.array
+  urls: PropTypes.array,
+  className: PropTypes.string
 }
 
 export default Carousel

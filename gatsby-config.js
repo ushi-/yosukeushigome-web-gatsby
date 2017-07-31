@@ -1,4 +1,10 @@
 module.exports = {
+  siteMetadata: {
+    title: `Yosuke Ushigome`,
+    author: `@ushi_`,
+    headerTitle: `I’m Yosuke Ushigome, a creative technologist based in London.`,
+    headerSubtitle: `I demystify emerging technology through prototyping.`,
+  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
