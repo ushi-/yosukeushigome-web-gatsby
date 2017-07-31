@@ -1,19 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
+import Iframe from 'react-iframe'
+
+import YouTubeGetID from '../utils/youtubeID'
+import vimeoGetID from '../utils/vimeoID'
 
 const Carousel = ({ urls }) => {
-  const elements = urls.map((url, i) =>
-    <div key={i} style={{
-      backgroundImage: `url(${url})`,
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
-      width: "100%",
-      height: "56.25vw",
-      backgroundColor: "#E7E5E4",
-    }}></div>
-  )
+  const elements = urls.map((url, i) => {
+    const isYoutube = url.includes('youtube')
+    const isVimeo = url.includes('vimeo')
+    const isVideo = isYoutube || isVimeo
+    let videoUrl
+    if (isYoutube) {
+      videoUrl = "https://www.youtube.com/embed/" + YouTubeGetID(url)
+    }
+    if (isVimeo) {
+      videoUrl = "https://player.vimeo.com/video/" + vimeoGetID(url)
+    }
+    return (
+      <div key={i} className="carousel-element"
+        style={isVideo ? "" : {
+        backgroundImage: `url(${url})`,
+      }}>
+        {isVideo ? (
+          <Iframe url={videoUrl}
+                      position="relative"
+                      display="block"
+                      width="100%"
+                      allowFullScreen/>
+        ) : ""}
+      </div>
+    )
+  })
   const settings = {
     accessibility: true,
     // adaptiveHeight: true,

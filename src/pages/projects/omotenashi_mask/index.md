@@ -6,6 +6,8 @@ tags:
   - "2016"
 featuredImage: "./images/index.jpg"
 carousel:
+  - "https://vimeo.com/219317251"
+  - "https://www.youtube.com/watch?v=3lU47IFPAoI"
   - "./images/1.jpg"
   - "./images/2.gif"
 ---
