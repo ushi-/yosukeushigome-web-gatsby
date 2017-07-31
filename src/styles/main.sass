@@ -61,10 +61,20 @@ $link-hover: $primary
 
 // header & Footer
 
+.headroom--scrolled
+  .header
+    border-color: $text
+    transition: border-bottom 0.2s
+
+.headroom--unfixed
+  .header
+    border-color: hsla(0, 0, 0, 0)
+    transition: border-bottom 0.2s
+
 .header
+  border-bottom: 1px solid
   padding: $size-1 0
   background-color: $body-background
-  border-bottom: 1px $text solid
 
   a
     color: $primary
@@ -72,6 +82,9 @@ $link-hover: $primary
       color: $pink-darker
   .level-item
     display: inherit
+
+.project-content
+  // padding-top: 1.5rem
 
 .footer
   color: $grey-lighter

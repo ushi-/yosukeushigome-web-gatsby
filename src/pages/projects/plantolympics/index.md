@@ -6,6 +6,7 @@ tags:
   - "2016"
 featuredImage: "./images/index.jpg"
 carousel:
+  - "https://vimeo.com/197917706"
   - "./images/plant-touchball.gif"
   - "./images/plant-fabric.gif"
   - "./images/plant-slowdrive.gif"

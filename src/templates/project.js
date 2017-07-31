@@ -11,7 +11,7 @@ class ProjectTemplate extends React.Component {
     const project = this.props.data.markdownRemark
     const html = wrapSingleByteTexts(project.html, 'singleByte')
     return (
-      <div>
+      <div className={"project-content " +  project.frontmatter.title}>
         <div className="container">
           <Carousel urls={project.fields.carousel} />
         </div>
