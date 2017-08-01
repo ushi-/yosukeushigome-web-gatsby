@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const Tags = ({ tags }) => {
   let tagList = tags.map((projectTag, i) =>
-    <p key={projectTag}>
-      # {projectTag}
-    </p>
+    <span key={projectTag} className="tag">
+      {projectTag}
+    </span>
   )
   return (
-    <div className="is-tags">
+    <div className="tags">
       {tagList}
     </div>
   )

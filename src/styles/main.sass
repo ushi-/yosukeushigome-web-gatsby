@@ -26,17 +26,20 @@ $primary: $pink
 $text: $grey-dark
 $text-strong: $primary
 $title-weight: $weight-normal
-$body-background: $white-ter
+$body-background-color: $white-ter
 $background: $grey-dark
 $link: $grey
 $link-hover: $primary
+
+$tag-background-color: $white
+$tag-color: $text
 
 @import "~bulma"
 
 // General styles
 
 .content
-  // margin-top: 1.5rem
+  padding-top: 1.5rem
   h3
     font-family: $family-serif
     font-size: $size-3
@@ -73,7 +76,7 @@ $link-hover: $primary
 .header
   border-bottom: 1px solid
   // padding: $size-1 0
-  background-color: $body-background
+  background-color: $body-background-color
 
   a
     color: $primary
@@ -85,7 +88,7 @@ $link-hover: $primary
 // contents
 
 .section
-  background-color: $body-background
+  background-color: $body-background-color
   padding-top: 1.5rem
   padding-bottom: 1.5rem
 
@@ -103,7 +106,7 @@ $link-hover: $primary
   background-color: $background
 
 .project-header
-  padding-top: 1.5rem
+  padding: 1.5rem 0
 
 // footer
 

@@ -22,11 +22,13 @@ class ProjectTemplate extends React.Component {
             <Link to={"/"} >See Other Projects</Link>
         )}/>
         <section className={"section project-content " +  title.replace(' ', '-').toLowerCase()}>
+          <MainColumn>
+            <ProjectHeader project={project} />
+          </MainColumn>
           <div className="container">
             <Carousel urls={carousel}/>
           </div>
           <MainColumn>
-            <ProjectHeader project={project} />
             <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
           </MainColumn>
         </section>

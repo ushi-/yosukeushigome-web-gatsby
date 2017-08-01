@@ -16,20 +16,32 @@ class Index extends React.Component {
           <MainColumn>
             <ProjectHeader project={post.node} />
           </MainColumn>
-        </section>
-        <Link to={slug}>
-          <div className="columns is-desktop">
-            <div className="column is-8" style={{
-              backgroundImage: `url(${featuredImageUrl})`,
-              backgroundAttachment: 'fixed',
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              height: "0",
-              paddingTop: "50%",
-              borderRadius: "100"
-            }} />
+          <div className="container">
           </div>
-        </Link>
+        </section>
+        <div className="columns is-desktop">
+          <div className="column is-8 is-offset-2" style={{
+            backgroundImage: `url(${featuredImageUrl})`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+            height: "0",
+            paddingTop: "50%",
+            position: "relative"
+          }}>
+            <Link to={slug}>
+              <div style={{
+                backgroundColor: "#ff0000",
+                position: "absolute",
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
+                opacity: 0
+              }} />
+            </Link>
+          </div>
+        </div>
       </div>
     )
   })
