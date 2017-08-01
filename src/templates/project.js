@@ -15,17 +15,34 @@ class ProjectTemplate extends React.Component {
     const html = wrapSingleByteTexts(project.html, 'singleByte')
     return (
       <div>
-        <Header
-          title={"This is " + title + " project."}
-          subtitle={headerSubtitle}
-          link={(
-            <Link to={"/"} >See Other Projects</Link>
-        )}/>
+        <section className="hero is-fullheight project-hero" style={{
+            backgroundImage: `url(${featuredImageUrl})`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+        }}>
+          <div className="hero-head">
+            <Header
+              title={"This is " + title + " project."}
+              subtitle={headerSubtitle}
+              link={(
+                <Link to={"/"} >See Other Projects</Link>
+            )}/>
+          </div>
+          <div className="hero-body" />
+          <div className="hero-foot">
+            <div className="container has-text-centered" >
+              <span className="icon is-medium">
+                <i className="fa fa-angle-down"></i>
+              </span>
+            </div>
+          </div>
+        </section>
         <section className={"section project-content " +  title.replace(' ', '-').toLowerCase()}>
           <MainColumn>
             <ProjectHeader project={project} />
           </MainColumn>
-          <div className="container">
+          <div className="container is-fluid">
             <Carousel urls={carousel}/>
           </div>
           <MainColumn>
