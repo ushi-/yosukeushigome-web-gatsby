@@ -42,7 +42,7 @@ class ProjectTemplate extends React.Component {
           <MainColumn>
             <ProjectHeader project={project} />
           </MainColumn>
-          <div className="container is-fluid">
+          <div className="container container-carousel is-fluid">
             <Carousel urls={carousel}/>
           </div>
           <MainColumn>
