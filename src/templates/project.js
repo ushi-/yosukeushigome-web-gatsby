@@ -14,20 +14,22 @@ class ProjectTemplate extends React.Component {
     const { isProject, featuredImageUrl, carousel} = project.fields
     const html = wrapSingleByteTexts(project.html, 'singleByte')
     return (
-      <div className={"project-content " +  title.replace(' ', '-').toLowerCase()}>
+      <div>
         <Header
           title={"This is " + title + " project."}
           subtitle={headerSubtitle}
           link={(
             <Link to={"/"} >See Other Projects</Link>
         )}/>
-        <div className="container">
-          <Carousel urls={carousel}/>
-        </div>
-        <MainColumn>
-          <ProjectHeader project={project} />
-          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-        </MainColumn>
+        <section className={"section project-content " +  title.replace(' ', '-').toLowerCase()}>
+          <div className="container">
+            <Carousel urls={carousel}/>
+          </div>
+          <MainColumn>
+            <ProjectHeader project={project} />
+            <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+          </MainColumn>
+        </section>
       </div>
     )
   }

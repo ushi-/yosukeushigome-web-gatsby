@@ -7,11 +7,9 @@ import MainColumn from './mainColumn'
 
 const Header = ({ title, subtitle, link }) => (
   <Headroom>
-    <div className="header">
+    <section className="header section">
       <MainColumn>
-        <div>
-          <h1 className="title is-1">{title}</h1>
-        </div>
+        <h1 className="title is-1">{title}</h1>
         <div className="level">
           <div className="level-left">
             <div className="level-item">
@@ -25,7 +23,7 @@ const Header = ({ title, subtitle, link }) => (
           </div>
         </div>
       </MainColumn>
-    </div>
+    </section>
   </Headroom>
 )
 

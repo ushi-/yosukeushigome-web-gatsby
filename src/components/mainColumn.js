@@ -1,15 +1,12 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-flexbox-grid'
 
 const MainColumn = ({ children }) => (
-  <div className="container">
-    <Grid fluid>
-      <Row>
-        <Col md={12} lg={8} lgOffset={2}>
-          {children}
-        </Col>
-      </Row>
-    </Grid>
+  <div className="container is-fluid">
+    <div className="columns is-desktop">
+      <div className="column is-8 is-offset-2">
+        {children}
+      </div>
+    </div>
   </div>
 )
 

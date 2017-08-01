@@ -7,14 +7,32 @@ import ProjectHeader from '../components/projectHeader'
 
 class Index extends React.Component {
   render() {
-    const projects = this.props.data.allMarkdownRemark.edges.map((post, i) =>
-    <div className="project-index" key={i}>
-      <ProjectHeader project={post.node} />
-      <Link to={post.node.fields.slug}>
-        <img src={post.node.fields.featuredImageUrl} />
-      </Link>
-    </div>
-  )
+    const projects = this.props.data.allMarkdownRemark.edges.map((post, i) => {
+    const { featuredImageUrl, slug } = post.node.fields
+    const { title } = post.node.frontmatter
+    return (
+      <div>
+        <section className={"section project-index" + title.replace(' ', '-').toLowerCase()} key={i}>
+          <MainColumn>
+            <ProjectHeader project={post.node} />
+          </MainColumn>
+        </section>
+        <Link to={slug}>
+          <div className="columns is-desktop">
+            <div className="column is-8" style={{
+              backgroundImage: `url(${featuredImageUrl})`,
+              backgroundAttachment: 'fixed',
+              backgroundPosition: 'center center',
+              backgroundSize: 'cover',
+              height: "0",
+              paddingTop: "50%",
+              borderRadius: "100"
+            }} />
+          </div>
+        </Link>
+      </div>
+    )
+  })
     const { headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
     const aboutLink = (
       <Link to={"/about"}>More about me</Link>
@@ -25,9 +43,7 @@ class Index extends React.Component {
           title={headerTitle}
           subtitle={headerSubtitle}
           link={aboutLink} />
-        <MainColumn>
-          {projects}
-        </MainColumn>
+        {projects}
       </div>
     )
   }

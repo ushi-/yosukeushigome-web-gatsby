@@ -18,9 +18,11 @@ class AboutTemplate extends React.Component {
           link={(
             <Link to={"/"} >Less about me</Link>
         )}/>
-        <MainColumn>
-          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-        </MainColumn>
+        <section className="section">
+          <MainColumn>
+            <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+          </MainColumn>
+        </section>
       </div>
     )
   }
