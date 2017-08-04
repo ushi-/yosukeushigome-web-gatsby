@@ -1,50 +1,38 @@
 import React from "react"
-import Link from "gatsby-link"
+import Link, { navigateTo } from "gatsby-link"
 
 import Header from '../components/header'
 import MainColumn from '../components/mainColumn'
 import ProjectHeader from '../components/projectHeader'
+import MotionThumbnail from '../components/motionThumbnail'
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     const projects = this.props.data.allMarkdownRemark.edges.map((post, i) => {
-    const { featuredImageUrl, slug } = post.node.fields
-    const { title } = post.node.frontmatter
-    return (
-      <div>
-        <section className={"section project-index" + title.replace(' ', '-').toLowerCase()} key={i}>
-          <MainColumn>
-            <ProjectHeader project={post.node} />
-          </MainColumn>
-          <div className="container">
-          </div>
-        </section>
-        <div className="columns is-desktop">
-          <div className="column is-8 is-offset-2" style={{
-            backgroundImage: `url(${featuredImageUrl})`,
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            height: "0",
-            paddingTop: "50%",
-            position: "relative"
+      const { featuredImageUrl, slug } = post.node.fields
+      const { title } = post.node.frontmatter
+      return (
+        <div key={i}>
+          <section className={"section project-index-" + title.replace(' ', '-').toLowerCase()} key={i} style={{
           }}>
-            <Link to={slug}>
-              <div style={{
-                backgroundColor: "#ff0000",
-                position: "absolute",
-                top: 0,
-                right: 0,
-                left: 0,
-                bottom: 0,
-                opacity: 0
-              }} />
-            </Link>
+            <MainColumn>
+              <ProjectHeader project={post.node} />
+            </MainColumn>
+            <div className="container">
+            </div>
+          </section>
+          <div className="columns is-desktop" style={{
+            height: "100vh",
+          }}>
+            <MotionThumbnail image={featuredImageUrl} slug={slug} />
           </div>
         </div>
-      </div>
-    )
-  })
+      )
+    })
     const { headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
     const aboutLink = (
       <Link to={"/about"}>More about me</Link>
