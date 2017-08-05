@@ -87,9 +87,6 @@ $tag-color: $text
 
 // index
 .motion-thumbnail-background
-  background-attachment: fixed
-  background-position: center center
-  background-size: cover
   top: 0
   bottom: 0
   left: 0
@@ -97,6 +94,17 @@ $tag-color: $text
   border-color: $text
   border-style: solid
   border-width: 1px
+  overflow: hidden
+  &::before
+    position: absolute
+    top: -100%
+    bottom: -100%
+    left: 0
+    right: 0
+    content: " "
+    background-attachment: fixed
+    background-position: center center
+    background-size: cover
 
 .motion-thumbnail-foreground
   position: absolute

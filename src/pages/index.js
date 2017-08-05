@@ -1,10 +1,15 @@
 import React from "react"
 import Link, { navigateTo } from "gatsby-link"
+import {TrackDocument, TrackedDiv} from 'react-track'
+import {topBottom, bottomTop, calculateScrollY} from 'react-track/tracking-formulas'
+import {tween, combine} from 'react-imation'
+import {scale, translate3d} from 'react-imation/tween-value-factories'
 
 import Header from '../components/header'
 import MainColumn from '../components/mainColumn'
 import ProjectHeader from '../components/projectHeader'
 import MotionThumbnail from '../components/motionThumbnail'
+import utils from '../utils'
 
 class Index extends React.Component {
   constructor(props) {
@@ -16,21 +21,32 @@ class Index extends React.Component {
       const { featuredImageUrl, slug } = post.node.fields
       const { title } = post.node.frontmatter
       return (
-        <div key={i}>
-          <section className={"section project-index-" + title.replace(' ', '-').toLowerCase()} key={i} style={{
-          }}>
-            <MainColumn>
-              <ProjectHeader project={post.node} />
-            </MainColumn>
-            <div className="container">
+        <TrackDocument formulas={[topBottom, bottomTop, calculateScrollY]} key={i}>
+        {(topBottom, bottomTop, scrollY) =>
+          <TrackedDiv formulas={[topBottom, bottomTop]}>
+          {(posTopBottom, posBottomTop) =>
+            <div key={i}>
+              <section className={"section project-index-" + title.replace(' ', '-').toLowerCase()} key={i} style={{
+              }}>
+                <MainColumn>
+                  <ProjectHeader project={post.node} />
+                </MainColumn>
+                <div className="container">
+                </div>
+              </section>
+              <div className="columns is-desktop" style={{height: "100vh"}}>
+                <MotionThumbnail
+                  image={featuredImageUrl}
+                  slug={slug}
+                  imageTransform={
+                    tween(scrollY, [
+                      [posTopBottom, {transform: translate3d(0, 100, 0)}],
+                      [posBottomTop, {transform: translate3d(0, -100, 0)}]
+                    ])} />
+              </div>
             </div>
-          </section>
-          <div className="columns is-desktop" style={{
-            height: "100vh",
-          }}>
-            <MotionThumbnail image={featuredImageUrl} slug={slug} />
-          </div>
-        </div>
+          }</TrackedDiv>
+        }</TrackDocument>
       )
     })
     const { headerTitle, headerSubtitle } = this.props.data.site.siteMetadata

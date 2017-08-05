@@ -16,6 +16,7 @@
     "bulma": "^0.5.0",
     "gatsby": "^1.6.3",
     "gatsby-link": "^1.6.3",
+    "gatsby-plugin-glamor": "^1.6.0",
     "gatsby-plugin-google-analytics": "^1.0.1",
     "gatsby-plugin-offline": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
@@ -31,8 +32,10 @@
     "gatsby-transformer-remark": "^1.6.3",
     "react-headroom": "^2.1.6",
     "react-iframe": "^1.0.7",
+    "react-imation": "^0.5.3",
     "react-motion": "^0.5.0",
     "react-slick": "^0.14.11",
+    "react-track": "^0.4.4",
     "react-typography": "^0.15.10",
     "slick-carousel": "^1.6.0",
     "typography": "^0.15.12"

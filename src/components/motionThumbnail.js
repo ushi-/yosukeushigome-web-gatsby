@@ -4,6 +4,8 @@ import { findDOMNode } from "react-dom"
 import { Motion, spring } from "react-motion"
 import Link, { navigateTo } from "gatsby-link"
 
+import utils from '../utils'
+
 class MotionThumbnail extends Component {
   constructor(props) {
     super(props)
@@ -24,7 +26,7 @@ class MotionThumbnail extends Component {
     })
   }
   render() {
-    const { image, slug, offset, width, shape } = this.props
+    const { image, slug, imageTransform, offset, width, shape } = this.props
     const { shouldExpand, originTop, windowRatio } = this.state
     let ratio = 1
     switch (shape) {
@@ -48,21 +50,24 @@ class MotionThumbnail extends Component {
       <Motion
         style={{x: spring(shouldExpand ? 1 : 0)}}
         onRest={() => {
-          navigateTo(slug)
+          // navigateTo(slug)
         }}>
         {({x}) => {
           return (<div
             className="motion-thumbnail-background"
-            style={{
-              backgroundImage: `url(${image})`,
+            css={{
               position: shouldExpand ? 'fixed' : 'relative',
               width: `${width + (100-width) * shouldExpand * x}%`,
               height: `${height + (100-height) * shouldExpand * x}vh`,
               marginLeft: `${offset - offset * shouldExpand * x}%`,
               borderRadius: `${radius - radius * shouldExpand * x}vw`,
               top: `${shouldExpand ? originTop * (1 - x) : 0}`,
-              borderWidth: `${shouldExpand ? (1-x) : 1}px`,
-              zIndex: `${shouldExpand ? 1 : 0}`
+              zIndex: `${shouldExpand ? 1 : 0}`,
+              margin: `${shouldExpand ? 3*(1-x) : 3}rem`,
+              '::before': {
+                backgroundImage: `url(${image})`,
+                transform: shouldExpand ? 'none' : imageTransform.transform,
+              },
             }}>
             <div
               className="motion-thumbnail-foreground"
@@ -77,9 +82,10 @@ class MotionThumbnail extends Component {
 MotionThumbnail.prototypes = {
   image: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  imageTransform: PropTypes.object,
   offset: PropTypes.number,
   width: PropTypes.number,
-  shape: PropTypes.oneOf(['horizontal', 'bar', 'portrait', 'circle'])
+  shape: PropTypes.oneOf(utils.shapes)
 }
 
 MotionThumbnail.defaultProps = {
