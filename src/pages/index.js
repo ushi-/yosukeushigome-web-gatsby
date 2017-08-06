@@ -38,11 +38,10 @@ class Index extends React.Component {
                 <MotionThumbnail
                   image={featuredImageUrl}
                   slug={slug}
-                  imageTransform={
-                    tween(scrollY, [
-                      [posTopBottom, {transform: translate3d(0, 100, 0)}],
-                      [posBottomTop, {transform: translate3d(0, -100, 0)}]
-                    ])} />
+                  wrapperPos={{
+                    topBottom: posTopBottom,
+                    bottomTop: posBottomTop
+                  }} />
               </div>
             </div>
           }</TrackedDiv>
