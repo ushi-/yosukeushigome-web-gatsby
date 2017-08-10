@@ -15,7 +15,20 @@ class MotionThumbnail extends Component {
     super(props)
     this.state = {
       shouldExpand: false,
+      windowHeight: 0
     }
+  }
+  componentDidMount() {
+    this.handleResize()
+    window.addEventListener("resize", this.handleResize)
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize)
+  }
+  handleResize = () => {
+    this.setState({
+      windowHeight: window.innerHeight
+    })
   }
   handleClick = () => {
     this.setState({
@@ -23,8 +36,8 @@ class MotionThumbnail extends Component {
     })
   }
   render() {
-    const { image, slug, wrapperPos, offset, width, shape } = this.props
-    const { shouldExpand } = this.state
+    const { image, slug, wrapperPos, offset, width, height, shape } = this.props
+    const { shouldExpand, windowHeight } = this.state
     return (
       <Motion
         style={{x: spring(shouldExpand ? 1 : 0)}}
@@ -52,12 +65,20 @@ class MotionThumbnail extends Component {
                     break
                   default:
                 }
-                const widthPx = width * rect.width / 100
-                const heightPx = widthPx * ratio
+                let widthPx = width * rect.width / 100
+                let heightPx = widthPx * ratio
+                // let marginTop = (windowHeight * height / 100 - heightPx) / 2
+                let marginTop = 0
+                if (windowHeight * height / 100 < heightPx) {
+                  heightPx = windowHeight * height / 100
+                  widthPx = heightPx / ratio
+                  marginTop = 0
+                }
+
                 const radius = shape === 'circle' ? widthPx / 2.0 : 0
                 const translateTween = tween(scrollY, [
-                  [wrapperPos.topBottom, {transform: translate3d(0, 100 - 100 * shouldExpand * x, 0)}],
-                  [wrapperPos.bottomTop, {transform: translate3d(0, -100 + 100 * shouldExpand * x, 0)}]
+                  [wrapperPos.topBottom, {transform: translate3d(0, 100 * (1 - shouldExpand * x), 0)}],
+                  [wrapperPos.bottomTop, {transform: translate3d(0, -100 * (1 - shouldExpand * x), 0)}]
                 ])
                 return (
                   <Div
@@ -73,6 +94,7 @@ class MotionThumbnail extends Component {
                         [1, px(rect.height)]
                       ]) : `${heightPx}px`,
                       marginLeft: `${offset - offset * shouldExpand * x}%`,
+                      marginTop: `${marginTop * (1 - shouldExpand * x)}px`,
                       borderRadius: `${radius - radius * shouldExpand * x}px`,
                       top: `${shouldExpand ? (posTopTop - scrollY) * (1 - x) : 0}px`,
                       borderWidth: `${shouldExpand ? 2 * (1 - x) : 2}px`,
@@ -103,6 +125,7 @@ MotionThumbnail.prototypes = {
   wrapperPos: PropTypes.object,
   offset: PropTypes.number,
   width: PropTypes.number,
+  height: PropTypes.number,
   shape: PropTypes.oneOf(utils.shapes)
 }
 

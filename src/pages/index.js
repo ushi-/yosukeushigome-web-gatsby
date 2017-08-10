@@ -20,6 +20,8 @@ class Index extends React.Component {
     const projects = this.props.data.allMarkdownRemark.edges.map((post, i) => {
       const { featuredImageUrl, slug } = post.node.fields
       const { title } = post.node.frontmatter
+      const motionThumbnailProps = utils.motionThumbnailProps[i % utils.motionThumbnailProps.length]
+      const vh = 100 / motionThumbnailProps.length
       return (
         <TrackDocument formulas={[topBottom, bottomTop, calculateScrollY]} key={i}>
         {(topBottom, bottomTop, scrollY) =>
@@ -34,15 +36,27 @@ class Index extends React.Component {
                 <div className="container">
                 </div>
               </section>
-              <div className="columns is-desktop" style={{height: "100vh"}}>
-                <MotionThumbnail
-                  image={featuredImageUrl}
-                  slug={slug}
-                  wrapperPos={{
-                    topBottom: posTopBottom,
-                    bottomTop: posBottomTop
-                  }} />
-              </div>
+              {motionThumbnailProps.map((prop, j) => {
+                  return (
+                    <div
+                      key={j}
+                      className="columns is-desktop"
+                      style={{height: `${vh}vh`}}>
+                      <MotionThumbnail
+                        image={featuredImageUrl}
+                        slug={slug}
+                        height={vh}
+                        width={prop.width}
+                        shape={prop.shape}
+                        offset={prop.offset}
+                        wrapperPos={{
+                          topBottom: posTopBottom,
+                          bottomTop: posBottomTop
+                        }} />
+                    </div>
+                  )
+                }
+              )}
             </div>
           }</TrackedDiv>
         }</TrackDocument>
