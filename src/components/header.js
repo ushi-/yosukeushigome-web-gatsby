@@ -6,7 +6,7 @@ import Headroom from "react-headroom"
 import MainColumn from './mainColumn'
 
 const Header = ({ title, subtitle, link }) => (
-  <Headroom>
+  <Headroom style={{zIndex: '3'}}>
     <section className="header section">
       <MainColumn>
         <h1 className="title is-1">{title}</h1>

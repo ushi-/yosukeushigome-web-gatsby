@@ -112,12 +112,29 @@ $tag-color: $text
   bottom: 0
   opacity: 0
   cursor: pointer
-  z-index: 100
+  z-index: 1
+
+.project-index-wrapper
+  position: relative
+  box-sizing: border-box
+  .project-index
+    position: relative
+    box-sizing: border-box
+    width: 100%
+    z-index: 2
+    top: 0
+    &.pin
+      position: fixed
+    &.unpin
+        position: absolute
+    .project-header
+      .title
+        text-shadow: .125rem .125rem $body-background-color
 
 // contents
 
 .section
-  background-color: $body-background-color
+  // background-color: $body-background-color
   padding-top: 1.5rem
   padding-bottom: 1.5rem
 

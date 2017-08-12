@@ -6,19 +6,14 @@ module.exports = {
   motionThumbnailProps: [
     [
       {
-        offset: 60,
-        width: 30,
+        offset: 40,
+        width: 50,
         shape: 'circle'
       },
       {
         offset: 10,
-        width: 60,
+        width: 70,
         shape: 'bar'
-      },
-      {
-        offset: 50,
-        width: 40,
-        shape: 'portrait'
       },
     ],
     [

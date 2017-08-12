@@ -6,8 +6,7 @@ import {tween, combine} from 'react-imation'
 import {scale, translate3d} from 'react-imation/tween-value-factories'
 
 import Header from '../components/header'
-import MainColumn from '../components/mainColumn'
-import ProjectHeader from '../components/projectHeader'
+import IndexProjectHeader from '../components/indexProjectHeader'
 import MotionThumbnail from '../components/motionThumbnail'
 import utils from '../utils'
 
@@ -28,14 +27,7 @@ class Index extends React.Component {
           <TrackedDiv formulas={[topBottom, bottomTop]}>
           {(posTopBottom, posBottomTop) =>
             <div key={i}>
-              <section className={"section project-index-" + title.replace(' ', '-').toLowerCase()} key={i} style={{
-              }}>
-                <MainColumn>
-                  <ProjectHeader project={post.node} />
-                </MainColumn>
-                <div className="container">
-                </div>
-              </section>
+              <IndexProjectHeader project={post.node} />
               {motionThumbnailProps.map((prop, j) => {
                   return (
                     <div

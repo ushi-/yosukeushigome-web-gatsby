@@ -67,8 +67,7 @@ class MotionThumbnail extends Component {
                 }
                 let widthPx = width * rect.width / 100
                 let heightPx = widthPx * ratio
-                // let marginTop = (windowHeight * height / 100 - heightPx) / 2
-                let marginTop = 0
+                let marginTop = (windowHeight * height / 100 - heightPx) / 2
                 if (windowHeight * height / 100 < heightPx) {
                   heightPx = windowHeight * height / 100
                   widthPx = heightPx / ratio
@@ -94,9 +93,8 @@ class MotionThumbnail extends Component {
                         [1, px(rect.height)]
                       ]) : `${heightPx}px`,
                       marginLeft: `${offset - offset * shouldExpand * x}%`,
-                      marginTop: `${marginTop * (1 - shouldExpand * x)}px`,
                       borderRadius: `${radius - radius * shouldExpand * x}px`,
-                      top: `${shouldExpand ? (posTopTop - scrollY) * (1 - x) : 0}px`,
+                      top: `${shouldExpand ? (posTopTop - scrollY) * (1 - x) : marginTop}px`,
                       borderWidth: `${shouldExpand ? 2 * (1 - x) : 2}px`,
                       zIndex: `${shouldExpand ? 1 : 0}`,
                       '::before': {
