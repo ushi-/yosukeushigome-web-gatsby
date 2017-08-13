@@ -31,38 +31,41 @@ class IndexProjectHeader extends Component {
   }
   render() {
     const { windowHeight, elementHeight } = this.state
-    const { project } = this.props
+    const { project, containerOriginY } = this.props
     const { title } = project.frontmatter
     return (
-      <TrackDocument formulas={[topTop, bottomTop, calculateScrollY, getDocumentRect]}>
-        {(topTop, bottomTop, scrollY, rect) =>
-          <TrackedDiv
-            formulas={[topTop, bottomTop]}
-            className="project-index-wrapper"
-            style={{ height: elementHeight ? elementHeight : null}}>
-            {(posTopTop, posBottomTop) =>
-              <section className={classnames(
-                'section', 'project-index', title.replace(' ', '-').toLowerCase(), {
-                  'pin': scrollY > posTopTop,
-                  'unpin': scrollY > posTopTop + windowHeight })}
-                style={{
-                  top: scrollY > posTopTop + windowHeight ? windowHeight : 0
-                }}
-                ref={element => this.divRef = element}>
-                <MainColumn>
-                  <ProjectHeader project={project} />
-                </MainColumn>
-              </section>
-            }
-          </TrackedDiv>
-        }
-      </TrackDocument>
+      <TrackDocument formulas={[topTop, calculateScrollY, getDocumentRect]}>
+      {(topTop, scrollY, rect) =>
+        <TrackedDiv
+          formulas={[topTop]}
+          className="project-index-wrapper"
+          style={{ height: elementHeight ? elementHeight : null}}>
+        {(posTopTop) => {
+          const pin = scrollY > posTopTop - containerOriginY
+          const unpin = scrollY > posTopTop - containerOriginY + windowHeight
+          return (
+            <section className={classnames(
+              'section', 'project-index', title.replace(' ', '-').toLowerCase(), {
+                'pin': pin,
+                'unpin': unpin })}
+              style={{
+                top: unpin ? windowHeight : (pin ? containerOriginY : 0)
+              }}
+              ref={element => this.divRef = element}>
+              <MainColumn>
+                <ProjectHeader project={project} />
+              </MainColumn>
+            </section>
+          )}
+        }</TrackedDiv>
+      }</TrackDocument>
     )
   }
 }
 
 IndexProjectHeader.propTypes = {
-  project: PropTypes.object
+  project: PropTypes.object,
+  containerOriginY: PropTypes.number
 }
 
 export default IndexProjectHeader
