@@ -82,6 +82,8 @@ class MotionThumbnail extends Component {
                   widthPx = heightPx / ratio
                   marginTop = 0
                 }
+                widthPx = Math.round(widthPx)
+                heightPx = Math.round(heightPx)
 
                 const radius = shape === 'circle' ? widthPx / 2.0 : 0
                 const translateTween = tween(scrollY, [
@@ -109,7 +111,7 @@ class MotionThumbnail extends Component {
                       marginLeft: `${offset - offset * shouldExpand * x}%`,
                       borderRadius: `${radius - radius * shouldExpand * x}px`,
                       top: `${shouldExpand ? (posTopTop - scrollY) * (1 - x) : marginTop}px`,
-                      borderWidth: `${shouldExpand ? 2 * (1 - x) : 2}px`,
+                      borderWidth: `${shouldExpand ? (1 - x) : 1}px`,
                       zIndex: `${shouldExpand ? 1 : 0}`,
                       '::before': {
                         backgroundImage: `url(${image})`,

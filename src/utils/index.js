@@ -19,7 +19,7 @@ module.exports = {
     [
       {
         offset: 10,
-        width: 80,
+        width: 60,
         shape: 'horizontal'
       },
       {
