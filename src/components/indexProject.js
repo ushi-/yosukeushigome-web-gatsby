@@ -9,9 +9,18 @@ import MotionThumbnail from '../components/motionThumbnail'
 class IndexProject extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      didMount: false
+    }
+  }
+  componentDidMount = () => {
+    this.setState({
+      didMount: true
+    })
   }
   render() {
     const { project, thumbnailParams, containerOriginY, onClick, shouldHide } = this.props
+    const { didMount } = this.state
     const { featuredImageUrl, slug } = project.fields
     const vh = 100 / thumbnailParams.length
     return (
@@ -37,8 +46,8 @@ class IndexProject extends Component {
                   shape={param.shape}
                   offset={param.offset}
                   wrapperPos={{
-                    topBottom: posTopBottom,
-                    bottomTop: posBottomTop
+                    topBottom: posTopBottom * didMount,
+                    bottomTop: posBottomTop * didMount
                   }}
                   onClick={onClick}
                   shouldHide={shouldHide} />
