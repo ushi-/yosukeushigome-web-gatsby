@@ -37,7 +37,7 @@ class MotionThumbnail extends Component {
       shouldWait: true,
     })
     this.props.onClick()
-    setTimeout(this.setShouldExpand, 500)
+    setTimeout(this.setShouldExpand, 400)
   }
   setShouldExpand = () => {
     this.setState({

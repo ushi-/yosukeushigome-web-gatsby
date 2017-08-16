@@ -41,6 +41,7 @@ class Index extends React.Component {
         }</Track>
       }</TrackDocument>
     )
+    const { projectSelected } = this.state
     const { headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
     const aboutLink = (
       <Link to={"/about"}>More about me</Link>
@@ -50,7 +51,9 @@ class Index extends React.Component {
         <Header
           title={headerTitle}
           subtitle={headerSubtitle}
-          link={aboutLink} />
+          link={aboutLink}
+          visible={!projectSelected}
+          animate={projectSelected} />
         {projectsContainer}
       </div>
     )

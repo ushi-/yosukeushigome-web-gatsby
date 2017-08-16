@@ -27,7 +27,9 @@ class ProjectTemplate extends React.Component {
               subtitle={headerSubtitle}
               link={(
                 <Link to={"/"} >See Other Projects</Link>
-            )}/>
+              )}
+              animated={true}
+            />
           </div>
           <div className="hero-body" />
           <div className="hero-foot">

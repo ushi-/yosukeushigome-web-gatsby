@@ -73,6 +73,17 @@ $tag-color: $text
     border-color: hsla(0, 0, 0, 0)
     transition: border-bottom 0.2s
 
+.headroom-wrapper
+  opacity: 0
+  &.hide
+    opacity: 0
+    &.animate
+      transition: opacity 0.2s
+  &.show
+    opacity: 1
+    &.animate
+      transition: opacity 0.2s
+
 .header
   border-bottom: 1px solid
   // padding: $size-1 0
