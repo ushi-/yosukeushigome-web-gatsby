@@ -13,14 +13,19 @@ class Header extends Component {
       canAnimate: true
     }
   }
-  componentDidMount = () => {
+  componentWillMount = () => {
     const { visible, animated } = this.props
     if (visible && animated) {
       this.setState({
         visible: false,
         canAnimate: false
       })
-      setTimeout(this.setVisible, 1)
+    }
+  }
+  componentDidMount = () => {
+    const { visible, animated } = this.props
+    if (visible && animated) {
+      this.setVisible()
     }
   }
   setVisible = () => {

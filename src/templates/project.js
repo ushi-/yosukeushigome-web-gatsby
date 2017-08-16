@@ -12,6 +12,17 @@ import ProjectHeader from '../components/projectHeader'
 import Carousel from '../components/carousel'
 
 class ProjectTemplate extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      didMount: false
+    }
+  }
+  componentDidMount = () => {
+    this.setState({
+      didMount: true
+    })
+  }
   render() {
     const project = this.props.data.markdownRemark
     const { title, tags, headerSubtitle } = project.frontmatter
@@ -25,7 +36,7 @@ class ProjectTemplate extends React.Component {
           {(Section, posBottomTop) => {
             const translateTween = tween(scrollY, [
               [0, {transform: translate3d(0, 0, 0)}],
-              [posBottomTop, {transform: translate3d(0, -100, 0)}]
+              [posBottomTop, {transform: translate3d(0, this.state.didMount ? -100 : 0, 0)}]
             ])
             return (
               <Section className="hero is-fullheight project-hero" css={{
