@@ -158,6 +158,22 @@ $tag-color: $text
 .hero.project-hero
   color: $white-ter
   padding-bottom: 1.5rem
+  overflow: hidden
+  position: relative
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  &::before
+    position: absolute
+    top: 0
+    bottom: -100%
+    left: 0
+    right: 0
+    content: " "
+    background-attachment: fixed
+    background-position: center center
+    background-size: cover
 
 .project-content
   .hero

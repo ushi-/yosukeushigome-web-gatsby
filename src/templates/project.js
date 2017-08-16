@@ -1,5 +1,9 @@
 import React from "react"
 import Link from "gatsby-link"
+import {TrackDocument, Track} from 'react-track'
+import {bottomTop, calculateScrollY} from 'react-track/tracking-formulas'
+import {tween} from 'react-imation'
+import {translate3d} from 'react-imation/tween-value-factories'
 
 import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import MainColumn from '../components/mainColumn'
@@ -15,31 +19,43 @@ class ProjectTemplate extends React.Component {
     const html = wrapSingleByteTexts(project.html, 'singleByte')
     return (
       <div>
-        <section className="hero is-fullheight project-hero" style={{
-            backgroundImage: `url(${featuredImageUrl})`,
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-        }}>
-          <div className="hero-head">
-            <Header
-              title={"This is " + title + " project."}
-              subtitle={headerSubtitle}
-              link={(
-                <Link to={"/"} >See Other Projects</Link>
-              )}
-              animated={true}
-            />
-          </div>
-          <div className="hero-body" />
-          <div className="hero-foot">
-            <div className="container has-text-centered" >
-              <span className="icon is-medium">
-                <i className="fa fa-angle-down"></i>
-              </span>
-            </div>
-          </div>
-        </section>
+        <TrackDocument formulas={[bottomTop, calculateScrollY]}>
+        {(bottomTop, scrollY) =>
+          <Track component="section" formulas={[bottomTop]}>
+          {(Section, posBottomTop) => {
+            const translateTween = tween(scrollY, [
+              [0, {transform: translate3d(0, 0, 0)}],
+              [posBottomTop, {transform: translate3d(0, -100, 0)}]
+            ])
+            return (
+              <Section className="hero is-fullheight project-hero" css={{
+                  '::before': {
+                    backgroundImage: `url(${featuredImageUrl})`,
+                    ...translateTween
+                  }
+              }}>
+                <div className="hero-head">
+                  <Header
+                    title={"This is " + title + " project."}
+                    subtitle={headerSubtitle}
+                    link={(
+                      <Link to={"/"} >See Other Projects</Link>
+                    )}
+                    animated={true}
+                  />
+                </div>
+                <div className="hero-body" />
+                <div className="hero-foot">
+                  <div className="container has-text-centered" >
+                    <span className="icon is-medium">
+                      <i className="fa fa-angle-down"></i>
+                    </span>
+                  </div>
+                </div>
+              </Section>
+            )}
+          }</Track>
+        }</TrackDocument>
         <section className={"section project-content " +  title.replace(' ', '-').toLowerCase()}>
           <MainColumn>
             <ProjectHeader project={project} />
