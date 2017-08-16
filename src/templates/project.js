@@ -10,6 +10,7 @@ import MainColumn from '../components/mainColumn'
 import Header from '../components/header'
 import ProjectHeader from '../components/projectHeader'
 import Carousel from '../components/carousel'
+import ScrollIndicator from '../components/scrollIndicator'
 
 class ProjectTemplate extends React.Component {
   constructor(props) {
@@ -57,10 +58,8 @@ class ProjectTemplate extends React.Component {
                 </div>
                 <div className="hero-body" />
                 <div className="hero-foot">
-                  <div className="container has-text-centered" >
-                    <span className="icon is-medium">
-                      <i className="fa fa-angle-down"></i>
-                    </span>
+                  <div className="container has-text-centered scroll-indicator-container" >
+                    <ScrollIndicator />
                   </div>
                 </div>
               </Section>
