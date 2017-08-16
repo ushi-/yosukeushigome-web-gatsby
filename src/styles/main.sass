@@ -103,6 +103,9 @@ $tag-color: $text
     background-attachment: fixed
     background-position: center center
     background-size: cover
+  &.hide
+    opacity: 0
+    transition: opacity 0.2s
 
 .motion-thumbnail-foreground
   position: absolute
@@ -130,6 +133,9 @@ $tag-color: $text
     .project-header
       .title
         text-shadow: .125rem .125rem $body-background-color
+    &.hide
+      opacity: 0
+      transition: opacity 0.2s
 
 // contents
 

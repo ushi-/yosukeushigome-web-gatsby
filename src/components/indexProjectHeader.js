@@ -31,7 +31,7 @@ class IndexProjectHeader extends Component {
   }
   render() {
     const { windowHeight, elementHeight } = this.state
-    const { project, containerOriginY } = this.props
+    const { project, containerOriginY, shouldHide } = this.props
     const { title } = project.frontmatter
     return (
       <TrackDocument formulas={[topTop, calculateScrollY, getDocumentRect]}>
@@ -45,9 +45,16 @@ class IndexProjectHeader extends Component {
           const unpin = scrollY > posTopTop - containerOriginY + windowHeight
           return (
             <section className={classnames(
-              'section', 'project-index', title.replace(' ', '-').toLowerCase(), {
+              'section',
+              'project-index',
+              title.replace(' ', '-').toLowerCase(),
+              {
                 'pin': pin,
-                'unpin': unpin })}
+                'unpin': unpin
+              },
+              {
+                'hide': shouldHide,
+              })}
               style={{
                 top: unpin ? windowHeight : (pin ? containerOriginY : 0)
               }}
@@ -65,7 +72,12 @@ class IndexProjectHeader extends Component {
 
 IndexProjectHeader.propTypes = {
   project: PropTypes.object,
-  containerOriginY: PropTypes.number
+  containerOriginY: PropTypes.number,
+  shouldHide: PropTypes.bool,
+}
+
+IndexProjectHeader.defaultProps = {
+  shouldHide: false
 }
 
 export default IndexProjectHeader

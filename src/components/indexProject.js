@@ -11,7 +11,7 @@ class IndexProject extends Component {
     super(props)
   }
   render() {
-    const { project, thumbnailParams, containerOriginY } = this.props
+    const { project, thumbnailParams, containerOriginY, onClick, shouldHide } = this.props
     const { featuredImageUrl, slug } = project.fields
     const vh = 100 / thumbnailParams.length
     return (
@@ -22,7 +22,8 @@ class IndexProject extends Component {
           <Div>
             <IndexProjectHeader
               project={project}
-              containerOriginY={containerOriginY} />
+              containerOriginY={containerOriginY}
+              shouldHide={shouldHide} />
             {thumbnailParams.map((param, i) =>
               <div
                 key={i}
@@ -38,7 +39,9 @@ class IndexProject extends Component {
                   wrapperPos={{
                     topBottom: posTopBottom,
                     bottomTop: posBottomTop
-                  }} />
+                  }}
+                  onClick={onClick}
+                  shouldHide={shouldHide} />
               </div>
             )}
           </Div>
@@ -50,8 +53,14 @@ class IndexProject extends Component {
 
 IndexProject.propTypes = {
   project: PropTypes.object,
-  thumbnailParams: PropTypes.object,
-  containerOriginY: PropTypes.number
+  thumbnailParams: PropTypes.array,
+  containerOriginY: PropTypes.number,
+  onClick: PropTypes.func,
+  shouldHide: PropTypes.bool,
+}
+
+IndexProject.defaultProps = {
+  shouldHide: false
 }
 
 export default IndexProject

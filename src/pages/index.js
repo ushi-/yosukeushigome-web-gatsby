@@ -10,8 +10,15 @@ import utils from '../utils'
 class Index extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      projectSelected: false
+    }
   }
-
+  handleClick = () => {
+    this.setState({
+      projectSelected: true
+    })
+  }
   render() {
     const projectsContainer = (
       <TrackDocument formulas={[topTop]}>
@@ -23,9 +30,12 @@ class Index extends React.Component {
               const motionThumbnailProps = utils.motionThumbnailProps[i % utils.motionThumbnailProps.length]
               return (
                 <IndexProject
+                  key={i}
                   project={post.node}
                   thumbnailParams={motionThumbnailProps}
-                  containerOriginY={posTopTop} />
+                  containerOriginY={posTopTop}
+                  onClick={this.handleClick}
+                  shouldHide={this.state.projectSelected} />
               )})}
           </Div>
         }</Track>

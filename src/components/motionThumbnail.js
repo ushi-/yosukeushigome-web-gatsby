@@ -7,6 +7,7 @@ import {TrackDocument, Track} from 'react-track'
 import {topTop, calculateScrollY, getDocumentRect} from 'react-track/tracking-formulas'
 import {tween, combine} from 'react-imation'
 import {scale, px, translate3d} from 'react-imation/tween-value-factories'
+import classnames from 'classnames'
 
 import utils from '../utils'
 
@@ -14,6 +15,7 @@ class MotionThumbnail extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      shouldWait: false,
       shouldExpand: false,
       windowHeight: 0
     }
@@ -32,12 +34,19 @@ class MotionThumbnail extends Component {
   }
   handleClick = () => {
     this.setState({
-      shouldExpand: true,
+      shouldWait: true,
+    })
+    this.props.onClick()
+    setTimeout(this.setShouldExpand, 500)
+  }
+  setShouldExpand = () => {
+    this.setState({
+      shouldExpand: true
     })
   }
   render() {
-    const { image, slug, wrapperPos, offset, width, height, shape } = this.props
-    const { shouldExpand, windowHeight } = this.state
+    const { image, slug, wrapperPos, offset, width, height, shape, onClick, shouldHide } = this.props
+    const { shouldWait, shouldExpand, windowHeight } = this.state
     return (
       <Motion
         style={{x: spring(shouldExpand ? 1 : 0)}}
@@ -81,7 +90,12 @@ class MotionThumbnail extends Component {
                 ])
                 return (
                   <Div
-                    className="motion-thumbnail-background"
+                    className={classnames(
+                      "motion-thumbnail-background",
+                      {
+                        "hide": shouldHide && (!shouldExpand && !shouldWait)
+                      }
+                    )}
                     css={{
                       position: shouldExpand ? 'fixed' : 'relative',
                       width: shouldExpand ? tween(x, [
@@ -124,13 +138,16 @@ MotionThumbnail.prototypes = {
   offset: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,
-  shape: PropTypes.oneOf(utils.shapes)
+  shape: PropTypes.oneOf(utils.shapes),
+  onClick: PropTypes.func,
+  shouldHide: PropTypes.bool,
 }
 
 MotionThumbnail.defaultProps = {
   offset: 30,
   width: 40,
-  shape: 'circle'
+  shape: 'circle',
+  shouldHide: false
 }
 
 export default MotionThumbnail
