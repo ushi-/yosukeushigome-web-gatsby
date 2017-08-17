@@ -1,5 +1,6 @@
 ---
 title: Omotenashi Mask
+headerTitle: This is Omotenashi Mask project.
 headerSubtitle: It explores quirky qualities of machine-aided conversation.
 tags:
   - Film and prototype

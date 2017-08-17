@@ -26,7 +26,7 @@ class ProjectTemplate extends React.Component {
   }
   render() {
     const project = this.props.data.markdownRemark
-    const { title, tags, headerSubtitle } = project.frontmatter
+    const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
     const { isProject, featuredImageUrl, carousel} = project.fields
     const html = wrapSingleByteTexts(project.html, 'singleByte')
     return (
@@ -48,7 +48,7 @@ class ProjectTemplate extends React.Component {
               }}>
                 <div className="hero-head">
                   <Header
-                    title={"This is " + title + " project."}
+                    title={headerTitle}
                     subtitle={headerSubtitle}
                     link={(
                       <Link to={"/"} >See Other Projects</Link>
@@ -91,6 +91,7 @@ export const projectPageQuery = graphql`
       frontmatter {
         title
         tags
+        headerTitle
         headerSubtitle
       }
       fields {

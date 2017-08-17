@@ -1,5 +1,6 @@
 ---
 title: Plantolympics
+headerTitle: This is Plantolympics project.
 headerSubtitle: It looks at alternative forms of intelligence.
 tags:
   - Film and animation
