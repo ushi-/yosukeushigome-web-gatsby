@@ -71,6 +71,23 @@ $tag-color: $text
   margin-bottom: 0.5rem
   font-weight: $weight-bold
 
+details
+  summary
+    margin-bottom: 1rem
+    &:focus
+      outline: none
+    &::-webkit-details-marker
+      display: none
+    &::before
+      content: "\f0da"
+      font-family: 'FontAwesome'
+      display: inline-block
+      width: 1rem
+details[open]
+  summary::before
+    content: '\f0d7'
+
+
 // header
 
 .headroom--scrolled
