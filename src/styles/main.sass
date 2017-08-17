@@ -52,6 +52,16 @@ $tag-color: $text
     span.singleByte
       font-size: $body-size
       padding: 0 0.125rem
+  ul
+    list-style: none
+    margin-left: 1em
+    li
+      padding-left: 1em
+    li::before
+      content: '-'
+      display: inline-block
+      margin-left: -1em
+      width: 1em
 
 .title.is-1,
 .title.is-2
