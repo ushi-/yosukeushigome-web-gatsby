@@ -5,7 +5,7 @@ var wrapSingleByteTexts = (oldHtml, className) => {
 	var isTag = false;
 	var isHan = false;
 
-	var re = new RegExp(/[\da-z\.\-\!"#\$%&'\(\)=\^~\|@`\[\{\]\}\*\:\+;\?\/\,_\\]/i);
+	var re = new RegExp(/[\da-z\s\.\-\!"#\$%&'\(\)=\^~\|@`\[\{\]\}\*\:\+;\?\/\,_\\]/i);
 
 	var html = oldHtml;
 	html = html.replace(/\s+>/g, '>');

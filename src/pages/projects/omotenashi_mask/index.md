@@ -24,10 +24,12 @@ In response, Takram’s Omotenashi Mask project explores how to aid cross-cultur
 
 The project stages a conversation between a Japanese taxi driver and a foreign tourist, which will typify communication during Tokyo 2020. In the conversation, various algorithms are employed to mediate the communication between the two, expanding our imagination of what communication could mean in an extreme, yet familiar future.
 
+<div class="ja">
 <details>
-<summary>In Japanese</summary>
-このテキストは日本語
+<summary>Read in 日本語</summary>
+このテキストは日本語。English is interesting と日本語は併記されてもダイジョブ。
 </details>
+</div>
 
 ### Credit
 

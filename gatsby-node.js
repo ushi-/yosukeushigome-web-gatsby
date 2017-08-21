@@ -41,7 +41,7 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         n => n.internal.type === `File`
       )
       for (file of files) {
-        console.log(file.absolutePath);
+        // console.log(file.absolutePath);
       }
       const getPublicImageUrl = (url) => {
         returnUrl = url
@@ -84,7 +84,7 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         carouselUrls.push(getPublicImageUrl(url))
       }
       createNodeField({ node, name: `carousel`, value: carouselUrls})
-      console.log(node.fields);
+      // console.log(node.fields);
     }
   }
 }
