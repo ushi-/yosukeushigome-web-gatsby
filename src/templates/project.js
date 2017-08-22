@@ -4,6 +4,7 @@ import {TrackDocument, Track} from 'react-track'
 import {bottomTop, calculateScrollY} from 'react-track/tracking-formulas'
 import {tween} from 'react-imation'
 import {translate3d} from 'react-imation/tween-value-factories'
+import slugify from 'slug'
 
 import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import MainColumn from '../components/mainColumn'
@@ -29,6 +30,7 @@ class ProjectTemplate extends React.Component {
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
     const { isProject, featuredImageUrl, carousel} = project.fields
     const html = wrapSingleByteTexts(project.html, 'singleByte')
+    const slug = slugify(title, {lower: true, })
     return (
       <div>
         <TrackDocument formulas={[bottomTop, calculateScrollY]}>
@@ -40,12 +42,14 @@ class ProjectTemplate extends React.Component {
               [posBottomTop, {transform: translate3d(0, this.state.didMount ? -100 : 0, 0)}]
             ])
             return (
-              <Section className="hero is-fullheight project-hero" css={{
+              <Section
+                className={"hero is-fullheight project-hero " + slug}
+                css={{
                   '::before': {
                     backgroundImage: `url(${featuredImageUrl})`,
                     ...translateTween
                   }
-              }}>
+                }}>
                 <div className="hero-head">
                   <Header
                     title={headerTitle}
@@ -66,7 +70,7 @@ class ProjectTemplate extends React.Component {
             )}
           }</Track>
         }</TrackDocument>
-        <section className={"section project-content " +  title.replace(' ', '-').toLowerCase()}>
+        <section className={"section project-content " + slug}>
           <MainColumn>
             <ProjectHeader project={project} />
           </MainColumn>

@@ -39,6 +39,7 @@
     "react-track": "^0.4.4",
     "react-typography": "^0.15.10",
     "slick-carousel": "^1.7.1",
+    "slug": "^0.9.1",
     "typography": "^0.15.12"
   }
 }

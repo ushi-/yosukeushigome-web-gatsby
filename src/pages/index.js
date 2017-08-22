@@ -74,6 +74,7 @@ export const allProjectQuery = graphql`
     allMarkdownRemark(
       limit: 2000
       filter: { fields: { isProject: { eq: true } } }
+      sort: { fields: [id], order: ASC }
     ) {
       edges {
         node {
