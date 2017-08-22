@@ -11,6 +11,29 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent)
 
+    // wrapSingleByteTexts
+    node.internal.content = node.internal.content.replace(
+      /<div[^>]*class="(.*?ja.*?)"[^>]*>[\s\S]*<\/div>/gm,
+      function replace(tag) {
+        return tag.replace(
+          />[\s\S]?[^><]+[\s\S]?</igm,
+          function replace(content) {
+            return content.replace(
+              /[\da-z\.\-\!"#\$%&'\(\)=\^~\|@`\[\{\]\}\*\:\+;\?\/\,_\\\s]+/igm,
+              function replace(singleBytePhraseWithSpace) {
+                return singleBytePhraseWithSpace.replace(
+                  /^[\da-z\.\-\!"#\$%&'\(\)=\^~\|@`\[\{\]\}\*\:\+;\?\/\,_\\].*/igm,
+                  function replace(singleBytePhrase) {
+                    return '<span class="single-byte">' + singleBytePhrase + '</span>'
+                  }
+                )
+              }
+            )
+          }
+        )
+      }
+    )
+
     // adding path as the slug
     const parsedFilePath = path.parse(fileNode.relativePath)
     if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
@@ -33,8 +56,6 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         footnotes: true,
         pedantic: true,
       })
-      const markdownAST = remark.parse(node.internal.content)
-
       let featuredImageUrl = node.frontmatter.featuredImage
       let carousel = node.frontmatter.carousel
       const files = _.values(store.getState().nodes).filter(

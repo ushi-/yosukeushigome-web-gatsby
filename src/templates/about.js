@@ -1,14 +1,12 @@
 import React from "react"
 import Link from "gatsby-link"
 
-import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import Header from '../components/header'
 import MainColumn from '../components/mainColumn'
 
 class AboutTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const html = wrapSingleByteTexts(post.html, 'singleByte')
     const { headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
     return (
       <div>
@@ -20,7 +18,7 @@ class AboutTemplate extends React.Component {
         )}/>
         <section className="section">
           <MainColumn>
-            <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+            <div className="content" dangerouslySetInnerHTML={{ __html: post.html }} />
           </MainColumn>
         </section>
       </div>

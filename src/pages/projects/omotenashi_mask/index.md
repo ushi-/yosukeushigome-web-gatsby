@@ -27,8 +27,8 @@ The project stages a conversation between a Japanese taxi driver and a foreign t
 
 <div class="ja">
 <details>
-<summary>Read in 日本語</summary>
-このテキストは日本語。English is interesting と日本語は併記されてもダイジョブ。
+<summary>Read in日本語</summary>
+このテキストは日本語。English is interestingと日本語は併記されてもダイジョブ。
 </details>
 </div>
 

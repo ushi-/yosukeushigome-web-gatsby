@@ -6,7 +6,6 @@ import {tween} from 'react-imation'
 import {translate3d} from 'react-imation/tween-value-factories'
 import slugify from 'slug'
 
-import wrapSingleByteTexts from '../utils/wrapSingleByteTexts'
 import MainColumn from '../components/mainColumn'
 import Header from '../components/header'
 import ProjectHeader from '../components/projectHeader'
@@ -29,7 +28,6 @@ class ProjectTemplate extends React.Component {
     const project = this.props.data.markdownRemark
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
     const { isProject, featuredImageUrl, carousel} = project.fields
-    const html = wrapSingleByteTexts(project.html, 'singleByte')
     const slug = slugify(title, {lower: true, })
     return (
       <div>
@@ -78,7 +76,7 @@ class ProjectTemplate extends React.Component {
             <Carousel urls={carousel}/>
           </div>
           <MainColumn>
-            <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+            <div className="content" dangerouslySetInnerHTML={{ __html: project.html }} />
           </MainColumn>
         </section>
       </div>
