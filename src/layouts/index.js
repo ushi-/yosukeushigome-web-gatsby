@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {Helmet} from "react-helmet";
 
 import Footer from '../components/footer'
-
 import "../styles/main.sass"
 import "../font-awesome/scss/font-awesome.scss"
 

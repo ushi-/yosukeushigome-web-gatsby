@@ -40,6 +40,8 @@
     "react-typography": "^0.15.10",
     "slick-carousel": "^1.7.1",
     "slug": "^0.9.1",
+    "typeface-karla": "0.0.35",
+    "typeface-zilla-slab": "0.0.35",
     "typography": "^0.15.12"
   }
 }
