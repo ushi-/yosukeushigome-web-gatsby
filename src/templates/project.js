@@ -30,14 +30,15 @@ class ProjectTemplate extends React.Component {
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
     const { isProject, featuredImageUrl, carousel} = project.fields
     const slug = slugify(title, {lower: true, })
+    const siteTitle = title + ' | ' + this.props.data.site.siteMetadata.title
     const description = headerTitle + ' ' + headerSubtitle
     const ogpImage = featuredImageUrl
     return (
       <div>
         <Helmet>
-          <title>{title}</title>
-          <meta property="og:title" content={title} />
-          <meta name="twitter:title" content={title} />
+          <title>{siteTitle}</title>
+          <meta property="og:title" content={siteTitle} />
+          <meta name="twitter:title" content={siteTitle} />
           <meta name="description" content={description} />
           <meta property="og:description" content={description} />
           <meta name="twitter:description" content={description} />
@@ -101,6 +102,11 @@ export default ProjectTemplate
 
 export const projectPageQuery = graphql`
   query ProjectPageBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug }}) {
       html
       frontmatter {

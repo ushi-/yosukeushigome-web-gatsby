@@ -70,4 +70,4 @@ My primary interests are centred around emerging technologies. I probe future vi
 </form>
 </p>
 
-Here is my PGP key if you prefer end-to-end encryption.
+[Here](Yosuke_Ushigome_pub.asc) is my PGP key if you prefer end-to-end encryption.
