@@ -42,7 +42,7 @@ class Index extends React.Component {
       }</TrackDocument>
     )
     const { projectSelected } = this.state
-    const { headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
+    const { title, headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
     const aboutLink = (
       <Link to={"/about"}>More about me</Link>
     )

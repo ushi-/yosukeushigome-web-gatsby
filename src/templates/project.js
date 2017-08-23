@@ -5,6 +5,7 @@ import {bottomTop, calculateScrollY} from 'react-track/tracking-formulas'
 import {tween} from 'react-imation'
 import {translate3d} from 'react-imation/tween-value-factories'
 import slugify from 'slug'
+import {Helmet} from "react-helmet";
 
 import MainColumn from '../components/mainColumn'
 import Header from '../components/header'
@@ -29,8 +30,20 @@ class ProjectTemplate extends React.Component {
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
     const { isProject, featuredImageUrl, carousel} = project.fields
     const slug = slugify(title, {lower: true, })
+    const description = headerTitle + ' ' + headerSubtitle
+    const ogpImage = featuredImageUrl
     return (
       <div>
+        <Helmet>
+          <title>{title}</title>
+          <meta property="og:title" content={title} />
+          <meta name="twitter:title" content={title} />
+          <meta name="description" content={description} />
+          <meta property="og:description" content={description} />
+          <meta name="twitter:description" content={description} />
+          <meta property="og:image" content={ogpImage} />
+          <meta name="twitter:image" content={ogpImage} />
+        </Helmet>
         <TrackDocument formulas={[bottomTop, calculateScrollY]}>
         {(bottomTop, scrollY) =>
           <Track component="section" formulas={[bottomTop]}>
