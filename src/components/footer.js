@@ -7,7 +7,7 @@ class Footer extends React.Component {
     const date = new Date()
     const year = date.getFullYear()
     return (
-      <footer className="footer">
+      <section className="section footer">
         <MainColumn>
           <div className="has-text-centered">
             <p>
@@ -18,7 +18,7 @@ class Footer extends React.Component {
             </p>
           </div>
         </MainColumn>
-      </footer>
+      </section>
     )
   }
 
