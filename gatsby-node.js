@@ -4,6 +4,7 @@ const select = require(`unist-util-select`)
 const _ = require(`lodash`)
 const isRelativeUrl = require(`is-relative-url`)
 const fsExtra = require(`fs-extra`)
+const slugify = require('slug')
 
 exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
@@ -34,20 +35,25 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
       }
     )
 
-    // adding path as the slug
     const parsedFilePath = path.parse(fileNode.relativePath)
-    if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
-      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
-    } else if (parsedFilePath.dir === ``) {
-      slug = `/${parsedFilePath.name}/`
-    } else {
-      slug = `/${parsedFilePath.dir}/`
-    }
-    createNodeField({ node, name: `slug`, value: slug })
 
     // adding the project flag
     isProject = parsedFilePath.dir.indexOf('projects') === 0
     createNodeField({ node, name: `isProject`, value: isProject })
+
+    // adding path as the slug
+    if (isProject) {
+      slug = `/projects/${slugify(node.frontmatter.title, {lower: true, })}`
+    } else {
+      if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
+      } else if (parsedFilePath.dir === ``) {
+        slug = `/${parsedFilePath.name}/`
+      } else {
+        slug = `/${parsedFilePath.dir}/`
+      }
+    }
+    createNodeField({ node, name: `slug`, value: slug })
 
     if (isProject) {
       // adding the featured image url

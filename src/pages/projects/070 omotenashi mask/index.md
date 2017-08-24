@@ -12,7 +12,6 @@ carousel:
   - "https://www.youtube.com/watch?v=3lU47IFPAoI"
   - "./images/1.jpg"
   - "./images/2.gif"
-id: 70
 ---
 
 ### Overview

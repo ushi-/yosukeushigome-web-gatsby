@@ -13,7 +13,6 @@ carousel:
   - "./images/plant-fabric.gif"
   - "./images/plant-slowdrive.gif"
   - "./images/plant-sprint.gif"
-id: 60
 ---
 
 ### Overview

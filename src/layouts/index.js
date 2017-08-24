@@ -5,7 +5,7 @@ import {Helmet} from "react-helmet";
 import Footer from '../components/footer'
 import "../styles/main.sass"
 import "../font-awesome/scss/font-awesome.scss"
-import ogpImage from '../pages/projects/omotenashi_mask/images/index.jpg'
+import ogpImage from '../utils/ogpImage.jpg'
 
 const Layout = ({ children, location, data }) => {
   const { title, headerTitle, headerSubtitle } = data.site.siteMetadata
