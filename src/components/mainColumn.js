@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MainColumn = ({ children }) => (
-  <div className="container is-fluid">
+  <div className="container">
     <div className="columns is-desktop">
       <div className="column is-8 is-offset-2">
         {children}
