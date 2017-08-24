@@ -37,6 +37,14 @@ My primary interests are centred around emerging technologies. I probe future vi
 * Lecture WIRED x DESIGN, 2015
 * Exhibition Science Gallery, Dublin, 2015
 
+<details>
+<summary>Show more</summary>
+
+* hoge
+* hgoehgoe
+
+</details>
+
 ### Experience
 
 * Co-founder & designer at Takram London, 2015 - current
