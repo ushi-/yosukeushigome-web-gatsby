@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PropTypes, Component } from 'react'
 import {TrackDocument, Track} from 'react-track'
 import {calculateScrollY} from 'react-track/tracking-formulas'
 import {tween} from 'react-imation'
@@ -9,17 +9,23 @@ class ScrollIndicator extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      forward: true
+      forward: true,
+      numRepeats: 0
     }
   }
   handleRest = () => {
-    setTimeout(() => {
-      this.setState({
-        forward: !this.state.forward
-      })
-    }, 1)
+    if (this.props.maxNumRepeats == -1 ||
+      this.state.numRepeats + 1 <= this.props.maxNumRepeats) {
+      setTimeout(() => {
+        this.setState({
+          forward: !this.state.forward,
+          numRepeats: this.state.numRepeats + 1
+        })
+      }, 1)
+    }
   }
   render() {
+    const { maxNumRepeats } = this.props
     const { forward } = this.state
     return (
       <Motion
@@ -39,7 +45,7 @@ class ScrollIndicator extends Component {
               display: scrollY > 300 ? 'none' : 'inherit',
               ...opacityTween
             }}>
-              <span className="icon is-medium">
+              <span className="icon is-large">
                 <i className="fa fa-angle-down"></i>
               </span>
             </div>
@@ -48,6 +54,14 @@ class ScrollIndicator extends Component {
       }</Motion>
     )
   }
+}
+
+ScrollIndicator.propTypes = {
+  maxNumRepeats: PropTypes.number
+}
+
+ScrollIndicator.defaultProps = {
+  maxNumRepeats: 5
 }
 
 export default ScrollIndicator
