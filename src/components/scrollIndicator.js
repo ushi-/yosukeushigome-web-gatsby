@@ -36,7 +36,7 @@ class ScrollIndicator extends Component {
           return (
             <div className="scroll-indicator" css={{
               transform: `translateY(${x/2}rem)`,
-              display: scrollY > 300 ? 'hidden' : 'inherit',
+              display: scrollY > 300 ? 'none' : 'inherit',
               ...opacityTween
             }}>
               <span className="icon is-medium">

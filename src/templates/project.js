@@ -51,7 +51,7 @@ class ProjectTemplate extends React.Component {
           {(Section, posBottomTop) => {
             const translateTween = tween(scrollY, [
               [0, {transform: translate3d(0, 0, 0)}],
-              [posBottomTop, {transform: translate3d(0, this.state.didMount ? -100 : 0, 0)}]
+              [posBottomTop, {transform: translate3d(0, this.state.didMount ? -0 : 0, 0)}]
             ])
             return (
               <Section

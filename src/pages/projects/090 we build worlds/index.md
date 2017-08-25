@@ -19,6 +19,12 @@ To best convey the concept of LSUX, “unlocking the potential hidden in everyda
 
 Each exhibit highlights LSUX products’ unique potential to the full extent. Subtle and intricate animations exploit the high-definition nature of the 4K Projector, while Portable Projector is placed everywhere in the residence to show off its portability and ultra short throw, with one of them even revolving.
 
+![Revolving Journey](./images/04-revolving_journey.gif)
+
+![Augmented Exploration](./images/02-augmented_exploration.jpg)
+
+![Hallway](./images/03-animating_encyclopedia.jpg)
+
 ### Credit
 
 * Client: Sony Life Space UX

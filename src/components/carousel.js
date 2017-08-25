@@ -25,7 +25,7 @@ const Carousel = ({ urls, className }) => {
                       position="relative"
                       display="block"
                       width="100%"
-                      height="66.66vw"
+                      height="56.25vw"
                       allowFullScreen/>
         ) : (
           <figure className="image">

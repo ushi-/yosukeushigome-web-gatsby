@@ -87,8 +87,8 @@ class MotionThumbnail extends Component {
 
                 const radius = shape === 'circle' ? widthPx / 2.0 : 0
                 const translateTween = tween(scrollY, [
-                  [wrapperPos.topBottom, {transform: translate3d(0, 100 * (1 - shouldExpand * x), 0)}],
-                  [wrapperPos.bottomTop, {transform: translate3d(0, -100 * (1 - shouldExpand * x), 0)}]
+                  [wrapperPos.topBottom, {transform: translate3d(0, 0 * (1 - shouldExpand * x), 0)}],
+                  [wrapperPos.bottomTop, {transform: translate3d(0, -0 * (1 - shouldExpand * x), 0)}]
                 ])
                 return (
                   <Div
