@@ -83,13 +83,13 @@ class ProjectTemplate extends React.Component {
           }</Track>
         }</TrackDocument>
         <section className={"section project-content " + slug}>
-          <MainColumn>
+          <MainColumn className="container-project-header">
             <ProjectHeader project={project} />
           </MainColumn>
           <div className="container container-carousel">
             <Carousel urls={carousel}/>
           </div>
-          <MainColumn>
+          <MainColumn className="container-project-markdown">
             <div className="content" dangerouslySetInnerHTML={{ __html: project.html }} />
           </MainColumn>
         </section>
