@@ -21,12 +21,17 @@ const Carousel = ({ urls, className }) => {
     return (
       <div key={i} className={"carousel-element " + className} >
         {isVideo ? (
-          <Iframe url={videoUrl}
-                      position="relative"
-                      display="block"
-                      width="100%"
-                      height="56.25vw"
-                      allowFullScreen/>
+          <div className="iframe-wrapper">
+            <Iframe url={videoUrl}
+                    position="absolute"
+                    width="100%"
+                    height="100%"
+                    styles={{
+                      "top": "0",
+                      "left": "0"
+                    }}
+                    allowFullScreen />
+          </div>
         ) : (
           <figure className="image">
             <img src={url} />
