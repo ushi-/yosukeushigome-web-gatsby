@@ -23,7 +23,7 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 ### News
 
-* _26 Aug 2017_ : [Professional Sharing](https://www.yosukeushigo.me/projects/professional-sharing) will be exhibited at [Inter/sections](https://intersections.io/) from 04 Sep.
+* _26 Aug 2017_ : [Professional Sharing](https://www.yosukeushigo.me/projects/professional-sharing) will be exhibited at [Inter/sections](https://intersections.io/).
 * _29 May 2017_ : I appeared on Hodokyoku, an internet TV program in Japan.
 * _22 Apr 2017_ : I was invited to give a lecture on People/User at [Resonate](http://resonate.io/2017/).
 * _27 Mar 2017_ : I gave a short talk/workshop on Takram's data visualisation practice at [Data Fest](https://www.datafest.global/).

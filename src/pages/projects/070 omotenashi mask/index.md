@@ -9,9 +9,6 @@ tags:
 featuredImage: "./images/index.jpg"
 carousel:
   - "https://vimeo.com/219317251"
-  - "https://www.youtube.com/watch?v=3lU47IFPAoI"
-  - "./images/1.jpg"
-  - "./images/2.gif"
 ---
 
 ### Overview
@@ -27,9 +24,19 @@ The project stages a conversation between a Japanese taxi driver and a foreign t
 <div class="ja">
 <details>
 <summary>Read in日本語</summary>
-このテキストは日本語。English is interestingと日本語は併記されてもダイジョブ。
+
+2020年東京オリンピックへ向けて、「おもてなし」のスローガンのもと、サービス業を中心に英語コミュニケーションを奨励する日本。一方で、様々な企業がAIをバックエンドにした自動翻訳テクノロジーの開発に着手してもいる。
+
+それに対してOmotenashi Maskは、現在広く使われている低コストなテクノロジーを異文化コミュニケーションに無理やり使うことで、コミュニケーションがどのようにサポートされ、また変質させられるのかを探るプロジェクトである。スマホアプリなどに組み込まれているテキスト読み上げ機能を異言語間で使うことにより実現される「訛りトランスファー」、顔交換アルゴリズムを使って対話相手に対してストレスの少ない顔を作り出す「おもてなしマスク」。「完璧に発言の意味を翻訳する」という理想から距離を置き、別の角度からコミュニケーションに対して介入していこうとするこれらのプロトタイプによって、複雑で精妙な対話の本質に迫ることができるかもしれない。
+
+映像では「タクシー運転手と外国人観光客」という2020年に典型的な会話を舞台に、これらのプロトタイプがコミュニケーションに及ぼす影響やその可能性を表現している。
+
 </details>
 </div>
+
+###
+
+![Exhibition setup](./images/omotenashi.gif)
 
 ### Credit
 
