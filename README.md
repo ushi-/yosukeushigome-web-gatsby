@@ -29,4 +29,4 @@ English texts (single-byte texts) inserted within it are automatically wrapped w
 | Featured Image    | 1:1           | 1600 px   |
 | Carousel Image    | 16:9          | 1344 px   |
 | Landscape Image   | 3:2           | 888 px    |
-| Portrait Image    | 3:4           | 720 px    |
+| Portrait Image    | 3:4           | 888 px    |
