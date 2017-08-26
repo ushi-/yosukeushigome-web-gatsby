@@ -42,7 +42,7 @@ const Carousel = ({ urls, className }) => {
   })
   const settings = {
     accessibility: true,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     arrows: urls.length > 1,
     dots: urls.length > 1,
     draggable: urls.length > 1,
