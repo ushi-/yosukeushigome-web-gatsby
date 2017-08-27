@@ -6,6 +6,7 @@ tags:
   - Prototype and animation
   - New sensor technology
   - "2015"
+  - At Takram
 featuredImage: "./images/index.jpg"
 carousel:
 - "https://www.youtube.com/watch?v=5P3gj3cMOzc"

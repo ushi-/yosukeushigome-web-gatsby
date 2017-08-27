@@ -6,6 +6,7 @@ tags:
   - Installation
   - Fiction and imagination
   - "2017"
+  - At Takram
 featuredImage: "./images/index.jpg"
 carousel:
 - "./images/00-living.jpg"

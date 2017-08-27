@@ -43,8 +43,8 @@ My primary interests are centred around emerging technologies. I probe future vi
 * _Exhibition_ : [Media Ambition Tokyo](http://mediaambitiontokyo.jp/), 2017
 * _Workshop_ : Live with AI at [NEXT Conference](https://nextconf.eu/), Hamburg, 2016
 * _Lecture_ : WIRED x DESIGN, Tokyo, 2015
-* _Exhibition_ : LIFELOGGING at [Science Gallery Dublin](https://dublin.sciencegallery.com/), 2015
-* _Exhibition_ : The Fab Mind at [21_21 DESIGN SIGHT](http://www.2121designsight.jp/en/program/fab_mind/), 2014
+* _Exhibition_ : [LIFELOGGING](https://dublin.sciencegallery.com/lifelogging) at Science Gallery Dublin, 2015
+* _Exhibition_ : [The Fab Mind](http://www.2121designsight.jp/en/program/fab_mind/) at 21_21 DESIGN SIGHT, Tokyo, 2014
 
 <details>
 <summary>Show all</summary>
@@ -54,18 +54,18 @@ My primary interests are centred around emerging technologies. I probe future vi
 * _Lecture_ : [Data Fest](https://www.datafest.global/), Edinburgh, 2017
 * _Exhibition_ : [Media Ambition Tokyo](http://mediaambitiontokyo.jp/), 2017
 * _Lecture_ : London College of Communication, 2016
-* _Exhibition_ : New Style New Artist at ICC, Tokyo, 2016
+* _Exhibition_ : [New Style New Artist](http://www.ntticc.or.jp/en/exhibitions/2016/talk-new-styles-new-artists-oct-28-2016/) at ICC, Tokyo, 2016
 * _Workshop_ : Live with AI at [NEXT Conference](https://nextconf.eu/), Hamburg, 2016
-* _Exhibition_ : Scenes Unseen at London Design Festival, 2016
+* _Exhibition_ : [Scenes Unseen](http://scenesunseen.takram.com/) at London Design Festival, 2016
 * _Workshop_ : V&A Friday Late, London, 2016
-* _Exhibition_ : Unread Messages at Aram Gallery, London, 2016
+* _Exhibition_ : [Unread Messages](http://unreadmessages.com/) at Aram Gallery, London, 2016
 * _Workshop_ : Takram Academy at Space Art Technology, London, 2016
 * _Talk_ : IAMAS graduation show, Gifu, 2016
 * _Writing_ : [Speculative Everything Japanese Edition](http://amzn.asia/dKgTQyb), 2016
-* _Exhibition_ : 8h Ahead at London Design Festival, 2015
+* _Exhibition_ : [8h Ahead](https://www.takram.com/projects/8h-ahead/) at London Design Festival, 2015
 * _Workshop_ : Speculative Ohgiri for WIRED, Tokyo, 2015
 * _Lecture_ : WIRED x DESIGN, Tokyo, 2015
-* _Exhibition_ : The Fab Mind at [21_21 DESIGN SIGHT](http://www.2121designsight.jp/en/program/fab_mind/), Tokyo, 2014
+* _Exhibition_ : [The Fab Mind](http://www.2121designsight.jp/en/program/fab_mind/) at 21_21 DESIGN SIGHT, Tokyo, 2014
 * _Talk_ : The Design Batons at Japan Institute of Design Promotion, Tokyo, 2014
 * _Exhibition_ : [Wearable Futures](http://www.wearablefutures.co/), London, 2013
 * _Exhibition_ : Bunny Smash at [Museum of Contemporary Art Tokyo](http://www.mot-art-museum.jp/eng/2013/usagi_smash/), 2013

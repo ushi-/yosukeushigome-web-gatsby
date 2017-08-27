@@ -6,6 +6,7 @@ tags:
   - Film and animation
   - Plant experiments
   - "2016"
+  - At Takram
 featuredImage: "./images/index.jpg"
 carousel:
   - "https://vimeo.com/197917706"
