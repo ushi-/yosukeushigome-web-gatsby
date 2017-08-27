@@ -28,5 +28,43 @@ module.exports = {
         shape: 'portrait'
       },
     ],
+    [
+      {
+        offset: 25,
+        width: 50,
+        shape: 'portrait'
+      },
+    ],
+    [
+      {
+        offset: 10,
+        width: 70,
+        shape: 'circle'
+      },
+      {
+        offset: 60,
+        width: 30,
+        shape: 'portrait'
+      },
+    ],
+    [
+      {
+        offset: 20,
+        width: 70,
+        shape: 'horizontal'
+      },
+    ],
+    [
+      {
+        offset: 30,
+        width: 60,
+        shape: 'bar'
+      },
+      {
+        offset: 10,
+        width: 30,
+        shape: 'portrait'
+      },
+    ]
   ]
 }

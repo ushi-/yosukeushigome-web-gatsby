@@ -11,13 +11,17 @@ class Index extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      projectSelected: false
+      projectSelected: false,
+      motionThumbnailPropIndeces: new Array(100).fill(undefined).map((val,idx) => utils.randomBetween(0, utils.motionThumbnailProps.length - 1))
     }
   }
   handleClick = () => {
     this.setState({
       projectSelected: true
     })
+  }
+  componentDidMount = () => {
+    console.log(this.state.motionThumbnailPropIndeces);
   }
   render() {
     const projectsContainer = (
@@ -27,7 +31,7 @@ class Index extends React.Component {
         {(Div, posTopTop) =>
           <Div>
             {this.props.data.allMarkdownRemark.edges.map((post, i) => {
-              const motionThumbnailProps = utils.motionThumbnailProps[i % utils.motionThumbnailProps.length]
+              const motionThumbnailProps = utils.motionThumbnailProps[this.state.motionThumbnailPropIndeces[i]]
               return (
                 <IndexProject
                   key={i}
