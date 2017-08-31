@@ -8,9 +8,9 @@ tags:
   - "2013"
   - At Superflux
 featuredImage: "./images/index.jpg"
-carousel:
-  - "./images/worn2.jpg"
 ---
+
+![Open Informant](./images/worn2.jpg)
 
 ### Overview
 

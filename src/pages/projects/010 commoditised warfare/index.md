@@ -7,9 +7,9 @@ tags:
   - War and spectacle
   - "2013"
 featuredImage: "./images/index.jpg"
-carousel:
-  - "https://vimeo.com/85345757"
 ---
+
+<iframe src="https://player.vimeo.com/video/85345757" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Overview
 

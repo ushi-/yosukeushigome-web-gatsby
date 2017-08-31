@@ -8,9 +8,9 @@ tags:
   - "2017"
   - At Takram
 featuredImage: "./images/index.jpg"
-carousel:
-- "./images/00-living.jpg"
 ---
+
+![We Build Worlds](./images/00-living.jpg)
 
 ### Overview
 

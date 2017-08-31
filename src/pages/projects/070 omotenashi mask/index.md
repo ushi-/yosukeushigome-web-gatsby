@@ -8,9 +8,9 @@ tags:
   - "2016"
   - At Takram
 featuredImage: "./images/index.jpg"
-carousel:
-  - "https://vimeo.com/219317251"
 ---
+
+<iframe src="https://player.vimeo.com/video/219317251" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Overview
 

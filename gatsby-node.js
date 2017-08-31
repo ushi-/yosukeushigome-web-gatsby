@@ -63,7 +63,6 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         pedantic: true,
       })
       let featuredImageUrl = node.frontmatter.featuredImage
-      let carousel = node.frontmatter.carousel
       const files = _.values(store.getState().nodes).filter(
         n => n.internal.type === `File`
       )
@@ -106,12 +105,6 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
       }
       featuredImageUrl = getPublicImageUrl(featuredImageUrl)
       createNodeField({ node, name: `featuredImageUrl`, value: featuredImageUrl })
-      let carouselUrls = []
-      for (url of carousel) {
-        carouselUrls.push(getPublicImageUrl(url))
-      }
-      createNodeField({ node, name: `carousel`, value: carouselUrls})
-      // console.log(node.fields);
     }
   }
 }

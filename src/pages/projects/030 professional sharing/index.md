@@ -7,9 +7,9 @@ tags:
   - Gig economy
   - "2015"
 featuredImage: "./images/index.jpg"
-carousel:
-  - "https://www.youtube.com/watch?v=su0FY0zmkT0"
 ---
+
+<iframe src="https://player.vimeo.com/video/114499237" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Overview
 

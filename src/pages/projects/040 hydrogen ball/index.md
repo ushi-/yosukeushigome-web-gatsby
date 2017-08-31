@@ -8,9 +8,9 @@ tags:
   - "2015"
   - At Takram
 featuredImage: "./images/index.jpg"
-carousel:
-  - "./images/1.jpg"
 ---
+
+![Hydrogen Ball](./images/1.jpg)
 
 ### Overview
 

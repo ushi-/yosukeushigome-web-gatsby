@@ -10,7 +10,6 @@ import {Helmet} from "react-helmet";
 import MainColumn from '../components/mainColumn'
 import Header from '../components/header'
 import ProjectHeader from '../components/projectHeader'
-import Carousel from '../components/carousel'
 import ScrollIndicator from '../components/scrollIndicator'
 
 class ProjectTemplate extends React.Component {
@@ -28,7 +27,7 @@ class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.markdownRemark
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
-    const { isProject, featuredImageUrl, carousel} = project.fields
+    const { isProject, featuredImageUrl} = project.fields
     const slug = slugify(title, {lower: true, })
     const siteTitle = title + ' | ' + this.props.data.site.siteMetadata.title
     const description = headerTitle + ' ' + headerSubtitle
@@ -86,9 +85,6 @@ class ProjectTemplate extends React.Component {
           <MainColumn className="container-project-header">
             <ProjectHeader project={project} />
           </MainColumn>
-          <div className="container container-carousel">
-            <Carousel urls={carousel}/>
-          </div>
           <MainColumn className="container-project-markdown">
             <div className="content" dangerouslySetInnerHTML={{ __html: project.html }} />
           </MainColumn>
@@ -118,7 +114,6 @@ export const projectPageQuery = graphql`
       fields {
         isProject
         featuredImageUrl
-        carousel
       }
     }
   }
