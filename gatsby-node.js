@@ -5,13 +5,13 @@ const _ = require(`lodash`)
 const isRelativeUrl = require(`is-relative-url`)
 const fsExtra = require(`fs-extra`)
 const slugify = require('slug')
+const { responsiveSizes } = require(`gatsby-plugin-sharp`)
 
 exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
   let slug, isProject
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent)
-
     // wrapSingleByteTexts
     node.internal.content = node.internal.content.replace(
       /<div[^>]*class="(.*?ja.*?)"[^>]*>[\s\S]*<\/div>/gm,
@@ -57,54 +57,66 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
 
     if (isProject) {
       // adding the featured image url
-      const remark = new Remark().data(`settings`, {
-        commonmark: true,
-        footnotes: true,
-        pedantic: true,
-      })
       let featuredImage = node.frontmatter.featuredImage
-      const files = _.values(store.getState().nodes).filter(
-        n => n.internal.type === `File`
-      )
-      for (file of files) {
-        // console.log(file.absolutePath);
-      }
-      const getPublicImageUrl = (url) => {
-        returnUrl = url
-        if (
-          isRelativeUrl(returnUrl) &&
-          getNode(node.parent).internal.type === `File`
-        ) {
-          const linkPath = path.join(getNode(node.parent).dir, returnUrl)
-          const linkNode = _.find(files, file => {
-            if (file && file.absolutePath) {
-              return file.absolutePath === linkPath
-            }
-            return null
-          })
-          if (linkNode && linkNode.absolutePath) {
-            const newPath = path.join(
-              process.cwd(),
-              `public`,
-              `${linkNode.internal.contentDigest}.${linkNode.extension}`
-            )
-            const relativePath = path.join(
-              `/${linkNode.internal.contentDigest}.${linkNode.extension}`
-            )
-            returnUrl = `${relativePath}`
-            if (!fsExtra.existsSync(newPath)) {
-              fsExtra.copy(linkPath, newPath, err => {
-                if (err) {
-                  console.error(`error copying file`, err)
-                }
-              })
-            }
+      if (
+        isRelativeUrl(featuredImage) &&
+        getNode(node.parent).internal.type === `File`
+      ) {
+        const imagePath = path.join(
+          getNode(node.parent).dir,
+          featuredImage
+        )
+        const files = _.values(store.getState().nodes).filter(
+          n => n.internal.type === `File`
+        )
+        const imageNode = _.find(files, file => {
+          if (file && file.absolutePath) {
+            return file.absolutePath === imagePath
           }
+          return null
+        })
+        if (imageNode && imageNode.absolutePath) {
+          let options = {
+            maxWidth: 1600,
+            quality: 90,
+          }
+          responsiveSizes({
+            file: imageNode,
+            args: options,
+          }).then( (responsiveSizesResult) => {
+            createNodeField({
+              node,
+              name: `featuredImageBase64`,
+              value: responsiveSizesResult.base64
+            })
+            createNodeField({
+              node,
+              name: `featuredImageAspectRatio`,
+              value: responsiveSizesResult.aspectRatio
+            })
+            createNodeField({
+              node,
+              name: `featuredImageSrc`,
+              value: responsiveSizesResult.src
+            })
+            createNodeField({
+              node,
+              name: `featuredImageSrcSet`,
+              value: responsiveSizesResult.srcSet
+            })
+            createNodeField({
+              node,
+              name: `featuredImageOriginalImg`,
+              value: responsiveSizesResult.originalImg
+            })
+            createNodeField({
+              node,
+              name: `featuredImageOriginalName`,
+              value: responsiveSizesResult.originalName
+            })
+          })
         }
-        return returnUrl
       }
-      featuredImageUrl = getPublicImageUrl(featuredImage)
-      createNodeField({ node, name: `featuredImageUrl`, value: featuredImageUrl })
     }
   }
 }

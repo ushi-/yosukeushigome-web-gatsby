@@ -84,7 +84,6 @@ export const allProjectQuery = graphql`
         node {
           fields {
             slug
-            featuredImageUrl
             isProject
           }
           frontmatter {

@@ -113,7 +113,6 @@ export const projectPageQuery = graphql`
       }
       fields {
         isProject
-        featuredImageUrl
       }
     }
   }
