@@ -7,7 +7,7 @@ tags:
   - Hypothetical energy
   - "2015"
   - At Takram
-featuredImage: "./images/index.jpg"
+featuredImage: ./images/index.jpg
 ---
 
 ![Hydrogen Ball](./images/1.jpg)

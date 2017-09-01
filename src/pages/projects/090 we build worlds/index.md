@@ -7,7 +7,7 @@ tags:
   - Fiction and imagination
   - "2017"
   - At Takram
-featuredImage: "./images/index.jpg"
+featuredImage: ./images/index.jpg
 ---
 
 ![We Build Worlds](./images/00-living.jpg)

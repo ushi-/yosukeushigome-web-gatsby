@@ -7,7 +7,7 @@ tags:
   - Plant experiments
   - "2016"
   - At Takram
-featuredImage: "./images/index.jpg"
+featuredImage: ./images/index.jpg
 ---
 
 <iframe src="https://player.vimeo.com/video/197917706?color=ffffff" width="640" height="1138" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

@@ -6,7 +6,7 @@ tags:
   - Film
   - Gig economy
   - "2015"
-featuredImage: "./images/index.jpg"
+featuredImage: ./images/index.jpg
 ---
 
 <iframe src="https://player.vimeo.com/video/114499237" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

@@ -62,7 +62,7 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         footnotes: true,
         pedantic: true,
       })
-      let featuredImageUrl = node.frontmatter.featuredImage
+      let featuredImage = node.frontmatter.featuredImage
       const files = _.values(store.getState().nodes).filter(
         n => n.internal.type === `File`
       )
@@ -103,7 +103,7 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         }
         return returnUrl
       }
-      featuredImageUrl = getPublicImageUrl(featuredImageUrl)
+      featuredImageUrl = getPublicImageUrl(featuredImage)
       createNodeField({ node, name: `featuredImageUrl`, value: featuredImageUrl })
     }
   }

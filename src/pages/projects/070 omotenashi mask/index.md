@@ -7,7 +7,7 @@ tags:
   - Communication and language
   - "2016"
   - At Takram
-featuredImage: "./images/index.jpg"
+featuredImage: ./images/index.jpg
 ---
 
 <iframe src="https://player.vimeo.com/video/219317251" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
