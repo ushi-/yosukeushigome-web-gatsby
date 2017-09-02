@@ -4,7 +4,7 @@ import {TrackDocument, Track} from 'react-track'
 import {topTop} from 'react-track/tracking-formulas'
 
 import Header from '../components/header'
-import IndexProject from '../components/indexProject'
+import Project from '../components/project'
 import utils from '../utils'
 
 class Index extends React.Component {
@@ -30,7 +30,7 @@ class Index extends React.Component {
             {this.props.data.allMarkdownRemark.edges.map((post, i) => {
               const motionThumbnailProps = utils.motionThumbnailProps[this.state.motionThumbnailPropIndeces[i]]
               return (
-                <IndexProject
+                <Project
                   key={i}
                   project={post.node}
                   thumbnailParams={motionThumbnailProps}

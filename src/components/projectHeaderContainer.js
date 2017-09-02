@@ -9,7 +9,7 @@ import MainColumn from '../components/mainColumn'
 import ProjectHeader from '../components/projectHeader'
 import utils from '../utils'
 
-class IndexProjectHeader extends Component {
+class ProjectHeaderContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -70,14 +70,14 @@ class IndexProjectHeader extends Component {
   }
 }
 
-IndexProjectHeader.propTypes = {
+ProjectHeaderContainer.propTypes = {
   project: PropTypes.object,
   containerOriginY: PropTypes.number,
   shouldHide: PropTypes.bool,
 }
 
-IndexProjectHeader.defaultProps = {
+ProjectHeaderContainer.defaultProps = {
   shouldHide: false
 }
 
-export default IndexProjectHeader
+export default ProjectHeaderContainer

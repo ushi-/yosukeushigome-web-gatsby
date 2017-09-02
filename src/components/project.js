@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import IndexProjectHeader from '../components/indexProjectHeader'
+import ProjectHeaderContainer from '../components/projectHeaderContainer'
 import MotionThumbnail from '../components/motionThumbnail'
 
-class IndexProject extends Component {
+class Project extends Component {
   constructor(props) {
     super(props)
   }
@@ -19,7 +19,7 @@ class IndexProject extends Component {
     const vh = 100 / thumbnailParams.length
     return (
       <div>
-        <IndexProjectHeader
+        <ProjectHeaderContainer
           project={project}
           containerOriginY={containerOriginY}
           shouldHide={shouldHide} />
@@ -44,7 +44,7 @@ class IndexProject extends Component {
   }
 }
 
-IndexProject.propTypes = {
+Project.propTypes = {
   project: PropTypes.object,
   thumbnailParams: PropTypes.array,
   containerOriginY: PropTypes.number,
@@ -52,8 +52,8 @@ IndexProject.propTypes = {
   shouldHide: PropTypes.bool,
 }
 
-IndexProject.defaultProps = {
+Project.defaultProps = {
   shouldHide: false
 }
 
-export default IndexProject
+export default Project
