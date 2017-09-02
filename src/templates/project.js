@@ -1,9 +1,6 @@
+
 import React from "react"
 import Link from "gatsby-link"
-import {TrackDocument, Track} from 'react-track'
-import {bottomTop, calculateScrollY} from 'react-track/tracking-formulas'
-import {tween} from 'react-imation'
-import {translate3d} from 'react-imation/tween-value-factories'
 import slugify from 'slug'
 import {Helmet} from "react-helmet";
 
@@ -27,11 +24,16 @@ class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.markdownRemark
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
-    const { isProject, featuredImageUrl} = project.fields
+    const {
+      isProject,
+      featuredImageBase64,
+      featuredImageSrc,
+      featuredImageSrcSet,
+    } = project.fields
     const slug = slugify(title, {lower: true, })
     const siteTitle = title + ' | ' + this.props.data.site.siteMetadata.title
     const description = headerTitle + ' ' + headerSubtitle
-    const ogpImage = featuredImageUrl
+    const ogpImage = featuredImageBase64
     return (
       <div>
         <Helmet>
@@ -44,43 +46,36 @@ class ProjectTemplate extends React.Component {
           <meta property="og:image" content={ogpImage} />
           <meta name="twitter:image" content={ogpImage} />
         </Helmet>
-        <TrackDocument formulas={[bottomTop, calculateScrollY]}>
-        {(bottomTop, scrollY) =>
-          <Track component="section" formulas={[bottomTop]}>
-          {(Section, posBottomTop) => {
-            const translateTween = tween(scrollY, [
-              [0, {transform: translate3d(0, 0, 0)}],
-              [posBottomTop, {transform: translate3d(0, this.state.didMount ? -0 : 0, 0)}]
-            ])
-            return (
-              <Section
-                className={"hero is-fullheight project-hero " + slug}
-                css={{
-                  '::before': {
-                    backgroundImage: `url(${featuredImageUrl})`,
-                    ...translateTween
-                  }
-                }}>
-                <div className="hero-head">
-                  <Header
-                    title={headerTitle}
-                    subtitle={headerSubtitle}
-                    link={(
-                      <Link to={"/"} >See Other Projects</Link>
-                    )}
-                    animated={true}
-                  />
-                </div>
-                <div className="hero-body" />
-                <div className="hero-foot">
-                  <div className="container has-text-centered scroll-indicator-container" >
-                    <ScrollIndicator />
-                  </div>
-                </div>
-              </Section>
-            )}
-          }</Track>
-        }</TrackDocument>
+        <section
+          className={"hero is-fullheight project-hero " + slug}
+          css={{
+            '::before': {
+              backgroundImage: `url(${featuredImageBase64})`
+            }
+          }}>
+          <div
+            className="featured-image"
+            style={{
+              backgroundImage: `url(${featuredImageSrc})`,
+            }}
+           />
+          <div className="hero-head">
+            <Header
+              title={headerTitle}
+              subtitle={headerSubtitle}
+              link={(
+                <Link to={"/"} >See Other Projects</Link>
+              )}
+              animated={true}
+            />
+          </div>
+          <div className="hero-body" />
+          <div className="hero-foot">
+            <div className="container has-text-centered scroll-indicator-container" >
+              <ScrollIndicator />
+            </div>
+          </div>
+        </section>
         <section className={"section project-content " + slug}>
           <MainColumn className="container-project-header">
             <ProjectHeader project={project} />
@@ -113,6 +108,9 @@ export const projectPageQuery = graphql`
       }
       fields {
         isProject
+        featuredImageBase64
+        featuredImageSrc
+        featuredImageSrcSet
       }
     }
   }

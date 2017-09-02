@@ -106,6 +106,11 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
             })
             createNodeField({
               node,
+              name: `featuredImageSizes`,
+              value: responsiveSizesResult.sizes
+            })
+            createNodeField({
+              node,
               name: `featuredImageOriginalImg`,
               value: responsiveSizesResult.originalImg
             })

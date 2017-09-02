@@ -45,7 +45,7 @@ class MotionThumbnail extends Component {
     })
   }
   render() {
-    const { image, slug, wrapperPos, offset, width, height, shape, onClick, shouldHide } = this.props
+    const { image, slug, offset, width, height, shape, onClick, shouldHide } = this.props
     const { shouldWait, shouldExpand, windowHeight } = this.state
     return (
       <Motion
@@ -86,10 +86,6 @@ class MotionThumbnail extends Component {
                 heightPx = Math.round(heightPx)
 
                 const radius = shape === 'circle' ? widthPx / 2.0 : 0
-                const translateTween = tween(scrollY, [
-                  [wrapperPos.topBottom, {transform: translate3d(0, 0 * (1 - shouldExpand * x), 0)}],
-                  [wrapperPos.bottomTop, {transform: translate3d(0, -0 * (1 - shouldExpand * x), 0)}]
-                ])
                 return (
                   <Div
                     className={classnames(
@@ -98,7 +94,7 @@ class MotionThumbnail extends Component {
                         "hide": shouldHide && (!shouldExpand && !shouldWait)
                       }
                     )}
-                    css={{
+                    style={{
                       position: shouldExpand ? 'fixed' : 'relative',
                       width: shouldExpand ? tween(x, [
                         [0, px(widthPx)],
@@ -113,10 +109,14 @@ class MotionThumbnail extends Component {
                       top: `${shouldExpand ? (posTopTop - scrollY) * (1 - x) : marginTop}px`,
                       borderWidth: `${shouldExpand ? (1 - x) : 1}px`,
                       zIndex: `${shouldExpand ? 1 : 0}`,
+                    }}
+                    css={{
                       '::before': {
-                        backgroundImage: `url(${image})`,
-                        ...translateTween
+                        backgroundImage: `url(${image.base64})`,
                       },
+                      '::after': {
+                        backgroundImage: `url(${image.src})`
+                      }
                     }}>
                     <div
                       className="motion-thumbnail-foreground"
@@ -133,10 +133,9 @@ class MotionThumbnail extends Component {
 }
 
 MotionThumbnail.prototypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   imageTransform: PropTypes.object,
-  wrapperPos: PropTypes.object,
   offset: PropTypes.number,
   width: PropTypes.number,
   height: PropTypes.number,

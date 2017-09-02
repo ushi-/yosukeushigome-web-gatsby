@@ -20,9 +20,6 @@ class Index extends React.Component {
       projectSelected: true
     })
   }
-  componentDidMount = () => {
-    console.log(this.state.motionThumbnailPropIndeces);
-  }
   render() {
     const projectsContainer = (
       <TrackDocument formulas={[topTop]}>
@@ -85,6 +82,9 @@ export const allProjectQuery = graphql`
           fields {
             slug
             isProject
+            featuredImageBase64
+            featuredImageSrc
+            featuredImageSrcSet
           }
           frontmatter {
             title
