@@ -11,7 +11,7 @@ import classnames from 'classnames'
 
 import utils from '../utils'
 
-class MotionThumbnail extends Component {
+class FeaturedImage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -132,7 +132,7 @@ class MotionThumbnail extends Component {
   }
 }
 
-MotionThumbnail.prototypes = {
+FeaturedImage.prototypes = {
   image: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   imageTransform: PropTypes.object,
@@ -144,11 +144,11 @@ MotionThumbnail.prototypes = {
   shouldHide: PropTypes.bool,
 }
 
-MotionThumbnail.defaultProps = {
+FeaturedImage.defaultProps = {
   offset: 30,
   width: 40,
   shape: 'circle',
   shouldHide: false
 }
 
-export default MotionThumbnail
+export default FeaturedImage

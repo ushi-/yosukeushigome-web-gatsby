@@ -15,7 +15,8 @@ class ScrollIndicator extends Component {
   }
   handleRest = () => {
     if (this.props.maxNumRepeats == -1 ||
-      this.state.numRepeats + 1 <= this.props.maxNumRepeats) {
+      this.state.numRepeats + 1 <= this.props.maxNumRepeats ||
+      true) {
       setTimeout(() => {
         this.setState({
           forward: !this.state.forward,
@@ -40,7 +41,9 @@ class ScrollIndicator extends Component {
             [300, {opacity: 0}]
           ])
           return (
-            <div className="scroll-indicator" css={{
+            <div
+              className="scroll-indicator"
+              style={{
               transform: `translateY(${x/2}rem)`,
               display: scrollY > 300 ? 'none' : 'inherit',
               ...opacityTween

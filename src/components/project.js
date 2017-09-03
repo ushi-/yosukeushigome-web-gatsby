@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import ProjectHeaderContainer from '../components/projectHeaderContainer'
-import MotionThumbnail from '../components/motionThumbnail'
+import FeaturedImage from '../components/featuredImage'
 
 class Project extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Project extends Component {
             key={i}
             className="columns is-desktop motion-thumbnail-wrapper"
             style={{height: `${vh}vh`}}>
-            <MotionThumbnail
+            <FeaturedImage
               image={featuredImage}
               slug={slug}
               height={vh}
