@@ -22,11 +22,10 @@ Wrap paragraphs written in Japanese with `<div class="ja" />`.
 
 English texts (single-byte texts) inserted within it are automatically wrapped with `<span class="single-byte" />`.
 
-### Image size
+### Image size to be resized
 
-| Image type        | Aspect ratio  | Min width |
-| ---               | ---           | ---       |
-| Featured Image    | 1:1           | 1600 px   |
-| Carousel Image    | 16:9          | 1344 px   |
-| Landscape Image   | 3:2           | 888 px    |
-| Portrait Image    | 3:4           | 888 px    |
+| Image type        | Recommended Aspect ratio  | Width     |
+| ---               | ---                       | ---       |
+| Featured Image    | 1:1                       | 1600 px   |
+| Landscape Image   | 3:2                       | 888 px    |
+| Portrait Image    | 3:4                       | 888 px    |
