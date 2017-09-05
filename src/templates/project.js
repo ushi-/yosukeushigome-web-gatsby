@@ -33,7 +33,7 @@ class ProjectTemplate extends React.Component {
     const slug = slugify(title, {lower: true, })
     const siteTitle = title + ' | ' + this.props.data.site.siteMetadata.title
     const description = headerTitle + ' ' + headerSubtitle
-    const ogpImage = featuredImageBase64
+    const ogpImage = featuredImageSrc
     return (
       <div>
         <Helmet>
