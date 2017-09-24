@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "gatsby-link"
+import MediaQuery from 'react-responsive'
 
 import Header from '../components/header'
 import Projects from '../components/Projects'
@@ -22,19 +23,23 @@ class Index extends React.Component {
     const { isProjectSelected } = this.state
     const { title, headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
     return (
-      <div>
-        <Header
-          title={headerTitle}
-          subtitle={headerSubtitle}
-          link={<Link to={"/about"}>More about me</Link>}
-          visible={!isProjectSelected}
-          animate={isProjectSelected}
-        />
-        <Projects
-          projects={this.props.data.allMarkdownRemark.edges}
-          onProjectSelected={this.onProjectSelected}
-        />
-      </div>
+      <MediaQuery minDeviceWidth={1224} minWidth={768}>
+      {( matches ) =>
+        <div>
+          <Header
+            title={headerTitle}
+            subtitle={headerSubtitle}
+            link={<Link to={"/about"}>More about me</Link>}
+            visible={!isProjectSelected}
+            animate={isProjectSelected}
+          />
+          <Projects
+            isDesktop={matches}
+            projects={this.props.data.allMarkdownRemark.edges}
+            onProjectSelected={this.onProjectSelected}
+          />
+        </div>
+      }</MediaQuery>
     )
   }
 }

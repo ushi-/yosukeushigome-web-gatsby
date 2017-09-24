@@ -13,6 +13,7 @@ class Project extends Component {
   }
   render() {
     const {
+      isDesktop,
       project,
       heroImageShapes,
       projectsTopTop,
@@ -38,9 +39,9 @@ class Project extends Component {
                 <ProjectHeaderContainer
                   project={project}
                   hidden={isAnyProjectSelected}
-                  pinned={pinned}
-                  unpinned={unpinned}
-                  top={top}
+                  pinned={isDesktop && pinned}
+                  unpinned={isDesktop && unpinned}
+                  top={isDesktop ? top : 0}
                 />
                 <div
                   className="hero is-fullheight"
@@ -57,19 +58,22 @@ class Project extends Component {
             )
           }}</Track>
         }</TrackDocument>
-        <ProjectHeaderContainer
-          project={project}
-          hidden={true}
-          pinned={false}
-          unpinned={false}
-          top={0}
-        />
+        { isDesktop ? (
+          <ProjectHeaderContainer
+            project={project}
+            hidden={true}
+            pinned={false}
+            unpinned={false}
+            top={0}
+          />
+        ) : null}
       </div>
     )
   }
 }
 
 Project.propTypes = {
+  isDesktop: PropTypes.bool.isRequired,
   project: PropTypes.object.isRequired,
   heroImageShapes: PropTypes.array.isRequired,
   projectsTopTop: PropTypes.number.isRequired,

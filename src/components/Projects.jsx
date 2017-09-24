@@ -28,7 +28,7 @@ class Projects extends Component {
   }
 
   render() {
-    const { projects } = this.props
+    const { projects, isDesktop } = this.props
     const { selectedProject } = this.state
     return (
       <TrackDocument formulas={[topTop]}>
@@ -39,6 +39,7 @@ class Projects extends Component {
             {projects.map((project, i) =>
               <Project
                 key={i}
+                isDesktop={isDesktop}
                 project={project.node}
                 heroImageShapes={[]}
                 projectsTopTop={posTopTop}
@@ -55,6 +56,7 @@ class Projects extends Component {
 }
 
 Projects.propTypes = {
+  isDesktop: PropTypes.bool.isRequired,
   projects: PropTypes.array.isRequired,
   onProjectSelected: PropTypes.func.isRequired,
 }
