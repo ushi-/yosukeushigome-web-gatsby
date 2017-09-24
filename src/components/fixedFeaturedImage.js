@@ -11,7 +11,7 @@ import classnames from 'classnames'
 
 import utils from '../utils'
 
-class FeaturedImage extends Component {
+class FixedFeaturedImage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -132,7 +132,7 @@ class FeaturedImage extends Component {
   }
 }
 
-FeaturedImage.prototypes = {
+FixedFeaturedImage.prototypes = {
   image: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
   imageTransform: PropTypes.object,
@@ -144,11 +144,11 @@ FeaturedImage.prototypes = {
   shouldHide: PropTypes.bool,
 }
 
-FeaturedImage.defaultProps = {
+FixedFeaturedImage.defaultProps = {
   offset: 30,
   width: 40,
   shape: 'circle',
   shouldHide: false
 }
 
-export default FeaturedImage
+export default FixedFeaturedImage

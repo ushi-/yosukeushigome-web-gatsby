@@ -181,10 +181,10 @@ details[open]
   cursor: pointer
   z-index: 1
 
-.project-index-wrapper
+.project-header-container-wrapper
   position: relative
   box-sizing: border-box
-  .project-index
+  .project-header-container
     position: relative
     box-sizing: border-box
     width: 100%
@@ -209,7 +209,7 @@ details[open]
   padding-top: 1.5rem
   padding-bottom: 1.5rem
 
-.hero.project-hero
+.hero
   color: $white-ter
   padding-bottom: 1.5rem
   overflow: hidden
@@ -218,35 +218,35 @@ details[open]
   bottom: 0
   left: 0
   right: 0
-  &::before
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    content: " "
-    background-attachment: fixed
-    background-position: center center
-    background-size: cover
   .featured-image
     position: absolute
+    left: 0
+    right: 0
+    &::before, &::after
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      content: " "
+      vertical-align: middle
+      background-position: center center
+      background-size: cover
+  .featured-image-link
+    position: absolute
     top: 0
+    right: 0
     left: 0
     bottom: 0
-    width: 100%
-    margin: 0
-    vertical-align: middle
-    background-attachment: fixed
-    background-position: center center
-    background-size: cover
+    opacity: 0
+    cursor: pointer
+    z-index: 1
+
   .scroll-indicator-container
     text-shadow: 0 0 .25rem $text
 
 .project-content
   border-top: 1px solid $text
-  .hero
-    background-color: inherit
-
 
 // carousel
 .container-carousel

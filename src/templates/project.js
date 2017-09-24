@@ -6,6 +6,7 @@ import {Helmet} from "react-helmet";
 
 import MainColumn from '../components/mainColumn'
 import Header from '../components/header'
+import HeroImage from '../components/heroImage'
 import ProjectHeader from '../components/projectHeader'
 import ScrollIndicator from '../components/scrollIndicator'
 
@@ -46,40 +47,25 @@ class ProjectTemplate extends React.Component {
           <meta property="og:image" content={ogpImage} />
           <meta name="twitter:image" content={ogpImage} />
         </Helmet>
-        <section
-          className={"hero is-fullheight project-hero " + slug}
-          css={{
-            '::before': {
-              backgroundImage: `url(${featuredImageBase64})`
-            }
-          }}>
-          <div
-            className="featured-image"
-            style={{
-              backgroundImage: `url(${featuredImageSrc})`,
-            }}
-           />
-          <div className="hero-head">
+        <HeroImage
+          project={project}
+          fixed={true}
+          heroHead={(
             <Header
               title={headerTitle}
               subtitle={headerSubtitle}
-              link={(
-                <Link to={"/"} >See Other Projects</Link>
-              )}
+              link={(<Link to={"/"} >See Other Projects</Link>)}
               animated={true}
             />
-          </div>
-          <div className="hero-body" />
-          <div className="hero-foot">
+          )}
+          heroFoot={(
             <div className="container has-text-centered scroll-indicator-container" >
               <ScrollIndicator />
             </div>
-          </div>
-        </section>
+          )}
+        />
         <section className={"section project-content " + slug}>
-          <MainColumn className="container-project-header">
-            <ProjectHeader project={project} />
-          </MainColumn>
+          <ProjectHeader project={project} />
           <MainColumn className="container-project-markdown">
             <div className="content" dangerouslySetInnerHTML={{ __html: project.html }} />
           </MainColumn>
