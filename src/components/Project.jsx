@@ -43,17 +43,15 @@ class Project extends Component {
                   unpinned={isDesktop && unpinned}
                   top={isDesktop ? top : 0}
                 />
-                <div
-                  className="hero is-fullheight"
-                  style={{backgroundColor: '#ff0000'}}
-                />
-                {/* <HeroImageContainer
+                <HeroImageContainer
+                  isDesktop={isDesktop}
                   image={image}
                   imageShapes={heroImageShapes}
+                  isBordered={true}
                   onClick={onSelection}
                   hidden={isAnyProjectSelected ? !isSelected : false}
                   onAnimationRest={onSelectionAnimationRest}
-                /> */}
+                />
               </Div>
             )
           }}</Track>

@@ -8,28 +8,29 @@ import {tween, combine} from 'react-imation'
 import {scale, px, translate3d} from 'react-imation/tween-value-factories'
 import classnames from 'classnames'
 
-const HeroImage = ({ image, backgroundFixed, fixed, onClick }) => {
-
+const HeroImage = ({
+  image,
+  backgroundFixed,
+  top,
+  bottom,
+  left,
+  right,
+  borderWidth,
+  position,
+  onClick
+}) => {
   const { featuredImageBase64, featuredImageSrc, featuredImageSrcSet } = image
   return (
     <div
       className="featured-image"
       style={{
-        position: fixed ? 'fixed' : 'absolute',
-        // width: shouldExpand ? tween(x, [
-        //   [0, px(widthPx)],
-        //   [1, px(rect.width)]
-        // ]) : `${widthPx}px`,
-        // height: shouldExpand ? tween(x, [
-        //   [0, px(heightPx)],
-        //   [1, px(rect.height)]
-        // ]) : `${heightPx}px`,
-        // marginLeft: `${offset - offset * shouldExpand * x}%`,
-        // borderRadius: `${radius - radius * shouldExpand * x}px`,
-        top: `${topOffset}px`,
-        bottom: `${bottomOffset}px`,
-        borderWidth: `${shouldExpand ? (1 - x) : 1}px`,
-        zIndex: `${shouldExpand ? 1 : 0}`,
+        position: position,
+        top: `${top}%`,
+        bottom: `${bottom}%`,
+        left: `${left}%`,
+        right: `${right}%`,
+        borderWidth: `${borderWidth}px`,
+        cursor: onClick ? 'pointer' : 'auto',
       }}
       css={{
         '::before': {
@@ -39,7 +40,6 @@ const HeroImage = ({ image, backgroundFixed, fixed, onClick }) => {
         '::after' : {
           backgroundImage: `url(${featuredImageSrc})`,
           backgroundAttachment: backgroundFixed ? 'fixed' : 'scroll',
-          cursor: onClick ? 'pointer' : 'auto',
         }
       }}
       onClick={onClick || null}
@@ -49,15 +49,23 @@ const HeroImage = ({ image, backgroundFixed, fixed, onClick }) => {
 
 HeroImage.propTypes = {
   image: PropTypes.object.isRequired,
-  backgroundFixed: PropTypes.bool,
-  fixed: PropTypes.bool,
+  backgroundFixed: PropTypes.bool.isRequired,
+  top: PropTypes.number,
+  bottom: PropTypes.number,
+  left: PropTypes.number,
+  right: PropTypes.number,
+  position: PropTypes.string,
+  borderWidth: PropTypes.number,
   onClick: PropTypes.func,
 }
 
 HeroImage.defaultProps = {
-  fixed: false,
-  shouldExpand: false,
-  shouldHide: false,
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  borderWidth: 1,
+  position: 'absolute',
 }
 
 

@@ -5,17 +5,42 @@ import {TrackDocument, Track} from 'react-track'
 import {topTop} from 'react-track/tracking-formulas'
 
 import Project from './Project'
-import utils from '../utils'
+
+const IMAGE_SHAPES = [
+  [
+    {top: 0, bottom: 80, left: 30, right: 20},
+    {top: 40, bottom: 0, left: 10, right: 70},
+  ],
+  [
+    {top: 20, bottom: 20, left: 30, right: 30},
+  ],
+  [
+    {top: 40, bottom: 40, left: 10, right: 10},
+  ],
+]
 
 class Projects extends Component {
   constructor(props) {
     super(props)
     this.state = {
       selectedProject: null,
+      heroImageShapes: [],
     }
   }
 
+  componentDidMount() {
+    const { projects } = this.props
+    const heroImageShapes = []
+    for (let i = 0; i < projects.length; i++) {
+      heroImageShapes.push(IMAGE_SHAPES[i % IMAGE_SHAPES.length])
+    }
+    this.setState({
+      heroImageShapes: heroImageShapes,
+    })
+  }
+
   onProjectSelected = (project) => {
+    navigateTo(project.fields.slug)
     this.setState({
       selectedProject: project
     })
@@ -41,7 +66,7 @@ class Projects extends Component {
                 key={i}
                 isDesktop={isDesktop}
                 project={project.node}
-                heroImageShapes={[]}
+                heroImageShapes={this.state.heroImageShapes[i]}
                 projectsTopTop={posTopTop}
                 onSelection={() => this.onProjectSelected(project.node)}
                 selectedProject={selectedProject}

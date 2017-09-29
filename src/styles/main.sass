@@ -145,42 +145,6 @@ details[open]
   .level-item
     display: inherit
 
-// index
-.motion-thumbnail-wrapper
-  margin-top: 1rem
-  margin-bottom: 1rem
-
-.motion-thumbnail-background
-  bottom: 0
-  left: 0
-  right: 0
-  border-color: $text
-  border-style: solid
-  overflow: hidden
-  &::before, &::after
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    content: " "
-    background-attachment: fixed
-    background-position: center center
-    background-size: cover
-  &.hide
-    opacity: 0
-    transition: opacity 0.2s
-
-.motion-thumbnail-foreground
-  position: absolute
-  top: 0
-  right: 0
-  left: 0
-  bottom: 0
-  opacity: 0
-  cursor: pointer
-  z-index: 1
-
 .project-header-container-wrapper
   position: relative
   box-sizing: border-box
@@ -219,9 +183,7 @@ details[open]
   left: 0
   right: 0
   .featured-image
-    position: absolute
-    left: 0
-    right: 0
+    border: 1px solid $text
     &::before, &::after
       position: absolute
       top: 0
@@ -232,15 +194,6 @@ details[open]
       vertical-align: middle
       background-position: center center
       background-size: cover
-  .featured-image-link
-    position: absolute
-    top: 0
-    right: 0
-    left: 0
-    bottom: 0
-    opacity: 0
-    cursor: pointer
-    z-index: 1
 
   .scroll-indicator-container
     text-shadow: 0 0 .25rem $text

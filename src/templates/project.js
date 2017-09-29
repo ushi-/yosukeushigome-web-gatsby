@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet";
 
 import MainColumn from '../components/mainColumn'
 import Header from '../components/header'
-import HeroImage from '../components/heroImage'
+import HeroImageContainer from '../components/heroImageContainer'
 import ProjectHeader from '../components/projectHeader'
 import ScrollIndicator from '../components/scrollIndicator'
 
@@ -25,16 +25,11 @@ class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.markdownRemark
     const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
-    const {
-      isProject,
-      featuredImageBase64,
-      featuredImageSrc,
-      featuredImageSrcSet,
-    } = project.fields
+    const image = project.fields
     const slug = slugify(title, {lower: true, })
     const siteTitle = title + ' | ' + this.props.data.site.siteMetadata.title
     const description = headerTitle + ' ' + headerSubtitle
-    const ogpImage = featuredImageSrc
+    const ogpImage = image.featuredImageSrc
     return (
       <div>
         <Helmet>
@@ -47,10 +42,11 @@ class ProjectTemplate extends React.Component {
           <meta property="og:image" content={ogpImage} />
           <meta name="twitter:image" content={ogpImage} />
         </Helmet>
-        <HeroImage
-          project={project}
-          fixed={true}
-          heroHead={(
+        <HeroImageContainer
+          isDesktop={true}
+          image={image}
+          isBordered={false}
+          head={(
             <Header
               title={headerTitle}
               subtitle={headerSubtitle}
@@ -58,7 +54,7 @@ class ProjectTemplate extends React.Component {
               animated={true}
             />
           )}
-          heroFoot={(
+          foot={(
             <div className="container has-text-centered scroll-indicator-container" >
               <ScrollIndicator />
             </div>
