@@ -47,15 +47,15 @@ const HeroImageContainer = ({
         onClick={onClick}
       />
     )}
-    <div className="hero-head"> {head || null} </div>
-    <div className="hero-body"> {body || null} </div>
-    <div className="hero-foot"> {foot || null} </div>
+    <div className="hero-head"> {head} </div>
+    <div className="hero-body"> {body} </div>
+    <div className="hero-foot"> {foot} </div>
   </section>
 )
 
 HeroImageContainer.propTypes = {
   isDesktop: PropTypes.bool.isRequired,
-  image: PropTypes.objectOf(PropTypes.string).isRequired,
+  image: PropTypes.object.isRequired, // eslint-disable-line
   imageShapes: PropTypes.arrayOf(PropTypes.object),
   isBordered: PropTypes.bool.isRequired,
   onClick: PropTypes.func,

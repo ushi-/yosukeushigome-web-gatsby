@@ -24,19 +24,7 @@ class Projects extends Component {
     super(props)
     this.state = {
       selectedProject: null,
-      heroImageShapes: [],
     }
-  }
-
-  componentDidMount() {
-    const { projects } = this.props
-    const heroImageShapes = []
-    for (let i = 0; i < projects.length; i++) {
-      heroImageShapes.push(IMAGE_SHAPES[i % IMAGE_SHAPES.length])
-    }
-    this.setState({
-      heroImageShapes,
-    })
   }
 
   onProjectSelected(project) {
@@ -54,6 +42,10 @@ class Projects extends Component {
 
   render() {
     const { projects, isDesktop } = this.props
+    const heroImageShapes = []
+    for (let i = 0; i < projects.length; i++) {
+      heroImageShapes.push(IMAGE_SHAPES[i % IMAGE_SHAPES.length])
+    }
     const { selectedProject } = this.state
     return (
       <TrackDocument formulas={[topTop]}>
@@ -66,7 +58,7 @@ class Projects extends Component {
                     key={project.node.fields.slug}
                     isDesktop={isDesktop}
                     project={project.node}
-                    heroImageShapes={this.state.heroImageShapes[i]}
+                    heroImageShapes={heroImageShapes[i]}
                     projectsTopTop={posTopTop}
                     onSelection={() => this.onProjectSelected(project.node)}
                     selectedProject={selectedProject}

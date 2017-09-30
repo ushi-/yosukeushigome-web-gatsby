@@ -43,7 +43,7 @@ const HeroImage = ({
 }
 
 HeroImage.propTypes = {
-  image: PropTypes.objectOf(PropTypes.string).isRequired,
+  image: PropTypes.object.isRequired, // eslint-disable-line
   backgroundFixed: PropTypes.bool.isRequired,
   top: PropTypes.number,
   bottom: PropTypes.number,
