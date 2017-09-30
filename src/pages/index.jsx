@@ -1,8 +1,8 @@
-import React from "react"
-import Link from "gatsby-link"
+import React from 'react'
+import Link from 'gatsby-link'
 import MediaQuery from 'react-responsive'
 
-import Header from '../components/header'
+import Header from '../components/Header'
 import Projects from '../components/Projects'
 
 class Index extends React.Component {
@@ -13,33 +13,35 @@ class Index extends React.Component {
     }
   }
 
-  onProjectSelected = () => {
+  onProjectSelected() {
     this.setState({
-      isProjectSelected: true
+      isProjectSelected: true,
     })
   }
 
   render() {
     const { isProjectSelected } = this.state
-    const { title, headerTitle, headerSubtitle } = this.props.data.site.siteMetadata
+    const { title, headerTitle, headerSubtitle } = // eslint-disable-line
+        this.props.data.site.siteMetadata // eslint-disable-line
     return (
       <MediaQuery minDeviceWidth={1224} minWidth={768}>
-      {( matches ) =>
-        <div>
-          <Header
-            title={headerTitle}
-            subtitle={headerSubtitle}
-            link={<Link to={"/about"}>More about me</Link>}
-            visible={!isProjectSelected}
-            animate={isProjectSelected}
-          />
-          <Projects
-            isDesktop={matches}
-            projects={this.props.data.allMarkdownRemark.edges}
-            onProjectSelected={this.onProjectSelected}
-          />
-        </div>
-      }</MediaQuery>
+        {matches => (
+          <div>
+            <Header
+              title={headerTitle}
+              subtitle={headerSubtitle}
+              link={<Link to={'/about'}>More about me</Link>}
+              visible={!isProjectSelected}
+              animate={isProjectSelected}
+            />
+            <Projects
+              isDesktop={matches}
+              projects={this.props.data.allMarkdownRemark.edges} // eslint-disable-line
+              onProjectSelected={() => this.onProjectSelected()}
+            />
+          </div>
+        )}
+      </MediaQuery>
     )
   }
 }

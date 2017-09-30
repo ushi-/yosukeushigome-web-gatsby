@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { navigateTo } from "gatsby-link"
-import {TrackDocument, Track} from 'react-track'
-import {topTop} from 'react-track/tracking-formulas'
+import { navigateTo } from 'gatsby-link'
+import { TrackDocument, Track } from 'react-track'
+import { topTop } from 'react-track/tracking-formulas'
 
 import Project from './Project'
 
 const IMAGE_SHAPES = [
   [
-    {top: 0, bottom: 80, left: 30, right: 20},
-    {top: 40, bottom: 0, left: 10, right: 70},
+    { top: 0, bottom: 80, left: 30, right: 20 },
+    { top: 40, bottom: 0, left: 10, right: 70 },
   ],
   [
-    {top: 20, bottom: 20, left: 30, right: 30},
+    { top: 20, bottom: 20, left: 30, right: 30 },
   ],
   [
-    {top: 40, bottom: 40, left: 10, right: 10},
+    { top: 40, bottom: 40, left: 10, right: 10 },
   ],
 ]
 
@@ -35,19 +35,19 @@ class Projects extends Component {
       heroImageShapes.push(IMAGE_SHAPES[i % IMAGE_SHAPES.length])
     }
     this.setState({
-      heroImageShapes: heroImageShapes,
+      heroImageShapes,
     })
   }
 
-  onProjectSelected = (project) => {
+  onProjectSelected(project) {
     navigateTo(project.fields.slug)
     this.setState({
-      selectedProject: project
+      selectedProject: project,
     })
     this.props.onProjectSelected()
   }
 
-  onSelectionAnimationRest = () => {
+  onSelectionAnimationRest() {
     const { project } = this.state
     navigateTo(project.fields.slug)
   }
@@ -57,32 +57,34 @@ class Projects extends Component {
     const { selectedProject } = this.state
     return (
       <TrackDocument formulas={[topTop]}>
-      {(topTop) =>
-        <Track component="div" formulas={[topTop]}>
-        {(Div, posTopTop) =>
-          <Div>
-            {projects.map((project, i) =>
-              <Project
-                key={i}
-                isDesktop={isDesktop}
-                project={project.node}
-                heroImageShapes={this.state.heroImageShapes[i]}
-                projectsTopTop={posTopTop}
-                onSelection={() => this.onProjectSelected(project.node)}
-                selectedProject={selectedProject}
-                onSelectionAnimationRest={this.onSelectionAnimationRest}
-              />
+        {topTop => (
+          <Track component="div" formulas={[topTop]}>
+            {(Div, posTopTop) => (
+              <Div>
+                {projects.map((project, i) => (
+                  <Project
+                    key={project.node.fields.slug}
+                    isDesktop={isDesktop}
+                    project={project.node}
+                    heroImageShapes={this.state.heroImageShapes[i]}
+                    projectsTopTop={posTopTop}
+                    onSelection={() => this.onProjectSelected(project.node)}
+                    selectedProject={selectedProject}
+                    onSelectionAnimationRest={this.onSelectionAnimationRest}
+                  />
+                ))}
+              </Div>
             )}
-          </Div>
-        }</Track>
-      }</TrackDocument>
+          </Track>
+        )}
+      </TrackDocument>
     )
   }
 }
 
 Projects.propTypes = {
   isDesktop: PropTypes.bool.isRequired,
-  projects: PropTypes.array.isRequired,
+  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
   onProjectSelected: PropTypes.func.isRequired,
 }
 

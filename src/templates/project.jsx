@@ -1,34 +1,34 @@
 
-import React from "react"
-import Link from "gatsby-link"
+import React from 'react'
+import Link from 'gatsby-link'
 import slugify from 'slug'
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet'
 
-import MainColumn from '../components/mainColumn'
-import Header from '../components/header'
-import HeroImageContainer from '../components/heroImageContainer'
-import ProjectHeader from '../components/projectHeader'
-import ScrollIndicator from '../components/scrollIndicator'
+import MainColumn from '../components/MainColumn'
+import Header from '../components/Header'
+import HeroImageContainer from '../components/HeroImageContainer'
+import ProjectHeader from '../components/ProjectHeader'
+import ScrollIndicator from '../components/ScrollIndicator'
 
 class ProjectTemplate extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      didMount: false
+      didMount: false,
     }
   }
-  componentDidMount = () => {
+  componentDidMount() {
     this.setState({
-      didMount: true
+      didMount: true,
     })
   }
   render() {
-    const project = this.props.data.markdownRemark
-    const { title, tags, headerTitle, headerSubtitle } = project.frontmatter
+    const project = this.props.data.markdownRemark // eslint-disable-line
+    const { title, headerTitle, headerSubtitle } = project.frontmatter
     const image = project.fields
-    const slug = slugify(title, {lower: true, })
-    const siteTitle = title + ' | ' + this.props.data.site.siteMetadata.title
-    const description = headerTitle + ' ' + headerSubtitle
+    const slug = slugify(title, { lower: true })
+    const siteTitle = `${title} | ${this.props.data.site.siteMetadata.title}` // eslint-disable-line
+    const description = `${headerTitle} ${headerSubtitle}`
     const ogpImage = image.featuredImageSrc
     return (
       <div>
@@ -43,27 +43,32 @@ class ProjectTemplate extends React.Component {
           <meta name="twitter:image" content={ogpImage} />
         </Helmet>
         <HeroImageContainer
-          isDesktop={true}
+          isDesktop={true} // eslint-disable-line
           image={image}
           isBordered={false}
           head={(
             <Header
               title={headerTitle}
               subtitle={headerSubtitle}
-              link={(<Link to={"/"} >See Other Projects</Link>)}
-              animated={true}
+              link={(<Link to={'/'}>See Other Projects</Link>)}
+              animated={true} // eslint-disable-line
             />
           )}
           foot={(
-            <div className="container has-text-centered scroll-indicator-container" >
+            <div
+              className="container has-text-centered scroll-indicator-container"
+            >
               <ScrollIndicator />
             </div>
           )}
         />
-        <section className={"section project-content " + slug}>
+        <section className={`section project-content ${slug}`}>
           <ProjectHeader project={project} />
           <MainColumn className="container-project-markdown">
-            <div className="content" dangerouslySetInnerHTML={{ __html: project.html }} />
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: project.html }} // eslint-disable-line
+            />
           </MainColumn>
         </section>
       </div>

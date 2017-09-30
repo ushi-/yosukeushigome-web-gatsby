@@ -1,34 +1,34 @@
 import React, { Component } from 'react'
-import PropTypes from "prop-types"
-import Headroom from "react-headroom"
+import PropTypes from 'prop-types'
+import Headroom from 'react-headroom'
 import classnames from 'classnames'
 
-import MainColumn from './mainColumn'
+import MainColumn from './MainColumn'
 
 class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
       visible: true,
-      canAnimate: true
+      canAnimate: true,
     }
   }
-  componentWillMount = () => {
+  componentWillMount() {
     const { visible, animated } = this.props
     if (visible && animated) {
       this.setState({
         visible: false,
-        canAnimate: false
+        canAnimate: false,
       })
     }
   }
-  componentDidMount = () => {
+  componentDidMount() {
     const { visible, animated } = this.props
     if (visible && animated) {
       this.setVisible()
     }
   }
-  setVisible = () => {
+  setVisible() {
     this.setState({
       visible: true,
       canAnimate: true,
@@ -37,16 +37,18 @@ class Header extends Component {
   render() {
     const { title, subtitle, link, visible, animated } = this.props
     return (
-      <Headroom style={{zIndex: '3'}}
+      <Headroom
+        style={{ zIndex: '3' }}
         className={classnames(
           {
-            'show': visible && this.state.visible,
-            'hide': !(visible && this.state.visible)
+            show: visible && this.state.visible,
+            hide: !(visible && this.state.visible),
           },
           {
-            'animate': animated && this.state.canAnimate
-          }
-        )}>
+            animate: animated && this.state.canAnimate,
+          },
+        )}
+      >
         <section className="header section">
           <MainColumn>
             <h1 className="title is-1">{title}</h1>
@@ -57,7 +59,10 @@ class Header extends Component {
                 </div>
               </div>
               <div className="level-right">
-                <div className="level-item has-text-right"  style={{marginLeft: '2rem'}}>
+                <div
+                  className="level-item has-text-right"
+                  style={{ marginLeft: '2rem' }}
+                >
                   <h2 className="title is-2">{link}</h2>
                 </div>
               </div>
@@ -70,16 +75,16 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  link: PropTypes.element,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  link: PropTypes.element.isRequired,
   visible: PropTypes.bool,
   animated: PropTypes.bool,
 }
 
 Header.defaultProps = {
   visible: true,
-  animated: false
+  animated: false,
 }
 
 export default Header

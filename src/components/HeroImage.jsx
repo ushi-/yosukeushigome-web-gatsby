@@ -1,12 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Motion, spring } from 'react-motion'
-import {TrackDocument, Track} from 'react-track'
-import {topTop, calculateScrollY, getDocumentRect} from
-    'react-track/tracking-formulas'
-import {tween, combine} from 'react-imation'
-import {scale, px, translate3d} from 'react-imation/tween-value-factories'
-import classnames from 'classnames'
 
 const HeroImage = ({
   image,
@@ -17,14 +10,14 @@ const HeroImage = ({
   right,
   borderWidth,
   position,
-  onClick
+  onClick,
 }) => {
-  const { featuredImageBase64, featuredImageSrc, featuredImageSrcSet } = image
+  const { featuredImageBase64, featuredImageSrc } = image
   return (
     <div
       className="featured-image"
       style={{
-        position: position,
+        position,
         top: `${top}%`,
         bottom: `${bottom}%`,
         left: `${left}%`,
@@ -35,20 +28,22 @@ const HeroImage = ({
       css={{
         '::before': {
           backgroundImage: `url(${featuredImageBase64})`,
-          backgroundAttachment: backgroundFixed ? 'fixed' : 'scroll'
+          backgroundAttachment: backgroundFixed ? 'fixed' : 'scroll',
         },
-        '::after' : {
+        '::after': {
           backgroundImage: `url(${featuredImageSrc})`,
           backgroundAttachment: backgroundFixed ? 'fixed' : 'scroll',
-        }
+        },
       }}
       onClick={onClick || null}
+      role={'link'}
+      tabIndex={0}
     />
   )
 }
 
 HeroImage.propTypes = {
-  image: PropTypes.object.isRequired,
+  image: PropTypes.objectOf(PropTypes.string).isRequired,
   backgroundFixed: PropTypes.bool.isRequired,
   top: PropTypes.number,
   bottom: PropTypes.number,
@@ -66,6 +61,7 @@ HeroImage.defaultProps = {
   right: 0,
   borderWidth: 1,
   position: 'absolute',
+  onClick: undefined,
 }
 
 

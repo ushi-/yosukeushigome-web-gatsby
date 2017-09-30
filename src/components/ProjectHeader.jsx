@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import MainColumn from './mainColumn'
-import Tags from './tags'
+import MainColumn from './MainColumn'
+import Tags from './Tags'
 
 const ProjectHeader = ({ project }) => (
   <MainColumn>
@@ -14,7 +14,7 @@ const ProjectHeader = ({ project }) => (
 )
 
 ProjectHeader.propTypes = {
-  project: PropTypes.object
+  project: PropTypes.object, // eslint-disable-line
 }
 
 export default ProjectHeader

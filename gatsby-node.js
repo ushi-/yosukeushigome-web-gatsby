@@ -131,8 +131,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const pages = []
-    const about = path.resolve("src/templates/about.js")
-    const project = path.resolve("src/templates/project.js")
+    const about = path.resolve("src/templates/about.jsx")
+    const project = path.resolve("src/templates/project.jsx")
     // Query for all markdown "nodes" and for the slug we previously created.
     resolve(
       graphql(

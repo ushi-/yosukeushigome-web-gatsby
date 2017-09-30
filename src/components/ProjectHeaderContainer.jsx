@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-import ProjectHeader from '../components/projectHeader'
+import ProjectHeader from '../components/ProjectHeader'
 
 class ProjectHeaderContainer extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ProjectHeaderContainer extends Component {
   }
   componentDidMount() {
     this.setState({
-      height: this.divRef.clientHeight
+      height: this.divRef.clientHeight,
     })
   }
   render() {
@@ -22,20 +22,19 @@ class ProjectHeaderContainer extends Component {
     return (
       <div
         className="project-header-container-wrapper"
-        style={{ height: height}}
+        style={{ height }}
       >
-        <section className={classnames(
-          'section',
-          'project-header-container',
-          {
-            'pin': pinned,
-            'unpin': unpinned,
-            'hide': hidden,
-          })}
-          style={{
-            top: top,
-          }}
-          ref={element => this.divRef = element}
+        <section
+          className={classnames(
+            'section',
+            'project-header-container',
+            {
+              pin: pinned,
+              unpin: unpinned,
+              hide: hidden,
+            })}
+          style={{ top }}
+          ref={element => this.divRef = element} // eslint-disable-line
         >
           <ProjectHeader project={project} />
         </section>
@@ -45,7 +44,7 @@ class ProjectHeaderContainer extends Component {
 }
 
 ProjectHeaderContainer.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.object.isRequired, // eslint-disable-line
   hidden: PropTypes.bool.isRequired,
   pinned: PropTypes.bool.isRequired,
   unpinned: PropTypes.bool.isRequired,

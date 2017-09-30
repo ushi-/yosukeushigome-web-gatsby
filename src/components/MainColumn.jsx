@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const MainColumn = ({ children, className }) => (
   <div className={`container ${className}`}>
@@ -11,12 +12,13 @@ const MainColumn = ({ children, className }) => (
 )
 
 MainColumn.propTypes = {
-  children: React.PropTypes.any,
-  className: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
 }
 
 MainColumn.defaultProps = {
-  className: ""
+  children: undefined,
+  className: '',
 }
 
 export default MainColumn
