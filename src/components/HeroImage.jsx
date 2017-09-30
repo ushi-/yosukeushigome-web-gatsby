@@ -12,10 +12,10 @@ const HeroImage = ({
   position,
   onClick,
 }) => {
-  const { featuredImageBase64, featuredImageSrc } = image
+  const { heroImageBase64, heroImageSrc } = image
   return (
     <div
-      className="featured-image"
+      className="hero-image"
       style={{
         position,
         top: `${top}%`,
@@ -27,11 +27,11 @@ const HeroImage = ({
       }}
       css={{
         '::before': {
-          backgroundImage: `url(${featuredImageBase64})`,
+          backgroundImage: `url(${heroImageBase64})`,
           backgroundAttachment: backgroundFixed ? 'fixed' : 'scroll',
         },
         '::after': {
-          backgroundImage: `url(${featuredImageSrc})`,
+          backgroundImage: `url(${heroImageSrc})`,
           backgroundAttachment: backgroundFixed ? 'fixed' : 'scroll',
         },
       }}

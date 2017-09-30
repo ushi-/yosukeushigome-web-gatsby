@@ -7,7 +7,7 @@ tags:
   - Social media anxiety
   - "2016"
   - At Takram
-featuredImage: ./images/index.jpg
+heroImage: ./images/index.jpg
 ---
 
 <iframe src="https://player.vimeo.com/video/159781938" width="640" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

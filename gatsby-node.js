@@ -53,18 +53,19 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
         slug = `/${parsedFilePath.dir}/`
       }
     }
+    console.log(slug);
     createNodeField({ node, name: `slug`, value: slug })
 
     if (isProject) {
-      // adding the featured image url
-      let featuredImage = node.frontmatter.featuredImage
+      // adding the hero image url
+      let heroImage = node.frontmatter.heroImage
       if (
-        isRelativeUrl(featuredImage) &&
+        isRelativeUrl(heroImage) &&
         getNode(node.parent).internal.type === `File`
       ) {
         const imagePath = path.join(
           getNode(node.parent).dir,
-          featuredImage
+          heroImage
         )
         const files = _.values(store.getState().nodes).filter(
           n => n.internal.type === `File`
@@ -86,37 +87,37 @@ exports.onCreateNode = ({ store, node, boundActionCreators, getNode }) => {
           }).then( (responsiveSizesResult) => {
             createNodeField({
               node,
-              name: `featuredImageBase64`,
+              name: `heroImageBase64`,
               value: responsiveSizesResult.base64
             })
             createNodeField({
               node,
-              name: `featuredImageAspectRatio`,
+              name: `heroImageAspectRatio`,
               value: responsiveSizesResult.aspectRatio
             })
             createNodeField({
               node,
-              name: `featuredImageSrc`,
+              name: `heroImageSrc`,
               value: responsiveSizesResult.src
             })
             createNodeField({
               node,
-              name: `featuredImageSrcSet`,
+              name: `heroImageSrcSet`,
               value: responsiveSizesResult.srcSet
             })
             createNodeField({
               node,
-              name: `featuredImageSizes`,
+              name: `heroImageSizes`,
               value: responsiveSizesResult.sizes
             })
             createNodeField({
               node,
-              name: `featuredImageOriginalImg`,
+              name: `heroImageOriginalImg`,
               value: responsiveSizesResult.originalImg
             })
             createNodeField({
               node,
-              name: `featuredImageOriginalName`,
+              name: `heroImageOriginalName`,
               value: responsiveSizesResult.originalName
             })
           })
@@ -163,11 +164,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: slug, // required
             component: edge.node.fields.isProject ? project : about,
             context: {
-              slug: slug,
+              slug,
             },
           })
         })
-
         return
       })
     )

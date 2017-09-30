@@ -29,7 +29,7 @@ class ProjectTemplate extends React.Component {
     const slug = slugify(title, { lower: true })
     const siteTitle = `${title} | ${this.props.data.site.siteMetadata.title}` // eslint-disable-line
     const description = `${headerTitle} ${headerSubtitle}`
-    const ogpImage = image.featuredImageSrc
+    const ogpImage = image.heroImageSrc
     return (
       <div>
         <Helmet>
@@ -95,9 +95,9 @@ export const projectPageQuery = graphql`
       }
       fields {
         isProject
-        featuredImageBase64
-        featuredImageSrc
-        featuredImageSrcSet
+        heroImageBase64
+        heroImageSrc
+        heroImageSrcSet
       }
     }
   }

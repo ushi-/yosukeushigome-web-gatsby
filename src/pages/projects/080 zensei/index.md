@@ -7,7 +7,7 @@ tags:
   - New sensor technology
   - "2015"
   - At Takram
-featuredImage: ./images/index.jpg
+heroImage: ./images/index.jpg
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5P3gj3cMOzc" frameborder="0" allowfullscreen></iframe>

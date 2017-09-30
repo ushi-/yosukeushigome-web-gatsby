@@ -6,7 +6,7 @@ tags:
   - Model and film
   - War and spectacle
   - "2013"
-featuredImage: ./images/index.jpg
+heroImage: ./images/index.jpg
 ---
 
 <iframe src="https://player.vimeo.com/video/85345757" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>

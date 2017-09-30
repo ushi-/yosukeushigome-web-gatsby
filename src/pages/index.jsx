@@ -67,9 +67,9 @@ export const allProjectQuery = graphql`
           fields {
             slug
             isProject
-            featuredImageBase64
-            featuredImageSrc
-            featuredImageSrcSet
+            heroImageBase64
+            heroImageSrc
+            heroImageSrcSet
           }
           frontmatter {
             title

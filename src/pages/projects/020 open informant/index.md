@@ -7,7 +7,7 @@ tags:
   - Protest
   - "2013"
   - At Superflux
-featuredImage: ./images/index.jpg
+heroImage: ./images/index.jpg
 ---
 
 ![Open Informant](./images/worn2.jpg)
