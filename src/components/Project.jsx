@@ -55,7 +55,7 @@ const Project = ({
       { isDesktop ? (
         <ProjectHeaderContainer
           project={project}
-          hidden={true} // eslint-disable-line
+          hidden
           pinned={false}
           unpinned={false}
           top={0}

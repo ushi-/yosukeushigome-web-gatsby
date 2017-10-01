@@ -3,6 +3,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import slugify from 'slug'
 import { Helmet } from 'react-helmet'
+import MediaQuery from 'react-responsive'
+import classnames from 'classnames'
 
 import MainColumn from '../components/MainColumn'
 import Header from '../components/Header'
@@ -31,48 +33,56 @@ class ProjectTemplate extends React.Component {
     const description = `${headerTitle} ${headerSubtitle}`
     const ogpImage = image.heroImageSrc
     return (
-      <div>
-        <Helmet>
-          <title>{siteTitle}</title>
-          <meta property="og:title" content={siteTitle} />
-          <meta name="twitter:title" content={siteTitle} />
-          <meta name="description" content={description} />
-          <meta property="og:description" content={description} />
-          <meta name="twitter:description" content={description} />
-          <meta property="og:image" content={ogpImage} />
-          <meta name="twitter:image" content={ogpImage} />
-        </Helmet>
-        <HeroImageContainer
-          isDesktop={true} // eslint-disable-line
-          image={image}
-          isBordered={false}
-          head={(
-            <Header
-              title={headerTitle}
-              subtitle={headerSubtitle}
-              link={(<Link to={'/'}>See Other Projects</Link>)}
-              animated={true} // eslint-disable-line
-              borderPersistent={true}
+      <MediaQuery minDeviceWidth={1224} minWidth={768}>
+        {matches => (
+          <div>
+            <Helmet>
+              <title>{siteTitle}</title>
+              <meta property="og:title" content={siteTitle} />
+              <meta name="twitter:title" content={siteTitle} />
+              <meta name="description" content={description} />
+              <meta property="og:description" content={description} />
+              <meta name="twitter:description" content={description} />
+              <meta property="og:image" content={ogpImage} />
+              <meta name="twitter:image" content={ogpImage} />
+            </Helmet>
+            <HeroImageContainer
+              isDesktop={matches}
+              image={image}
+              isBordered={false}
+              head={(
+                <Header
+                  title={headerTitle}
+                  subtitle={headerSubtitle}
+                  link={(<Link to={'/'}>See Other Projects</Link>)}
+                  animated
+                  borderPersistent
+                />
+              )}
+              foot={(
+                <div
+                  className={classnames(
+                    'container',
+                    'has-text-centered',
+                    'scroll-indicator-container',
+                  )}
+                >
+                  <ScrollIndicator />
+                </div>
+              )}
             />
-          )}
-          foot={(
-            <div
-              className="container has-text-centered scroll-indicator-container"
-            >
-              <ScrollIndicator />
-            </div>
-          )}
-        />
-        <section className={`section project-content ${slug}`}>
-          <ProjectHeader project={project} />
-          <MainColumn className="container-project-markdown">
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: project.html }} // eslint-disable-line
-            />
-          </MainColumn>
-        </section>
-      </div>
+            <section className={`section project-content ${slug}`}>
+              <ProjectHeader project={project} />
+              <MainColumn className="container-project-markdown">
+                <div
+                  className="content"
+                  dangerouslySetInnerHTML={{ __html: project.html }} // eslint-disable-line
+                />
+              </MainColumn>
+            </section>
+          </div>
+        )}
+      </MediaQuery>
     )
   }
 }
