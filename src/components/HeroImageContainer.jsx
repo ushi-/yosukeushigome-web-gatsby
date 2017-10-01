@@ -103,22 +103,29 @@ class HeroImageContainer extends Component {
               )
             }) : (
               <TrackedDiv formulas={[topTop, bottomBottom]}>
-                {(posTopTop, posBottomBottom) => (
-                  <Motion
-                    style={{ x: spring(selectedImageIndex ? 1 : 0) }}
-                    onRest={() => this.handleAnimationRest(0)}
-                  >
-                    {({ x }) => (
-                      <HeroImage
-                        image={image}
-                        backgroundFixed={isDesktop}
-                        borderWidth={isBordered ? 1 : 0}
-                        position={'absolute'}
-                        onClick={() => this.handleClick(0)}
-                      />
-                    )}
-                  </Motion>
-                )}
+                {(posTopTop, posBottomBottom) => {
+                  const selected = selectedImageIndex >= 0
+                  const scrolledHeightPercent =
+                    100 * (posTopTop - scrollY) / windowHeight
+                  return (
+                    <Motion
+                      style={{ x: spring(selected ? 1 : 0) }}
+                      onRest={() => this.handleAnimationRest(0)}
+                    >
+                      {({ x }) => (
+                        <HeroImage
+                          image={image}
+                          backgroundFixed={isDesktop}
+                          top={selected * scrolledHeightPercent * (1 - x)}
+                          bottom={selected * scrolledHeightPercent * (x - 1)}
+                          borderWidth={isBordered ? 1 : 0}
+                          position={selected ? 'fixed' : 'absolute'}
+                          onClick={() => this.handleClick(0)}
+                        />
+                      )}
+                    </Motion>
+                  )
+                }}
               </TrackedDiv>
             )}
             <div className="hero-head"> {head} </div>
