@@ -8,14 +8,23 @@ import Project from './Project'
 
 const IMAGE_SHAPES = [
   [
-    { top: 0, bottom: 80, left: 30, right: 20 },
-    { top: 40, bottom: 0, left: 10, right: 70 },
+    { top: 0, bottom: 70, left: 30, right: 10 },
+    { top: 40, bottom: 0, left: 10, right: 50 },
   ],
   [
-    { top: 20, bottom: 20, left: 30, right: 30 },
+    { top: 30, bottom: 30, left: 5, right: 5 },
   ],
   [
-    { top: 40, bottom: 40, left: 10, right: 10 },
+    { top: 0, bottom: 70, left: 5, right: 55 },
+    { top: 40, bottom: 30, left: 40, right: 15 },
+    { top: 80, bottom: 0, left: 15, right: 5 },
+  ],
+  [
+    { top: 0, bottom: 55, left: 5, right: 50 },
+    { top: 50, bottom: 0, left: 20, right: 5 },
+  ],
+  [
+    { top: 0, bottom: 0, left: 20, right: 20 },
   ],
 ]
 
