@@ -23,7 +23,7 @@ class Projects extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedProject: null,
+      selectedProject: undefined,
     }
   }
 

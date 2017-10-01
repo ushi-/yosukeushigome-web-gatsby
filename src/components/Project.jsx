@@ -16,8 +16,8 @@ const Project = ({
   onSelectionAnimationRest,
 }) => {
   const image = project.fields
-  const isAnyProjectSelected = selectedProject === undefined
-  const isSelected = selectedProject === project
+  const anySelected = selectedProject !== undefined
+  const thisSelected = anySelected && selectedProject === project
   return (
     <div>
       <TrackDocument formulas={[topTop, bottomTop, calculateScrollY]}>
@@ -32,7 +32,7 @@ const Project = ({
                 <Div>
                   <ProjectHeaderContainer
                     project={project}
-                    hidden={isAnyProjectSelected}
+                    hidden={anySelected}
                     pinned={isDesktop && pinned}
                     unpinned={isDesktop && unpinned}
                     top={isDesktop ? top : 0}
@@ -43,7 +43,7 @@ const Project = ({
                     imageShapes={heroImageShapes}
                     isBordered={isDesktop}
                     onClick={onSelection}
-                    hidden={isAnyProjectSelected ? !isSelected : false}
+                    hidden={anySelected ? !thisSelected : false}
                     onAnimationRest={onSelectionAnimationRest}
                   />
                 </Div>
