@@ -52,6 +52,7 @@ class ProjectTemplate extends React.Component {
               subtitle={headerSubtitle}
               link={(<Link to={'/'}>See Other Projects</Link>)}
               animated={true} // eslint-disable-line
+              borderPersistent={true}
             />
           )}
           foot={(

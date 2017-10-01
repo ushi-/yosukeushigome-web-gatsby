@@ -35,7 +35,7 @@ class Header extends Component {
     })
   }
   render() {
-    const { title, subtitle, link, visible, animated } = this.props
+    const { title, subtitle, link, visible, animated, borderPersistent } = this.props
     return (
       <Headroom
         style={{ zIndex: '3' }}
@@ -44,12 +44,16 @@ class Header extends Component {
             show: visible && this.state.visible,
             hide: !(visible && this.state.visible),
           },
-          {
-            animate: animated && this.state.canAnimate,
-          },
+          { animate: animated && this.state.canAnimate },
         )}
       >
-        <section className="header section">
+        <section
+          className={classnames(
+            'header',
+            'section',
+            { bordered: borderPersistent },
+          )}
+        >
           <MainColumn>
             <h1 className="title is-1">{title}</h1>
             <div className="level">
@@ -80,11 +84,13 @@ Header.propTypes = {
   link: PropTypes.element.isRequired,
   visible: PropTypes.bool,
   animated: PropTypes.bool,
+  borderPersistent: PropTypes.bool,
 }
 
 Header.defaultProps = {
   visible: true,
   animated: false,
+  borderPersistent: false,
 }
 
 export default Header
