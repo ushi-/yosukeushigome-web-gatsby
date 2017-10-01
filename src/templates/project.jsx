@@ -73,7 +73,7 @@ class ProjectTemplate extends React.Component {
             />
             <section className={`section project-content ${slug}`}>
               <ProjectHeader project={project} />
-              <MainColumn className="container-project-markdown">
+              <MainColumn>
                 <div
                   className="content"
                   dangerouslySetInnerHTML={{ __html: project.html }} // eslint-disable-line
