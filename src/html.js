@@ -4,10 +4,6 @@ import PropTypes from "prop-types"
 const BUILD_TIME = new Date().getTime()
 
 export default class HTML extends React.Component {
-  static propTypes = {
-    body: PropTypes.string,
-  }
-
   render() {
     let css
     if (process.env.NODE_ENV === "production") {
@@ -42,4 +38,8 @@ export default class HTML extends React.Component {
       </html>
     )
   }
+}
+
+HTML.propTypes = {
+  body: PropTypes.string,
 }
