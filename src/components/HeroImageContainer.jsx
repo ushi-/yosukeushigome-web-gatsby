@@ -92,7 +92,7 @@ class HeroImageContainer extends Component {
                             left={shape.left * (1 - x * thisSelected)}
                             right={shape.right * (1 - x * thisSelected)}
                             borderWidth={isBordered ? 1 : 0}
-                            position={thisSelected ? 'fixed' : 'absolute'}
+                            fixed={thisSelected}
                             onClick={() => this.handleClick(index)}
                           />
                         )
@@ -119,7 +119,7 @@ class HeroImageContainer extends Component {
                           top={selected * scrolledHeightPercent * (1 - x)}
                           bottom={selected * scrolledHeightPercent * (x - 1)}
                           borderWidth={isBordered ? 1 : 0}
-                          position={selected ? 'fixed' : 'absolute'}
+                          fixed={selected}
                           onClick={() => this.handleClick(0)}
                         />
                       )}

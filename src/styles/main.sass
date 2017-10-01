@@ -184,6 +184,11 @@ details[open]
   right: 0
   .hero-image
     border: 1px solid $text
+    position: absolute
+    z-index: 0
+    &.fixed
+      position: fixed
+      z-index: 2
     &::before, &::after
       position: absolute
       top: 0

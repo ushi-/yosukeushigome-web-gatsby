@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 const HeroImage = ({
   image,
@@ -9,15 +10,17 @@ const HeroImage = ({
   left,
   right,
   borderWidth,
-  position,
+  fixed,
   onClick,
 }) => {
   const { heroImageBase64, heroImageSrc } = image
   return (
     <div
-      className="hero-image"
+      className={classnames(
+        'hero-image',
+        { fixed },
+      )}
       style={{
-        position,
         top: `${top}%`,
         bottom: `${bottom}%`,
         left: `${left}%`,
@@ -49,7 +52,7 @@ HeroImage.propTypes = {
   bottom: PropTypes.number,
   left: PropTypes.number,
   right: PropTypes.number,
-  position: PropTypes.string,
+  fixed: PropTypes.bool,
   borderWidth: PropTypes.number,
   onClick: PropTypes.func,
 }
@@ -60,7 +63,7 @@ HeroImage.defaultProps = {
   left: 0,
   right: 0,
   borderWidth: 1,
-  position: 'absolute',
+  fixed: false,
   onClick: undefined,
 }
 
