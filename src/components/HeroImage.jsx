@@ -11,6 +11,7 @@ const HeroImage = ({
   right,
   borderWidth,
   fixed,
+  hidden,
   onClick,
 }) => {
   const { heroImageBase64, heroImageSrc } = image
@@ -19,6 +20,7 @@ const HeroImage = ({
       className={classnames(
         'hero-image',
         { fixed },
+        { hide: hidden },
       )}
       style={{
         top: `${top}%`,
@@ -53,6 +55,7 @@ HeroImage.propTypes = {
   left: PropTypes.number,
   right: PropTypes.number,
   fixed: PropTypes.bool,
+  hidden: PropTypes.bool,
   borderWidth: PropTypes.number,
   onClick: PropTypes.func,
 }
@@ -64,6 +67,7 @@ HeroImage.defaultProps = {
   right: 0,
   borderWidth: 1,
   fixed: false,
+  hidden: false,
   onClick: undefined,
 }
 

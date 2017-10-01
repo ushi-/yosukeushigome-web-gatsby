@@ -66,8 +66,8 @@ class HeroImageContainer extends Component {
           >
             {isDesktop ? imageShapes.map((shape, index) => {
               const anySelected = selectedImageIndex >= 0
-              const thisSelected =
-                anySelected && index === selectedImageIndex
+              const otherSelected = anySelected && index !== selectedImageIndex
+              const thisSelected = anySelected && index === selectedImageIndex
               return (
                 <TrackedDiv
                   key={index} // eslint-disable-line
@@ -94,6 +94,7 @@ class HeroImageContainer extends Component {
                             right={shape.right * (1 - x * thisSelected)}
                             borderWidth={isBordered ? 1 : 0}
                             fixed={thisSelected}
+                            hidden={otherSelected}
                             onClick={onClick ? () => this.handleClick(index)
                               : null}
                           />
