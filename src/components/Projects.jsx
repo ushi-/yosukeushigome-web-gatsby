@@ -28,16 +28,16 @@ class Projects extends Component {
   }
 
   onProjectSelected(project) {
-    navigateTo(project.fields.slug)
     this.setState({
       selectedProject: project,
     })
     this.props.onProjectSelected()
   }
 
-  onSelectionAnimationRest() {
-    const { project } = this.state
-    navigateTo(project.fields.slug)
+  onSelectionAnimationRest(project) {
+    if (project === this.state.selectedProject) {
+      navigateTo(project.fields.slug)
+    }
   }
 
   render() {
@@ -62,7 +62,8 @@ class Projects extends Component {
                     projectsTopTop={posTopTop}
                     onSelection={() => this.onProjectSelected(project.node)}
                     selectedProject={selectedProject}
-                    onSelectionAnimationRest={this.onSelectionAnimationRest}
+                    onSelectionAnimationRest={() =>
+                      this.onSelectionAnimationRest(project.node)}
                   />
                 ))}
               </Div>
