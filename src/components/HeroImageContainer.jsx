@@ -45,6 +45,7 @@ class HeroImageContainer extends Component {
       image,
       imageShapes,
       isBordered,
+      onClick,
       hidden,
       head,
       body,
@@ -93,7 +94,8 @@ class HeroImageContainer extends Component {
                             right={shape.right * (1 - x * thisSelected)}
                             borderWidth={isBordered ? 1 : 0}
                             fixed={thisSelected}
-                            onClick={() => this.handleClick(index)}
+                            onClick={onClick ? () => this.handleClick(index)
+                              : null}
                           />
                         )
                       }}
@@ -120,7 +122,7 @@ class HeroImageContainer extends Component {
                           bottom={selected * scrolledHeightPercent * (x - 1)}
                           borderWidth={isBordered ? 1 : 0}
                           fixed={selected}
-                          onClick={() => this.handleClick(0)}
+                          onClick={onClick ? () => this.handleClick(0) : null}
                         />
                       )}
                     </Motion>
