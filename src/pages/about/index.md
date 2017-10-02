@@ -38,7 +38,7 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 </details>
 
-### Selected Exposure
+### Events
 
 * _Lecture_ : [Resonate](https://resonate.io), Belgrade, 2017
 * _Exhibition_ : [Media Ambition Tokyo](http://mediaambitiontokyo.jp/), 2017
