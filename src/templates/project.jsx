@@ -27,8 +27,13 @@ class ProjectTemplate extends React.Component {
   render() {
     const project = this.props.data.markdownRemark // eslint-disable-line
     const { title, headerTitle, headerSubtitle } = project.frontmatter
-    const image = project.fields
-    const slug = slugify(title, { lower: true })
+    const image = {
+      heroImageBase64: project.fields.heroImageBase64,
+      heroImageSrc: project.fields.heroImageSrc,
+      heroImageSrcSet: project.fields.heroImageSrcSet,
+    }
+    const { slug } = project.fields
+    const sluggyTitle = slugify(title, { lower: true })
     const siteTitle = `${title} | ${this.props.data.site.siteMetadata.title}` // eslint-disable-line
     const description = `${headerTitle} ${headerSubtitle}`
     const ogpImage = image.heroImageSrc
@@ -38,13 +43,15 @@ class ProjectTemplate extends React.Component {
           <div>
             <Helmet>
               <title>{siteTitle}</title>
-              <meta property="og:title" content={siteTitle} />
-              <meta name="twitter:title" content={siteTitle} />
               <meta name="description" content={description} />
-              <meta property="og:description" content={description} />
-              <meta name="twitter:description" content={description} />
+              <meta property="og:title" content={siteTitle} />
+              <meta property="og:type" content="article" />
+              <meta
+                property="og:url"
+                content={`https://www.yosukeushigo.me${slug}`}
+              />
               <meta property="og:image" content={ogpImage} />
-              <meta name="twitter:image" content={ogpImage} />
+              <meta property="og:description" content={description} />
             </Helmet>
             <HeroImageContainer
               isDesktop={matches}
@@ -71,7 +78,7 @@ class ProjectTemplate extends React.Component {
                 </div>
               )}
             />
-            <section className={`section project-content ${slug}`}>
+            <section className={`section project-content ${sluggyTitle}`}>
               <ProjectHeader project={project} />
               <MainColumn>
                 <div
@@ -105,6 +112,7 @@ export const projectPageQuery = graphql`
         headerSubtitle
       }
       fields {
+        slug
         isProject
         heroImageBase64
         heroImageSrc

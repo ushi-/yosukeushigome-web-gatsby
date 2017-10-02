@@ -15,19 +15,17 @@ const Layout = ({ children, location, data }) => {
     <div>
       <Helmet>
         <title>{title}</title>
-        <meta property="og:title" content={title} />
-        <meta name="twitter:title" content={title} />
-
         <meta name="description" content={description} />
-        <meta property="og:description" content={description} />
-        <meta name="twitter:description" content={description} />
 
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.yosukeushigo.me" />
         <meta property="og:image" content={ogpImage} />
-        <meta name="twitter:image" content={ogpImage} />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:description" content={description} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@ushi_" />
-        <meta name="twitter:creator" content="@ushi_" />
       </Helmet>
       {children()}
       <Footer />
