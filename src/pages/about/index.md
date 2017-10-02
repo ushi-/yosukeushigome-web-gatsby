@@ -3,13 +3,13 @@ title: "About"
 ---
 
 ### Bio
-I am currently working at Takram as a designer/technologist.
+I am currently working at [Takram](https://www.takram.com)'s London studio as a designer/technologist.
 
 My primary interests are centred around emerging technologies. I probe future visions that they promise, reveal the cultural and political mechanisms behind them, and illustrate the insights through making physical and digital prototypes. By doing so, I aim to facilitate in-depth understanding of the implication of emerging technologies, and encourage better-informed decision-making on our future.
 
 <div class="ja">
 
-牛込陽介。Takramデザイナー／テクノロジスト。
+牛込陽介。[Takram](https://www.takram.com)デザイナー／テクノロジスト。
 
 先端技術が約束する未来ビジョンに対するリサーチを通して、その背後に潜む文化的政治的メカニズムを明らかにし、様々なプロトタイプをデザインすることによってその発見や洞察を共有可能な形にする。先端技術の意味やその可能性に対する理解を助け、未来に関するより確かな意思決定を促すことを目的にしている。
 
@@ -17,8 +17,9 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 ### What I do
 
-* Developing future visions that are not dreamy but compelling
-* Creating various prototypes that turn future visions into tangible experiences
+* Researching on emerging technologies and their implication
+* Developing future visions that are not necessarily dreamy but more compelling
+* Creating prototypes that turn future visions into tangible experiences
 * Designing interactions of new products and services
 
 ### News
@@ -86,7 +87,6 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 * [<span class="icon is-small"><i class="fa fa-twitter" aria-hidden="true"></i></span> Twitter](https://www.twitter.com/ushi_ "Twitter")
 * [<span class="icon is-small"><i class="fa fa-medium" aria-hidden="true"></i></span> Medium](https://www.medium.com "Medium (in English)")
-* Blog in Japanese
 
 
 ### Say hi
