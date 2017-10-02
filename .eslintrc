@@ -1,0 +1,81 @@
+{
+  'parserOptions': {
+    'ecmaVersion': 2017,
+    'sourceType': 'module',
+    'ecmaFeatures': {
+      'generators': false,
+      'objectLiteralDuplicateProperties': false,
+    },
+  },
+
+  'extends': 'airbnb',
+
+  'rules': {
+    // Disabling for Gatsby
+    'import/no-extraneous-dependencies': 0,
+
+    'jsx-a11y/href-no-hash': 0,
+
+    // Prefer line length limit over this rule
+    'arrow-body-style': 0,
+
+    // Won't cause any problem
+    'arrow-parens': ['error', 'as-needed', {
+      'requireForBlockBody': false,
+    }],
+
+    // Insane
+    'class-methods-use-this': 0,
+
+    // Insane
+    'no-bitwise': 0,
+
+    // Allow for catch statements
+    'no-empty': ['error', {
+      'allowEmptyCatch': true,
+    }],
+
+    // Limit to 80 except import/export expressions
+    'max-len': ['error', {
+      'code': 80,
+      'ignorePattern': '^\\s*(import|export)',
+    }],
+
+    // Allow for names ending with "Class"
+    'new-cap': ['error', {
+      'newIsCap': true,
+      'newIsCapExceptions': [],
+      'newIsCapExceptionPattern': 'Class$',
+      'capIsNew': false,
+    }],
+
+    // We know the math
+    'no-mixed-operators': ['error', {
+      'groups': [
+        ['&', '|', '^', '~', '<<', '>>', '>>>'],
+        ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+        ['&&', '||'],
+        ['in', 'instanceof'],
+      ],
+      'allowSamePrecedence': false,
+    }],
+
+    // Not sure and we need to format codes carefully
+    'no-nested-ternary': 0,
+
+    // Insane
+    'no-plusplus': 0,
+
+    // Insane
+    'no-shadow': 0,
+
+    // Insane for arguments
+    'no-unused-vars': ['error', {
+      'vars': 'all',
+      'args': 'none',
+    }],
+
+    // Prefer simpler syntax
+    'semi': ['error', 'never'],
+  },
+}

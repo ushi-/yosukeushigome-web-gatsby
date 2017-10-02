@@ -1,4 +1,9 @@
+const config = require('./src/siteConfig')
+
+const siteMetadata = config.siteMetadata
+
 module.exports = {
+  siteMetadata,
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
@@ -14,7 +19,9 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 690,
+              maxWidth: 888,
+              linkImagesToOriginal: false,
+              quality: 90,
             },
           },
           {
@@ -27,15 +34,16 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-sass',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: `UA-93349937-2`,
+        trackingId: siteMetadata.googleAnalyticsID,
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-twitter`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-offline',
+    'gatsby-plugin-twitter',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-glamor',
   ],
 }

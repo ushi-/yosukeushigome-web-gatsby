@@ -1,15 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700|Zilla+Slab:600')
+// Slick carousel for react-carousel
+@import "~slick-carousel/slick/slick.css"
+@import "~slick-carousel/slick/slick-theme.css"
+
+@import "~typeface-karla/index.css"
+@import "~typeface-zilla-slab/index.css"
+@import "~typeface-space-mono/index.css"
+@import "~typeface-source-code-pro/index.css"
+
+// Google font
+@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css)
 
 // import the initial variables
 @import "~bulma/sass/utilities/initial-variables"
 
 // declare variables
-$size-1: 1.5rem
-$size-2: 1.5001rem
+$size-1: 1.2501rem
+$size-2: 1.25rem
 $size-3: 0.875rem
 $family-serif: "Zilla Slab", "Lucida Console", Monaco, monospace
-$family-sans-serif: 'Karla', 'Gothic Medium BBB', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$family-sans-serif: 'Karla', 'Noto Sans Japanese',  BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$family-mono: "Space Mono", "Source Code Pro", monospace
 $pink: #EF576D
+$pink-lighter: #F48696
+$pink-darker: #EB2846
 $grey-dark: #333333
 $grey-lighter: #E7E5E4
 $grey: #999
@@ -19,14 +32,23 @@ $primary: $pink
 $text: $grey-dark
 $text-strong: $primary
 $title-weight: $weight-normal
-$body-background: $grey-lighter
+$body-background-color: $white-ter
 $background: $grey-dark
 $link: $grey
 $link-hover: $primary
 
+$tag-background-color: $white
+$tag-color: $text
+
 @import "~bulma"
 
+// General styles
+
+body
+  overflow-x: hidden
+
 .content
+  padding-top: 1.5rem
   h3
     font-family: $family-serif
     font-size: $size-3
@@ -36,19 +58,175 @@ $link-hover: $primary
   .ja
     font-size: 0.875rem
     line-height: 1.5rem
-    span.singleByte
+    span.single-byte
       font-size: $body-size
       padding: 0 0.125rem
+  ul
+    list-style: none
+    margin-left: 1em
+    li
+      padding-left: 1em
+    li::before
+      content: '-'
+      display: inline-block
+      margin-left: -1em
+      width: 1em
+  em
+    font-style: normal
+    font-family: $family-mono
+    font-size: $size-3
+    // text-transform: uppercase
+    // font-weight: bold
+  img
+    display: block
+    margin: 0 auto
 
 .title.is-1,
 .title.is-2
-  margin-bottom: 1rem
-  line-height: 1
+  line-height: $size-1*1.2
+  color: $text
 
 .title.is-1
+  margin-bottom: 0.5rem
   font-weight: $weight-bold
+
+details
+  summary
+    color: $link
+    cursor: pointer
+    margin-bottom: 1rem
+    margin-left: 1rem
+    &:hover
+      color: $link-hover
+    &:focus
+      outline: none
+    &::-webkit-details-marker
+      display: none
+    &::before
+      content: "\f0da"
+      font-family: 'FontAwesome'
+      display: inline-block
+      text-align: center
+      width: 1.5rem
+      margin-left: -0.5rem
+details[open]
+  summary::before
+    content: '\f0d7'
+
+
+// header
+
+.headroom--scrolled
+  .header
+    border-color: $text
+    transition: border-bottom 0.2s
+
+.headroom--unfixed
+  .header
+    border-color: hsla(0, 0, 0, 0)
+    transition: border-bottom 0.2s
+    &.bordered
+      border-color: $text
+
+.headroom-wrapper
+  opacity: 0
+  &.hide
+    opacity: 0
+    &.animate
+      transition: opacity 0.2s
+  &.show
+    opacity: 1
+    &.animate
+      transition: opacity 0.2s
+
+.header
+  border-bottom: 1px solid
+  // padding: $size-1 0
+  background-color: $body-background-color
+
+  a
+    color: $primary
+    &:hover
+      color: $pink-darker
+  .level-item
+    display: inherit
+
+.project-header-container-wrapper
+  position: relative
+  box-sizing: border-box
+  .project-header-container
+    position: relative
+    box-sizing: border-box
+    width: 100%
+    z-index: 2
+    top: 0
+    &.pin
+      position: fixed
+    &.unpin
+        position: absolute
+    .project-header
+      padding: 0 0
+      .title
+        text-shadow: .125rem .125rem $body-background-color
+    &.hide
+      opacity: 0
+      transition: opacity 0.2s
+
+// contents
+
+.section
+  // background-color: $body-background-color
+  padding-top: 1.5rem
+  padding-bottom: 1.5rem
+
+.hero
+  color: $white-ter
+  padding-bottom: 1.5rem
+  overflow: hidden
+  position: relative
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  &.hide
+    opacity: 0
+    &.animate
+      transition: opacity 0.2s
+  .hero-image
+    border: 1px solid $text
+    position: absolute
+    z-index: 0
+    outline: none
+    &.hide
+      opacity: 0
+      &.animate
+        transition: opacity 0.2s
+    &.fixed
+      position: fixed
+      z-index: 2
+    &::before, &::after
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      content: " "
+      vertical-align: middle
+      background-position: center center
+      background-size: cover
+
+  .scroll-indicator-container
+    text-shadow: 0 0 .25rem $text
+
+.project-content
+  border-top: 1px solid $text
+
+.project-header
+  padding: 1.5rem 0
+
+// footer
 
 .footer
   color: $grey-lighter
-  padding: 3rem 1.5rem 3rem
+  padding: 3rem 1.5rem
   margin-top: 3rem
