@@ -1,10 +1,9 @@
+const config = require('./src/siteConfig')
+
+const siteMetadata = config.siteMetadata
+
 module.exports = {
-  siteMetadata: {
-    title: `Yosuke Ushigome`,
-    author: `@ushi_`,
-    headerTitle: `I’m Yosuke Ushigome, a creative technologist based in London.`,
-    headerSubtitle: `I demystify emerging technology through prototyping.`,
-  },
+  siteMetadata,
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
@@ -35,16 +34,16 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-sass',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: `UA-105176629-1`,
+        trackingId: siteMetadata.googleAnalyticsID,
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-twitter`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-glamor`,
+    'gatsby-plugin-offline',
+    'gatsby-plugin-twitter',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-glamor',
   ],
 }
