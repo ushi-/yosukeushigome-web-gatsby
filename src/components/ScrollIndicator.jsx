@@ -48,7 +48,7 @@ class ScrollIndicator extends Component {
                   }}
                 >
                   <span className="icon is-large">
-                    <i className="fa fa-angle-down" />
+                    <i className="fa fa-2x fa-angle-down" />
                   </span>
                 </div>
               )
