@@ -29,7 +29,7 @@ node_modules
 .sass-cache/
 public/
 .cache/
-
+openssl/
 
 # macOS
 .DS_Store
