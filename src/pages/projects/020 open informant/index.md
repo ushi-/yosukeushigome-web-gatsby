@@ -37,8 +37,6 @@ Open Informantは、こうした状況に際して、ネットワーク時代に
 
 ![Badge](./images/badge.jpg)
 
-![How it works](./images/howitworks.jpg)
-
 ### Credit
 
 * Commissioner: Wearable Futures, Ravensbourne
