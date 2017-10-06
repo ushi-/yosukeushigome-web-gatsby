@@ -12,7 +12,7 @@ class NotFound extends React.Component { // eslint-disable-line
     return (
       <div>
         <Header
-          title="404"
+          title="404 Not Found"
           subtitle="The page you entered the URL for is not found."
           link={<Link to={'/'}>Go back home</Link>}
         />

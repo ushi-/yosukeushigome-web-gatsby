@@ -17,7 +17,6 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 ### What I do
 
-* Researching on emerging technologies and their implication
 * Developing future visions that are not necessarily dreamy but more compelling
 * Creating prototypes that turn future visions into tangible experiences
 * Designing interactions of new products and services
@@ -68,6 +67,7 @@ My primary interests are centred around emerging technologies. I probe future vi
 * _Lecture_ : WIRED x DESIGN, Tokyo, 2015
 * _Exhibition_ : [The Fab Mind](http://www.2121designsight.jp/en/program/fab_mind/) at 21_21 DESIGN SIGHT, Tokyo, 2014
 * _Talk_ : The Design Batons at Japan Institute of Design Promotion, Tokyo, 2014
+* _Online Curation_ : [Design and Violence](https://www.moma.org/interactives/exhibitions/2013/designandviolence/commoditized-warfare-yosuke-ushigome/) by MoMA, 2014
 * _Exhibition_ : [Wearable Futures](http://www.wearablefutures.co/), London, 2013
 * _Exhibition_ : Bunny Smash at [Museum of Contemporary Art Tokyo](http://www.mot-art-museum.jp/eng/2013/usagi_smash/), 2013
 
