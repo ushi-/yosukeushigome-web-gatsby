@@ -93,7 +93,7 @@ My primary interests are centred around emerging technologies. I probe future vi
 ### Say hi
 
 <p class="control">
-<form method="POST" action="http://formspree.io/i@yosukeushigo.me">
+<form method="POST" action="https://formspree.io/i@yosukeushigo.me">
   <p class="control">
   <input class="input" type="email" name="email" placeholder="Your email">
   </p>
