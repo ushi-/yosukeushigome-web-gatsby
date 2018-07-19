@@ -25,7 +25,7 @@ const Seo = ({ post }) => {
       image = post.fields.heroImageSrc
     }
   }
-  if (isRelativeUrl(image)) {
+  if (image && isRelativeUrl(image)) {
     image = siteMetadata.url + siteMetadata.pathPrefix + image
   }
   return (
