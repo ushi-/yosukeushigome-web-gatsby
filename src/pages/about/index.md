@@ -3,35 +3,38 @@ title: "About"
 ---
 
 ### Bio
-I am currently working at [Takram](https://www.takram.com)'s London studio as a designer/technologist.
+I am currently working at [Takram](https://www.takram.com)'s London studio as a lead creative technologist.
 
-My primary interests are centred around emerging technologies. I probe future visions that they promise, reveal the cultural and political mechanisms behind them, and illustrate the insights through making physical and digital prototypes. By doing so, I aim to facilitate in-depth understanding of the implication of emerging technologies, and encourage better-informed decision-making on our future.
+My primary interests are centred around emerging technologies. I probe future visions that they promise, reveal the cultural and political mechanisms behind them, and illustrate insights through making various prototypes. By doing so, I aim to facilitate in-depth understanding of the implication of emerging technologies, and encourage better-informed decision-making on our future.
 
 <div class="ja">
 
-牛込陽介。[Takram](https://www.takram.com)デザイナー／テクノロジスト。
+牛込陽介。[Takram](https://www.takram.com)リードクリエイティブテクノロジスト。
 
-先端技術が約束する未来ビジョンに対するリサーチを通して、その背後に潜む文化的政治的メカニズムを明らかにし、様々なプロトタイプをデザインすることによってその発見や洞察を共有可能な形にする。先端技術の意味やその可能性に対する理解を助け、未来に関するより確かな意思決定を促すことを目的にしている。
+先端技術のもつ意味や可能性に対する理解を助け、未来に関するより確かな意思決定を促すことを目的に、リサーチやコンセプト構築、プロトタイプを通してのコンセプトの表現、インタラクションデザインなどに取り組んでいる。
+
 
 </div>
 
 ### What I do
 
-* Developing future visions that are not necessarily dreamy but more compelling
+* Developing future visions that are not necessarily shiny but more compelling
 * Creating prototypes that turn future visions into tangible experiences
 * Designing interactions of new products and services
 
 ### News
 
+* _27 Jun 2018_ : [LEDIX](http://ja.takram.com/projects/ledix/) website that I worked on at Takram has been launched.
+* _13 Jun 2018_ : Home Shrine is exhibited at Design Miami/ Basel.
 * _26 Aug 2017_ : [Professional Sharing](https://www.yosukeushigo.me/projects/professional-sharing) will be exhibited at [Inter/sections](https://intersections.io/).
 * _29 May 2017_ : I appeared on Hodokyoku, an internet TV program in Japan.
 * _22 Apr 2017_ : I was invited to give a lecture on People/User at [Resonate](http://resonate.io/2017/).
-* _27 Mar 2017_ : I gave a short talk/workshop on Takram's data visualisation practice at [Data Fest](https://www.datafest.global/).
-* _02 Feb 2017_ : [Omotenashi Mask](https://www.yosukeushigo.me/projects/omotenashi-mask) will be exhibited at [Media Ambition Tokyo](http://mediaambitiontokyo.jp/).
 
 <details>
 <summary>Show all</summary>
 
+* _27 Mar 2017_ : I gave a short talk/workshop on Takram's data visualisation practice at [Data Fest](https://www.datafest.global/).
+* _02 Feb 2017_ : [Omotenashi Mask](https://www.yosukeushigo.me/projects/omotenashi-mask) will be exhibited at [Media Ambition Tokyo](http://mediaambitiontokyo.jp/).
 * _16 Jan 2017_ : Together with Takram members, I was interviewed by Axis magazine about Takram's LDF exhibition in 2016.
 * _03 Nov 2016_ : I was invited to give a lecture at London College of Communication.
 
@@ -39,9 +42,9 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 ### Events
 
+* _Award_ : [Swarovski Designers of the Future Award](https://www.swarovskigroup.com/S/news/Designers-of-the-Future.en.html), 2018
 * _Lecture_ : [Resonate](https://resonate.io), Belgrade, 2017
 * _Exhibition_ : [Media Ambition Tokyo](http://mediaambitiontokyo.jp/), 2017
-* _Workshop_ : Live with AI at [NEXT Conference](https://nextconf.eu/), Hamburg, 2016
 * _Lecture_ : WIRED x DESIGN, Tokyo, 2015
 * _Exhibition_ : [LIFELOGGING](https://dublin.sciencegallery.com/lifelogging) at Science Gallery Dublin, 2015
 * _Exhibition_ : [The Fab Mind](http://www.2121designsight.jp/en/program/fab_mind/) at 21_21 DESIGN SIGHT, Tokyo, 2014
@@ -49,6 +52,7 @@ My primary interests are centred around emerging technologies. I probe future vi
 <details>
 <summary>Show all</summary>
 
+* _Award_ : [Swarovski Designers of the Future Award](https://www.swarovskigroup.com/S/news/Designers-of-the-Future.en.html), 2018
 * _TV_ : Hodokyoku, Japan, 2017
 * _Lecture_ : [Resonate](https://resonate.io), Belgrade, 2017
 * _Lecture_ : [Data Fest](https://www.datafest.global/), Edinburgh, 2017
@@ -75,7 +79,7 @@ My primary interests are centred around emerging technologies. I probe future vi
 
 ### Experience
 
-* Designer/technologist at [Takram](https://www.takram.com), London, 2015 - current
+* Lead creative technologist at [Takram](https://www.takram.com), London, 2015 - current
 * Intern then associate at [Superflux](http://superflux.in/), London, 2013 - 2014
 * Freelance, London, 2013 - 2014
 * MA Design Interactions at the Royal College of Art, 2011 - 2013
@@ -105,5 +109,3 @@ My primary interests are centred around emerging technologies. I probe future vi
   </p>
 </form>
 </p>
-
-[Here](Yosuke_Ushigome_pub.asc) is my PGP key if you prefer end-to-end encryption.
