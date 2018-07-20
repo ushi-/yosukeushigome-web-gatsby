@@ -15,7 +15,12 @@ const Project = ({
   selectedProject,
   onSelectionAnimationRest,
 }) => {
-  const image = project.fields
+  const { resolutions } = project.frontmatter.heroImage.childImageSharp
+  const image = {
+    heroImageBase64: resolutions.base64,
+    heroImageSrc: resolutions.src,
+    heroImageSrcSet: resolutions.srcSet,
+  }
   const anySelected = selectedProject !== undefined
   const thisSelected = anySelected && selectedProject === project
   return (

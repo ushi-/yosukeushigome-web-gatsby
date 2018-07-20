@@ -15,11 +15,16 @@ import Seo from '../components/Seo'
 class ProjectTemplate extends React.Component { // eslint-disable-line
   render() {
     const project = this.props.data.markdownRemark // eslint-disable-line
-    const { title, headerTitle, headerSubtitle } = project.frontmatter
+    const {
+      title,
+      headerTitle,
+      headerSubtitle,
+      heroImage,
+    } = project.frontmatter
     const image = {
-      heroImageBase64: project.fields.heroImageBase64,
-      heroImageSrc: project.fields.heroImageSrc,
-      heroImageSrcSet: project.fields.heroImageSrcSet,
+      heroImageBase64: heroImage.childImageSharp.resolutions.base64,
+      heroImageSrc: heroImage.childImageSharp.resolutions.src,
+      heroImageSrcSet: heroImage.childImageSharp.resolutions.srcSet,
     }
     const sluggyTitle = slugify(title, { lower: true })
     return (
@@ -84,13 +89,17 @@ export const projectPageQuery = graphql`
         tags
         headerTitle
         headerSubtitle
+        heroImage {
+          childImageSharp {
+            resolutions(width: 1600, quality: 90) {
+              ...GatsbyImageSharpResolutions
+            }
+          }
+        }
       }
       fields {
         slug
         isProject
-        heroImageBase64
-        heroImageSrc
-        heroImageSrcSet
       }
     }
   }
