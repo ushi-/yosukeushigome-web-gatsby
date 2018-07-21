@@ -1,7 +1,6 @@
-@import "~typeface-karla/index.css"
 @import "~typeface-zilla-slab/index.css"
-@import "~typeface-space-mono/index.css"
-@import "~typeface-source-code-pro/index.css"
+@import "~typeface-ibm-plex-sans/index.css"
+@import "~typeface-ibm-plex-mono/index.css"
 
 // Google font
 @import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css)
@@ -13,9 +12,9 @@
 $size-1: 1.2501rem
 $size-2: 1.25rem
 $size-3: 0.875rem
-$family-serif: "Zilla Slab", "Lucida Console", Monaco, monospace
-$family-sans-serif: 'Karla', 'Noto Sans Japanese',  BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
-$family-mono: "Space Mono", "Source Code Pro", monospace
+$family-serif: 'Zilla Slab', 'Lucida Console', Monaco, monospace
+$family-sans-serif: 'IBM Plex Sans', 'Noto Sans Japanese',  BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$family-mono: 'IBM Plex Mono', 'Source Code Pro', monospace
 $pink: #EF576D
 $pink-lighter: #F48696
 $pink-darker: #EB2846
@@ -70,7 +69,7 @@ body
   em
     font-style: normal
     font-family: $family-mono
-    font-size: $size-3
+    // font-size: $size-3
     // text-transform: uppercase
     // font-weight: bold
   img
@@ -84,7 +83,7 @@ body
 
 .title.is-1
   margin-bottom: 0.5rem
-  font-weight: $weight-bold
+  font-weight: $weight-semibold
 
 details
   summary

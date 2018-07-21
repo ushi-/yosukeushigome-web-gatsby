@@ -67,13 +67,17 @@ export const allProjectQuery = graphql`
           fields {
             slug
             isProject
-            heroImageBase64
-            heroImageSrc
-            heroImageSrcSet
           }
           frontmatter {
             title
             tags
+            heroImage {
+              childImageSharp {
+                resolutions(width: 1600, quality: 90) {
+                  ...GatsbyImageSharpResolutions
+                }
+              }
+            }
           }
         }
       }
